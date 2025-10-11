@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { IoChevronDown } from "react-icons/io5";
-import HeroBanner from "../../assets/herobanner.png";
+// import HeroBanner from "../../assets/herobanner.png";
+import HeroBanner from "../../assets/herobanner.jpg";
+
 
 export const BookingFormBanner = () => {
       const [tripType, setTripType] = useState("Airport");

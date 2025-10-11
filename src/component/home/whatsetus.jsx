@@ -47,8 +47,8 @@ export const WhatSetsUsApart = () => {
                         </div>
 
                         {/* Smaller overlapping bike image */}
-                       <div className="absolute top-1/2 transform -translate-y-1/2 
-                right-0 sm:right-[-4%] md:right-[-8%] 
+                     <div className="absolute top-1/2 transform -translate-y-1/2 
+                right-0 sm:right-[-4%] md:right-0 
                 w-[60%] sm:w-[50%] md:w-[34%] 
                 rounded-[25px] overflow-hidden">
                               <img
