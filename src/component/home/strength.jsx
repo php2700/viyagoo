@@ -26,23 +26,25 @@ const StrategicStrengths = () => {
         Strategic Strengths
       </h2>
 
-      {/* Outer Rectangle */}
-      <div className="px-4">
-        {/* Connected Squares */}
-        <div className="border border-[#1E3A8A]">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 divide-x divide-y divide-[#1E3A8A]">
-            {logos.map((logo, index) => (
-              <div className="flex justify-center items-center bg-white hover:bg-blue-50 transition h-24">
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-14 md:h-20 object-contain"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+<div className="px-4">
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 border border-[#1E3A8A]">
+    {logos.map((logo, index) => (
+      <div
+        key={index}
+        className="flex justify-center items-center bg-white hover:bg-blue-50 transition h-24 border-r border-b border-[#1E3A8A]
+        last:border-r-0 md:[&:nth-child(5n)]:border-r-0 [&:nth-last-child(-n+5)]:border-b-0"
+      >
+        <img
+          src={logo.src}
+          alt={logo.alt}
+          className="h-14 md:h-20 object-contain"
+        />
       </div>
+    ))}
+  </div>
+</div>
+
+
     </section>
   );
 };
