@@ -23,7 +23,7 @@ const StrategicStrengths = () => {
     <section className="w-full max-w-7xl mx-auto py-10 text-center">
       {/* Section Title */}
       <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-2 inline-block">
-        Strategic Strengths
+           Strategic Strengths
       </h2>
 
 <div className="px-4">
