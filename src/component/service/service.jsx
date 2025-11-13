@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoChevronDown } from "react-icons/io5";
 import HeroBanner from "../../assets/herobanner.jpg";
-
+import { Helmet } from "react-helmet-async";
 import AirportTransfer from '../../component/service/airport_transfer';
 import Corporate from '../../component/service/corporate_employee';
 import Logistics from '../../component/service/Logistic';
@@ -23,6 +23,10 @@ const [openDropdown, setOpenDropdown] = useState(null);
   ];
 
   return (
+    <>
+    <Helmet>
+      <title>Our Services - VIYAGOO</title>
+    </Helmet>
     <section className="w-full min-h-screen bg-white text-[#1A1A1A] font-sans">
       {/* HERO SECTION */}
       <div className="relative w-full">
@@ -69,6 +73,7 @@ const [openDropdown, setOpenDropdown] = useState(null);
       
      
     </section>
+    </>
   );
 };
 

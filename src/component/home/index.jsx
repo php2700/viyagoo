@@ -7,10 +7,15 @@ import { OurServices } from "./service";
 import StrategicStrengths from "./strength";
 import Testimonials from "./testimonational";
 import { WhatSetsUsApart } from "./whatsetus";
+import { Helmet } from "react-helmet-async";
 
 export const Home = () => {
       return (
             <>
+            
+                      <Helmet>
+                        <title>Home - VIYAGOO</title>
+                      </Helmet>
                   <BookingFormBanner />
                    <AboutUs />
                   <OurServices />

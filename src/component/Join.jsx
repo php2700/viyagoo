@@ -1,7 +1,12 @@
 import HeroBanner from '../assets/herobanner.jpg';
+import { Helmet } from "react-helmet-async";
 import Joinim from '../assets/join.png';
 function Join() {
     return (
+       <>
+          <Helmet>
+            <title>Join - VIYAGOO</title>
+          </Helmet>
         <section className="w-full min-h-screen bg-white text-[#1A1A1A] font-sans">
               {/* HERO SECTION */}
               <div className="relative w-full">
@@ -156,6 +161,7 @@ We are happy to get in touch with you and collaborate with you regarding your ve
       </h3>
 
         </section>
+        </>
     )
 
 }
