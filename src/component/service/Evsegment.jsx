@@ -6,7 +6,7 @@ import Car3 from '../../assets/car3.avif';
 import Car4 from '../../assets/car2.avif';
 import Ev1 from '../../assets/ev1.png';
 import CoinHand from '../../assets/handcoin.png';
-import Carpool from '../../assets/carpool.png';
+import Carpool from "../../assets/Carpool.png";
 import BusinessBuilding from '../../assets/business_building.png';
 import Forest from '../../assets/forest.png';
 import Energy from '../../assets/energy.png';
