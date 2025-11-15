@@ -72,7 +72,7 @@ export const WhatSetsUsApart = () => {
   const getData = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_APP_URL}/api/user/get-set`
+        `${import.meta.env.VITE_APP_URL}api/user/get-set`
       );
       if (res.data?.data) {
         setData(res.data.data);
