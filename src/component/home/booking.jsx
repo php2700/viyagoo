@@ -138,8 +138,8 @@ export const BookingFormBanner = () => {
 
   // ******* FIXED: FINAL VIDEO URL *******
   const videoUrl = banner.video
-  ? `${API_URL}${banner.video.replace("public/", "")}`
-  : "";
+    ? `${API_URL}${banner.video.replace("public/", "")}`
+    : "";
 
 
   // =============== Booking Form States ===============
@@ -163,7 +163,9 @@ export const BookingFormBanner = () => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
+
       [name]: value,
+
     }));
   };
 
@@ -204,6 +206,17 @@ export const BookingFormBanner = () => {
       setLoading(false);
     }
   };
+  const getMinDateTime = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  };
+
 
   // =============== Form Field List ===============
   const formFields = [
@@ -269,6 +282,15 @@ export const BookingFormBanner = () => {
                     value={formData[field.name]}
                     onChange={handleChange}
                     required
+
+                    min={
+                      field.name === "pickupDate"
+                        ? getMinDateTime()
+                        : field.name === "seats"
+                          ? 1
+                          : undefined
+                    }
+
                     className="w-full rounded-md border border-gray-300 bg-white py-2 px-3 pr-8 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
                   {field.type === "text" && (
