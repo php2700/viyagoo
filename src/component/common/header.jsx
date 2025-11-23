@@ -96,7 +96,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-[#0E1D3E] w-full shadow-md">
+    <header className="bg-[#0572E6] w-full shadow-md">
       <div className="mx-auto flex items-center justify-between px-8 md:py-4">
         {/* Left - Logo */}
         <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>

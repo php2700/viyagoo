@@ -118,10 +118,10 @@ export const EmployerBenefits = () => {
                         {benefits.map((item, index) => (
                               <div
                                     key={index}
-                                    className="w-full max-w-[320px] mb-8 rounded-2xl shadow-gray-600 shadow-md border-2 border-[0E1D3E] rounded-[60px] flex flex-col relative"
+                                    className="w-full max-w-[320px] mb-8 rounded-2xl shadow-gray-600 shadow-md border-2 border-[#0572E6] rounded-[60px] flex flex-col relative"
                               >
-                                    <div className="bg-[#273270] text-white pt-10 pb-4 flex flex-col items-center justify-center rounded-[60px] relative">
-                                          <div className="absolute -top-10 border-2 border-[#0E1D3E] bg-white rounded-full w-20 h-20 flex items-center justify-center shadow-[4px_0_5px_rgba(39,50,112,0.5)]">
+                                    <div className="bg-[#0572E6] text-white pt-10 pb-4 flex flex-col items-center justify-center rounded-[60px] relative">
+                                          <div className="absolute -top-10 border-2 border-[#0572E6] bg-white rounded-full w-20 h-20 flex items-center justify-center shadow-[4px_0_5px_rgba(39,50,112,0.5)]">
                                                 <img
                                                       src={cleanImagePath(item.image)}
                                                       alt={item.title}
