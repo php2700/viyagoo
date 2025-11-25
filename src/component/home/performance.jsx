@@ -85,7 +85,7 @@ export const Performance = () => {
             <div className="bg-[#0572E6] text-white pt-10 pb-4 flex flex-col items-center justify-center rounded-[60px] relative">
               <div className="absolute -top-10 border-2 border-[#0572E6] bg-white rounded-full w-20 h-20 flex items-center justify-center shadow-[4px_0_5px_rgba(39,50,112,0.5)]">
                 <img
-                  src={cleanImagePath(item.image)}
+                  src={item.icon}
                   alt={item.title}
                   className="w-10 h-10 object-contain"
                 />

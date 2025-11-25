@@ -86,7 +86,7 @@ export const Header = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
-    { name: "Services", path: "/ser" },
+    { name: "Services", path: "/service" },
     { name: "Join VIYAGOO", path: "/join" },
   ];
 

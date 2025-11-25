@@ -1,21 +1,5 @@
-import React, { useState } from "react";
-import HeroBanner from "../../assets/herobanner.jpg";
+import React, { useEffect, useState } from "react";
 
-import {
-  Car,
-
-  Shield,
-  CheckCircle,
-  Plane,
-  Users,
-  MapPin,
-  Snowflake,
-  Star,
-  Headphones,
-  Briefcase,
-  Globe,
-  Zap,
-} from 'lucide-react';
 import Airports from '../../assets/airport.png';
 import Vector from '../../assets/vector.png';
 import Airport2 from '../../assets/airport2.png'
@@ -32,40 +16,54 @@ import Security from '../../assets/security.png';
 import Airporticon from '../../assets/airporticon.png';
 import Cargo from '../../assets/cargo.png';
 import Changes from '../../assets/changes.png';
-import {  DollarSign, TrendingUp, Handshake, HeartHandshake } from 'lucide-react';
+import axios from "axios";
+
+
 export const Airport = () => {
+  const [chaufferData,setChaufferData]=useState()
+  const [chaufferServiceData,setChaufferServiceData]=useState()
+  const [corporateData,setCorporateData]=useState()
+  const [viyagooEdgeData,setviyagooEdgeData]=useState()
+  const [viyagooDtailData,setviyagooDtailData]=useState()
 
 
+  const getData = async () => {
+    try {
+      const [chaufferRes, chufferServiceRes, corporateRes,viyagooEdgeRes,viyagooDetailRes] = await Promise.all([
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/chaufer`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/chaufer-service`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/corporate`),
+           axios.get(`${import.meta.env.VITE_APP_URL}api/user/viyagoo-edge`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/viyagoo-edge-detail`),
+      ]);
+      if (chaufferRes?.data && chufferServiceRes?.data && corporateRes?.data && viyagooEdgeRes?.data && viyagooDetailRes?.data) {
+        setChaufferData(chaufferRes?.data?.data);
+        setChaufferServiceData(chufferServiceRes?.data?.data);
+        setCorporateData(corporateRes?.data?.data);
+        setviyagooEdgeData(viyagooEdgeRes?.data?.data);
+        setviyagooDtailData(viyagooDetailRes?.data?.data);
+      }
+    } catch (error) {
+      setError(
+        error?.response?.data?.message ||
+          error?.message ||
+          "something went wrong"
+      );
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <section className="w-full min-h-screen bg-white text-[#1A1A1A] font-sans">
-      {/* HERO SECTION */}
-    
-
-
-
-      {/* CONTENT */}
       <div className="max-w-[86rem] mx-auto px-6 ">
         {/* Intro Section */}
         <div className=" mb-12">
-          <p className="text-[#273270]  text-[19px]">
-        In today’s fast-paced corporate world, time, reliability, and image are everything. Whether it’s ensuring a senior executive reaches a critical board meeting, welcoming an international guest, or guaranteeing that your employees never miss a flight, transportation must go beyond convenience. It must deliver professionalism, comfort, and dependability at every step.
-          </p>
-          <br />
-          <p className="text-[#273270]  text-[19px]">
-        At Viyagoo, we bring together the best of chauffeur-driven executive travel and seamless airport transfer services under one umbrella — creating a future-ready mobility solution that organizations can rely on.
-          </p>
-          
+          {chaufferData?.description?.map((ele)=>(
+             <p className="text-[#273270]  text-[19px] mb-4">{ele}</p>
+          ))}
         </div>
-
-        
-      
-
-
-      
-
-
-        
-       
       </div>
       <div className="min-h-screen   px-4 sm:px-6 lg:px-8">
         <div className="max-w-[83rem] mx-auto">
@@ -82,55 +80,16 @@ export const Airport = () => {
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
   {/* ==== ROW 1 ==== */}
   {/* Card 1 */}
+  {chaufferData?.mobility?.map((ele,index)=>(
   <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-md" style={{ boxShadow: "0px 2px 4px 2px #c3c1c1" }}>
-    <h3 className="text-[31px] font-semibold text-[#273270] mb-2">01.</h3>
+    <h3 className="text-[31px] font-semibold text-[#273270] mb-2">{index+1}</h3>
     <p className="text-[#273270] text-sm">
-      <strong>First Impressions Count –</strong> The way your business moves clients, leaders, and guests reflects directly on your brand image.
+      <strong>{ele?.title} –</strong> {ele?.description}.
     </p>
   </div>
-
-  {/* Card 2 */}
-  <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-md" style={{ boxShadow: "0px 2px 4px 2px #c3c1c1" }}>
-    <h3 className="text-[31px] font-semibold text-[#273270] mb-2">02.</h3>
-    <p className="text-[#273270] text-sm">
-      <strong>Time is Productivity –</strong> Chauffeur-driven cars allow executives to work on the go while airport transfers save valuable minutes during tight schedules.
-    </p>
-  </div>
-
-  {/* Card 3 */}
-  <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-md" style={{ boxShadow: "0px 2px 4px 2px #c3c1c1" }}>
-    <h3 className="text-[31px] font-semibold text-[#273270] mb-2">03.</h3>
-    <p className="text-[#273270] text-sm">
-      <strong>Stress-Free Travel –</strong> No more worrying about traffic, last-minute cabs, or missed flights.
-    </p>
-  </div>
-
-  {/* ==== ROW 2 ==== */}
-  {/* Empty space left side (for centering) */}
-  <div className="hidden lg:block"></div>
-
-  {/* Card 4 */}
-  <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-md" style={{ boxShadow: "0px 2px 4px 2px #c3c1c1" }}>
-    <h3 className="text-[31px] font-semibold text-[#273270] mb-2">04.</h3>
-    <p className="text-[#273270] text-sm">
-      <strong>Safety & Reliability –</strong> Professionally trained chauffeurs and verified vehicles ensure security, comfort, and punctuality.
-    </p>
-  </div>
-
-  {/* Card 5 */}
-  <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-md" style={{ boxShadow: "0px 2px 4px 2px #c3c1c1" }}>
-    <h3 className="text-[31px] font-semibold text-[#273270] mb-2">05.</h3>
-    <p className="text-[#273270] text-sm">
-      <strong>Round-the-Clock Operations –</strong> Business doesn’t stop, and neither do we — our services run 24/7, 365 days a year.
-    </p>
-  </div>
-
-  {/* Empty space right side (for centering) */}
-  <div className="hidden lg:block"></div>
+ ))}
 </div>
 
-
-          {/* Main Services Section */}
           <h2 className="text-3xl font-bold text-[#273270]  mb-12">
             Our Chauffeur & Airport Transfer Services
           </h2>
@@ -329,59 +288,23 @@ export const Airport = () => {
           The Viyagoo Edge
         </h2>
         <p className="text-[#273270] text-[19px] mx-auto leading-relaxed">
-          By combining Executive Chauffeur Services with Airport Transfers, we provide corporates with a single, integrated mobility solution that ensures:
+          {viyagooEdgeData?.description}
         </p>
       </div>
-
-      {/* Bottom 4 Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Card 1 */}
+        {viyagooDtailData?.map((ele)=>(
         <div className="bg-white rounded-3xl p-6 shadow-md text-center border border-gray-100">
           <div className="flex justify-center mb-4">
             <div className="w-16 h-16 rounded-2xl flex items-center justify-center">
-              <img src={Security} alt="" className="w-15 h-15" />
+              <img src={`${import.meta.env.VITE_APP_URL}${ele?.image}`} alt="" className="w-15 h-15" />
             </div>
           </div>
           <p className="text-[#273270] text-[16px]">
-            Punctuality, professionalism, and safety.
+            {ele?.description}
           </p>
         </div>
+     ))}
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-3xl p-13 shadow-md text-center border border-gray-100">
-          <div className="flex justify-center mb-4">
-            <div className="w-16 h-16  rounded-2xl flex items-center justify-center">
-              <img src={Airporticon} alt="" className="w-15 h-15" />
-            </div>
-          </div>
-          <p className="text-[#273270] text-[16px]">
-            A smooth travel chain — from airport arrival to boardroom meetings.
-          </p>
-        </div>
-
-        {/* Card 3 */}
-        <div className="bg-white rounded-3xl p-6 shadow-md text-center border border-gray-100">
-          <div className="flex justify-center mb-4">
-            <div className="w-16 h-16  rounded-2xl flex items-center justify-center">
-              <img src={Cargo} alt="" className="w-15 h-15"/>
-            </div>
-          </div>
-          <p className="text-[#273270] text-[16px]">
-            Better planning and control over corporate travel logistics.
-          </p>
-        </div>
-
-        {/* Card 4 */}
-        <div className="bg-white rounded-3xl p-6 shadow-md text-center border border-gray-100">
-          <div className="flex justify-center mb-4">
-            <div className="w-16 h-16  rounded-2xl flex items-center justify-center">
-              <img src={Changes} alt="" className="w-15 h-15" />
-            </div>
-          </div>
-          <p className="text-[#273270] text-[16px]">
-            Long-term value through cost efficiency and reliability.
-          </p>
-        </div>
       </div>
     </div>
     </section>
