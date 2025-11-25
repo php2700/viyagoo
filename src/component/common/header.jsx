@@ -1,122 +1,88 @@
-// import { useState } from "react";
-// import logo from "../../assets/logo.png";
-// import { Menu, X } from "lucide-react";
-
-// export const Header = () => {
-//       const [isOpen, setIsOpen] = useState(false);
-
-//       // const navItems = ["Home", "About Us", "Services", "Join VIYAGOO"];
-//         const navItems = [
-//     { name: "Home", path: "/" },
-//     { name: "About Us", path: "/about" },
-//     { name: "Services", path: "/ser" },
-//     { name: "Join VIYAGOO", path: "/join" },
-//   ];
-
-//       return (
-//             <header className="bg-[#0E1D3E] w-full shadow-md">
-//                   <div className="mx-auto flex items-center justify-between px-8  md:py-4">
-//                         {/* Left - Logo */}
-//                         <div className="flex items-center">
-//                               <img
-//                                     src={logo}
-//                                     alt="logo"
-//                                     className="h-16 w-auto"
-//                               />
-//                         </div>
-
-//                         {/* Right - Nav + Button (Desktop) */}
-//                         <div className="hidden md:flex items-center space-x-16">
-//                               {navItems.map((item) => (
-//                                     <div
-//                                           key={item}
-//                                           className="text-white text-[18px] font-medium cursor-pointer hover:text-blue-300 transition relative"
-//                                     >
-//                                           {item}
-//                                           {item === "Services" && (
-//                                                 <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-white rounded"></span>
-//                                           )}
-//                                     </div>
-//                               ))}
-//                               <button className="bg-[#3A8DFF] text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-blue-600 transition">
-//                                     Contact Us
-//                               </button>
-//                         </div>
-
-//                         {/* Mobile Menu Toggle */}
-//                         <button
-//                               className="text-white md:hidden"
-//                               onClick={() => setIsOpen(!isOpen)}
-//                         >
-//                               {isOpen ? <X size={26} /> : <Menu size={26} />}
-//                         </button>
-//                   </div>
-
-//                   {/* Mobile Menu */}
-//                   {isOpen && (
-//                         <div className="md:hidden bg-[#0E1D3E] border-t border-gray-700">
-//                               {navItems.map((item) => (
-//                                     <div
-//                                           key={item}
-//                                           className="text-white px-4 py-3 hover:bg-[#1B2D5E] cursor-pointer transition"
-//                                           onClick={() => setIsOpen(false)}
-//                                     >
-//                                           {item}
-//                                     </div>
-//                               ))}
-//                               <div className="px-4 pb-3">
-//                                     <button className="bg-[#3A8DFF] text-white text-sm font-semibold px-5 py-2 rounded-full w-full">
-//                                           Contact Us
-//                                     </button>
-//                               </div>
-//                         </div>
-//                   )}
-//             </header>
-//       );
-// };
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ import navigation hook
+import { useNavigate } from "react-router-dom"; 
 import logo from "../../assets/logo.png";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate(); // ✅ initialize navigation
+  const [isOpen, setIsOpen] = useState(false);      
+  const [serviceOpen, setServiceOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
-    { name: "Services", path: "/service" },
+
+
+    {
+      name: "Services",
+      path: "/service",
+      dropdown: [
+        { name: "Corporate", path: "/service?activeTab=Corporate Employee Transportation" },
+        { name: "Chauffer", path: "/service?activeTab=Chauffeur-Airport Transfers" },
+        { name: "Logistic", path: "/service?activeTab=Logistics" },
+        { name: "Ev Segment", path: "/service?activeTab=EV SEGMENT" },
+      ]
+    },
+
     { name: "Join VIYAGOO", path: "/join" },
   ];
 
   const handleNavClick = (path) => {
-    navigate(path); // ✅ go to the page
-    setIsOpen(false); // ✅ close mobile menu
+    navigate(path);
+    setIsOpen(false);
+    setServiceOpen(false);
   };
 
   return (
     <header className="bg-[#0572E6] w-full shadow-md">
       <div className="mx-auto flex items-center justify-between px-8 md:py-4">
-        {/* Left - Logo */}
+
         <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
           <img src={logo} alt="logo" className="h-16 w-auto" />
         </div>
 
-        {/* Right - Nav + Button (Desktop) */}
-        <div className="hidden md:flex items-center space-x-16">
+        <div className="hidden md:flex items-center space-x-10 relative">
+
           {navItems.map((item) => (
-            <div
-              key={item.name}
-              onClick={() => handleNavClick(item.path)}
-              className="text-white text-[18px] font-medium cursor-pointer hover:text-blue-300 transition relative"
-            >
-              {item.name}
-              {item.name === "Services" && (
-                <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-white rounded"></span>
+            <div key={item.name} className="relative">
+              {item.dropdown ? (
+                <>
+                  <div
+                    onClick={() => setServiceOpen(!serviceOpen)}
+                    className="text-white text-[18px] font-medium cursor-pointer flex items-center gap-1 hover:text-blue-300 transition"
+                  >
+                    {item.name}
+                    <ChevronDown
+                      size={18}
+                      className={`transition ${serviceOpen ? "rotate-180" : ""}`}
+                    />
+                  </div>
+
+                  {serviceOpen && (
+                    <div className="absolute top-8 left-0 bg-white shadow-lg rounded-md w-48 z-50 py-2">
+                      {item.dropdown.map((sub, index) => (
+                        <div
+                          key={index}
+                          onClick={() => handleNavClick(sub.path)}
+                          className="px-4 py-2 text-black hover:bg-gray-300 cursor-pointer"
+                        >
+                          {sub.name}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div
+                  onClick={() => handleNavClick(item.path)}
+                  className="text-white text-[18px] font-medium cursor-pointer hover:text-blue-300 transition"
+                >
+                  {item.name}
+                </div>
               )}
             </div>
           ))}
+
           <button
             onClick={() => navigate("/contact")}
             className="bg-[#3A8DFF] text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-blue-600 transition"
@@ -125,27 +91,57 @@ export const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="text-white md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="text-white md:hidden" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+
       {isOpen && (
         <div className="md:hidden bg-[#0E1D3E] border-t border-gray-700">
+
           {navItems.map((item) => (
-            <div
-              key={item.name}
-              onClick={() => handleNavClick(item.path)}
-              className="text-white px-4 py-3 hover:bg-[#1B2D5E] cursor-pointer transition"
-            >
-              {item.name}
+            <div key={item.name} className="border-b border-[#1B2D5E]">
+
+              {/* Dropdown for mobile */}
+              {item.dropdown ? (
+                <>
+                  <div
+                    onClick={() => setServiceOpen(!serviceOpen)}
+                    className="text-white px-4 py-3 flex justify-between items-center cursor-pointer hover:bg-[#1B2D5E]"
+                  >
+                    {item.name}
+                    <ChevronDown
+                      size={20}
+                      className={`transition ${serviceOpen ? "rotate-180" : ""}`}
+                    />
+                  </div>
+
+                  {serviceOpen && (
+                    <div className="bg-[#162447]">
+                      {item.dropdown.map((sub, index) => (
+                        <div
+                          key={index}
+                          onClick={() => handleNavClick(sub.path)}
+                          className="text-white px-6 py-2 text-sm hover:bg-[#1B2D5E] cursor-pointer"
+                        >
+                          {sub.name}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div
+                  onClick={() => handleNavClick(item.path)}
+                  className="text-white px-4 py-3 hover:bg-[#1B2D5E] cursor-pointer"
+                >
+                  {item.name}
+                </div>
+              )}
             </div>
           ))}
+
           <div className="px-4 pb-3">
             <button
               onClick={() => handleNavClick("/contact")}

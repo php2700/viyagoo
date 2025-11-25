@@ -1,5 +1,4 @@
 import React, { useRef,useState } from "react";
-
 import Job from '../../assets/job.png';
 import Clock from '../../assets/clocked.png';
 import Diversity from '../../assets/diversity.png';
@@ -21,16 +20,12 @@ import protect from '../../assets/protect.png';
 import error from '../../assets/error.png';
 import Leftarrow from '../../assets/leftarrow.png';
 import Rightarrow from '../../assets/rightarrow.png';
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import AirportTransfer from '../../component/service/airport_transfer';
-import { UserCheck, Percent, Users, HeartHandshake, FileCheck } from "lucide-react";
-import { ChevronDown, MapPin, Zap, Leaf, Share2, Gauge, Shield, DollarSign, Heart } from "lucide-react";
+import { ChevronDown, Leaf, Shield, DollarSign, Heart } from "lucide-react";
 
 
 export const Corporate = () => {
 const scrollRef = useRef(null);
 
-  // Scroll function
   const scroll = (direction) => {
     const container = scrollRef.current;
     if (container) {
@@ -85,7 +80,6 @@ const scrollRef = useRef(null);
     },
   ];
 
- 
  const [openDropdown, setOpenDropdown] = useState(null);
  
    const toggleDropdown = (id) => {
@@ -93,13 +87,6 @@ const scrollRef = useRef(null);
    };
   return (
     <section className="w-full min-h-screen bg-white text-[#1A1A1A] font-sans">
-      
-  
-     
-
- 
-
-      {/* CONTENT */}
       <div className="max-w-[86rem] mx-auto px-6">
         {/* Intro Section */}
         <div className=" mb-12">
