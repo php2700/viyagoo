@@ -33,16 +33,16 @@ export const Service = () => {
       <Helmet>
         <title>Our Services - VIYAGOO</title>
       </Helmet>
-      <section className="w-full min-h-screen bg-white text-[#1A1A1A] font-sans">
+      <section className="w-full min-h-screen bg-white ">
         {/* HERO SECTION */}
         <div className="relative w-full">
           <img
             src={HeroBanner}
             alt="Banner"
-            className="w-full h-[90vh] object-cover"
+            className="w-full h-[100vh] object-cover"
           />
         </div>
-        <h1 className="text-[#273270] text-2xl sm:text-3xl md:text-3xl font-bold text-center mt-4">
+        <h1 className=" text-2xl sm:text-3xl md:text-3xl font-bold text-center mt-4">
           Our Services
         </h1>
 
@@ -54,8 +54,8 @@ export const Service = () => {
               className={`text-xs sm:text-sm md:text-base font-semibold px-6 py-2.5 rounded-full border transition-all duration-300 tracking-wide
         ${
           activeTab === tab
-            ? "bg-[#1E3A8A] text-white border-[3px] border-[#1E3A8A]"
-            : "bg-white text-[#1E3A8A] border-[3px] border-[#273270] hover:bg-[#1E3A8A] hover:text-white"
+            ? "bg-[#0572E6] text-white border-[3px] border-[#0572E6]"
+            : "bg-white  border-[3px] border-[#0572E6] hover:bg-[#0572E6] hover:text-white"
         }`}
             >
               {tab.toUpperCase()}

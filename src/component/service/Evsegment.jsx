@@ -46,39 +46,39 @@ export const EVSegment = () => {
     getData();
   }, []);
   return (
-    <section className="w-full min-h-screen bg-white text-[#1A1A1A] font-sans">
+    <section className="w-full min-h-screen bg-white">
       {/* CONTENT */}
       <div className="max-w-[86rem] mx-auto px-6">
         {/* Intro Section */}
         <div className=" mb-12">
-          <p className="text-[#273270]  text-[19px] ">
+          <p className="  text-[19px] ">
             {segmentData?.about}
             {" "}
           </p>
           <div className="w-full px-6 py-16 flex flex-col items-center">
             {/* Subtitle */}
-            <h3 className="text-2xl md:text-3xl font-bold text-[#273270] mb-8 self-start  ">
+            <h3 className="text-2xl md:text-3xl font-bold  mb-8   ">
               Our EV Fleet Advantage
             </h3>
 
-            <p className="max-w-[86rem]  text-[#273270]  text-[19px] mb-16">
+            <p className="max-w-[86rem]    text-[19px] mb-16">
               {segmentData?.evAdvantage}
               
             </p>
 
             {/* Key Services Box */}
-            <h3 className="text-2xl md:text-3xl font-bold text-[#273270] text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold  text-center mb-8">
               Key Services Under the EV Segment
             </h3>
 
             <div className="bg-[#ECF5FF] shadow-[0px_8px_20px_rgba(0,0,0,0.15)] p-8 rounded-[25px] max-w-[86rem] w-full border border-gray-200 rounded-tr-[105px] rounded-bl-[105px]">
-              <ol className="list-decimal pl-6 space-y-6 text-[#0c2e4e] text-[15px] leading-relaxed">
+              <ol className="list-decimal pl-6 space-y-6  text-[15px] leading-relaxed">
                 {segmentData?.services?.map((ele)=>(
                 <li>
-                  <span className="font-semibold text-[21px] block text-start text-[#273270]">
+                  <span className="font-semibold text-[21px] block text-start ">
                     {ele?.title}
                   </span>
-                  <p className="text-[#273270] text-[15px]">
+                  <p className=" text-[15px]">
                     {ele?.description}
                     
                   </p>
@@ -86,11 +86,11 @@ export const EVSegment = () => {
                 ))}
 
                 <li>
-                  <span className="font-semibold text-[21px] block text-start text-[#273270]">
+                  <span className="font-semibold text-[21px] block text-start ">
                     Sustainable Partnerships for Businesses
                   </span>
 
-                  <p className="text-[#273270] text-[15px]">
+                  <p className=" text-[15px]">
                     Viyagoo partners with organizations looking to integrate EVs
                     into their transport strategy. Whether through dedicated
                     electric fleets, on-demand EV usage, or long-term
@@ -103,7 +103,7 @@ export const EVSegment = () => {
 
             {/* Why Choose EV Section */}
 
-            <h3 className="text-2xl md:text-3xl font-bold text-[#273270] mb-8 self-start text-left  mt-[56px]">
+            <h3 className="text-2xl md:text-3xl font-bold  mb-8  text-left  mt-[56px]">
               Why Choose Viyagoo's EV Segment?
             </h3>
 
@@ -115,10 +115,10 @@ export const EVSegment = () => {
                     alt=""
                     className="h-[30px] bg-[#ECECEC]"
                   />
-                  <h4 className="text-[#273270] font-semibold text-lg mb-2 text-start mt-[26px] max-w-[170px]">
+                  <h4 className=" font-semibold text-lg mb-2 text-start mt-[26px] max-w-[170px]">
                     {box.title}
                   </h4>
-                  <p className="text-[#273270] text-[15px] leading-relaxed text-start max-w-[239px]">
+                  <p className=" text-[15px] leading-relaxed text-start max-w-[239px]">
                     {box.description}
                   </p>
                 </div>
@@ -130,7 +130,7 @@ export const EVSegment = () => {
       <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[86rem] mx-auto">
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#273270] mb-10">
+          <h2 className="text-3xl sm:text-4xl text-center font-bold  mb-10">
             Our Fleet:
           </h2>
 
@@ -162,7 +162,7 @@ export const EVSegment = () => {
 
             {/* Text Section */}
             <div className="text-center">
-              <h2 className="text-[18px] font-bold text-[#273270] max-w-[900px]">
+              <h2 className="text-[18px] font-bold  max-w-[900px]">
                 {segmentFleetData?.length &&  segmentFleetData[0].description}
               </h2>
             </div>

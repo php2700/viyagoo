@@ -100,7 +100,9 @@ const Testimonials = () => {
           <img
             src={leftQuote}
             alt="Left Quote"
-            className="w-10 md:w-12 mb-2 self-start"
+            // className="w-10 md:w-12 mb-2 self-start"
+            className="w-8 h-8 object-cover filter self-start brightness-0 "
+
           />
           <p className="text-base md:text-xl leading-relaxed px-4">
             {testimonials[currentIndex].description}
@@ -108,7 +110,8 @@ const Testimonials = () => {
           <img
             src={rightQuote}
             alt="Right Quote"
-            className="w-10 md:w-12 mt-2 self-end"
+            // className="w-10 md:w-12 mt-2 self-end"
+              className="w-8 h-8 mb-4 object-cover filter self-end brightness-0 "
           />
         </div>
 

@@ -101,7 +101,7 @@ export const AboutUs = () => {
   return (
     <section className="w-full max-w-7xl mx-auto py-16 bg-white text-center mt-80 md:mt-40 overflow-visible">
       {/* Heading */}
-      <h2 className="text-[#0E1D3E] text-2xl md:text-3xl font-bold mb-10">
+      <h2 className=" text-2xl md:text-3xl font-bold mb-10">
         About Us
       </h2>
 
@@ -135,7 +135,7 @@ export const AboutUs = () => {
             <div
               className="
                 absolute top-0 left-0 w-full h-full flex flex-col justify-center 
-                p-4 sm:p-6 md:pl-[180px] md:pr-10 text-[#0E1D3E] text-left
+                p-4 sm:p-6 md:pl-[180px] md:pr-10  text-left
               "
             >
               <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold mb-3 leading-snug">

@@ -10,7 +10,7 @@ export const Header = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
+    { name: "About Us", path: "/" },
 
 
     {
@@ -34,8 +34,13 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-[#0572E6] w-full shadow-md">
-      <div className="mx-auto flex items-center justify-between px-8 md:py-4">
+    // <header className="bg-[#0572E6] w-full shadow-md">
+      // <div className="mx-auto flex items-center justify-between px-8 md:py-4">
+ <header className="fixed top-4 left-1/2 transform -translate-x-1/2 
+  max-w-[95%] md:max-w-[90%] w-full 
+  bg-[#0572E6] rounded-2xl  z-[999]"> 
+
+  <div className="mx-auto flex items-center justify-between px-6 md:px-10 py-3 md:py-4">
 
         <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
           <img src={logo} alt="logo" className="h-16 w-auto" />
@@ -84,7 +89,7 @@ export const Header = () => {
           ))}
 
           <button
-            onClick={() => navigate("/contact")}
+            onClick={() => navigate("/")}
             className="bg-[#3A8DFF] text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-blue-600 transition"
           >
             Contact Us
@@ -144,7 +149,7 @@ export const Header = () => {
 
           <div className="px-4 pb-3">
             <button
-              onClick={() => handleNavClick("/contact")}
+              onClick={() => handleNavClick("/")}
               className="bg-[#3A8DFF] text-white text-sm font-semibold px-5 py-2 rounded-full w-full"
             >
               Contact Us

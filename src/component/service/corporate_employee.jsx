@@ -1,4 +1,4 @@
-import React, { useRef,useState } from "react";
+import React, { useEffect, useRef,useState } from "react";
 import Job from '../../assets/job.png';
 import Clock from '../../assets/clocked.png';
 import Diversity from '../../assets/diversity.png';
@@ -21,10 +21,18 @@ import error from '../../assets/error.png';
 import Leftarrow from '../../assets/leftarrow.png';
 import Rightarrow from '../../assets/rightarrow.png';
 import { ChevronDown, Leaf, Shield, DollarSign, Heart } from "lucide-react";
+import axios from "axios";
 
 
 export const Corporate = () => {
 const scrollRef = useRef(null);
+ const [error,setError]=useState();
+   const [transportationData,setTransportationData]=useState()
+    const [whyTransData,setwhyTransData]=useState();
+   const [businessTransData,setBusinessTransData]=useState()
+    const [mobility,setMobility]=useState();
+   const [mobilityDetailData,setmobilityDetailData]=useState()
+   const [believeTransData,setbelieveTransData]=useState()
 
   const scroll = (direction) => {
     const container = scrollRef.current;
@@ -85,19 +93,52 @@ const scrollRef = useRef(null);
    const toggleDropdown = (id) => {
      setOpenDropdown(openDropdown === id ? null : id);
    };
+
+
+   const getData = async () => {
+    try {
+      const [transRes, whyTransRes, businessTransRes,futureRes,mobilityDetRes,believeRes] = await Promise.all([
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/transportation`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/why-transportation`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/business-transportation`),
+               axios.get(`${import.meta.env.VITE_APP_URL}api/user/future-mobility`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/detail-future-mobility`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/believe-transportation`),
+      ]);
+      if (transRes?.data && whyTransRes?.data && businessTransRes?.data && futureRes?.data && mobilityDetRes?.data && believeRes?.data) {
+        setTransportationData(transRes?.data?.data);
+        setwhyTransData(whyTransRes?.data?.data);
+        setBusinessTransData(businessTransRes?.data?.data);
+                setMobility(futureRes?.data?.data);
+        setmobilityDetailData(mobilityDetRes?.data?.data);
+        setbelieveTransData(believeRes?.data?.data);
+      }
+    } catch (error) {
+      setError(
+        error?.response?.data?.message ||
+          error?.message ||
+          "something went wrong"
+      );
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+
   return (
-    <section className="w-full min-h-screen bg-white text-[#1A1A1A] font-sans">
+    <section className="w-full min-h-screen bg-white ">
       <div className="max-w-[86rem] mx-auto px-6">
-        {/* Intro Section */}
         <div className=" mb-12">
-          <p className="text-[#273270]  text-[19px]">
+          <p className="  text-[19px]">
        In today’s fast-paced business environment, <strong>mobility has become a critical enabler of productivity, employee satisfaction, and corporate success.</strong> While organizations often focus on salaries, work culture, and office infrastructure as key drivers of employee engagement, one crucial aspect is frequently overlooked — <strong>how employees commute to and from work every day.</strong>
           </p>
 
-          <p className="text-[#273270] leading-relaxed mt-[10px] text-[19px]">
+          <p className=" leading-relaxed mt-[10px] text-[19px]">
         For many employees, especially in urban centers, commuting is not just a routine task but a <strong>daily challenge.</strong> Long distances, unpredictable traffic, rising fuel costs, and lack of reliable public transportation make the journey to work stressful and time-consuming. Over time, this daily struggle leads to <strong>fatigue, decreased productivity, and even higher attrition rates.</strong>
           </p>
-          <p className="text-[#273270] leading-relaxed mt-[10px] text-[19px]">
+          <p className=" leading-relaxed mt-[10px] text-[19px]">
          This is where <strong>structured employee transportation services</strong> come into play. By providing safe, reliable, and well-managed commuting options, organizations can transform the employee experience, reduce operational inefficiencies, and strengthen their brand as an <strong>employer of choice.</strong>
           </p>
           
@@ -107,14 +148,14 @@ const scrollRef = useRef(null);
         <div className="flex flex-col md:flex-row items-start justify-between gap-10 mb-16">
   {/* Left Section */}
   <div className="md:w-1/2">
-    <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[#273270]">
+    <h2 className="text-2xl md:text-3xl font-semibold mb-4 ">
       The Growing Commuting Challenge
     </h2>
-    <p className="text-[#273270]  text-[19px] mb-4">
+    <p className="  text-[19px] mb-4">
       Let’s face it — urban mobility is broken in most Indian cities. Employees often spend 2–4 hours per day battling traffic,
       juggling multiple modes of transport, or depending on unreliable third-party cabs. This results in:
     </p>
-    <p className="text-[#273270]  text-[19px]">
+    <p className="  text-[19px]">
       For organizations with large workforces, these challenges quickly translate into operational inefficiencies and
        higher costs. Frequent delays or absenteeism affect project delivery timelines, while attrition driven by
       commute-related dissatisfaction increases recruitment and training expenses.
@@ -168,7 +209,7 @@ const scrollRef = useRef(null);
 </div>
         <div>
           
-          <p className="text-gray-600 text-sm"><span className="text-[#273270] font-semibold   text-[16px] mr-1">{item.title}</span><span className="text-[#273270]  text-[16px]">{item.desc}</span></p>
+          <p className="text-gray-600 text-sm"><span className=" font-semibold   text-[16px] mr-1">{item.title}</span><span className="  text-[16px]">{item.desc}</span></p>
         </div>
       </div>
     ))}
@@ -180,10 +221,10 @@ const scrollRef = useRef(null);
        <div className=" mb-16">
        
   {/* Heading Section */}
-  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[#273270]">
+  <h2 className="text-2xl md:text-3xl font-bold mb-4 ">
     Why Employee Transportation is No Longer a Perk, But a Necessity
   </h2>
-  <p className="text-[#273270] leading-relaxed mb-10 max-w-[54rem] text-[19px]">
+  <p className=" leading-relaxed mb-10 max-w-[54rem] text-[19px]">
     In the past, only large corporations offered employee transport as an additional perk.
     Today, however, it has become a necessity for businesses of all sizes. Several factors
     have driven this shift:
@@ -222,10 +263,10 @@ const scrollRef = useRef(null);
             </div>
 
             <div className="text-center">
-              <h3 className="text-lg font-semibold mb-2 text-[#273270] leading-relaxed">
+              <h3 className="text-lg font-semibold mb-2  leading-relaxed">
                 {item.title}
               </h3>
-              <p className="text-[#273270] text-[16px] leading-relaxed w-[212px] mx-auto mt-[21px]">
+              <p className=" text-[16px] leading-relaxed w-[212px] mx-auto mt-[21px]">
                 {item.desc}
               </p>
             </div>
@@ -247,10 +288,10 @@ const scrollRef = useRef(null);
         {/* Business Case Section */}
        <div className="w-full bg-[#ECF5FF] py-6">
       <div className="max-w-5xl mx-auto px-0">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[#273270] text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4  text-center">
           The Business Case for Employee Transportation
         </h2>
-        <p className="text-[#273270] mb-8  max-w-4xl mx-auto text-[19px]">
+        <p className=" mb-8  max-w-4xl mx-auto text-[19px]">
           Providing transportation is not just about employee convenience — it directly impacts the bottom line. Well-structured transport services enable companies to:
         </p>
 
@@ -288,7 +329,7 @@ const scrollRef = useRef(null);
                 </div>
                 <div>
                   
-<p className="text-gray-600 text-sm"><span className="text-[#273270] font-semibold  mr-1 text-[16px]">{item.title}</span>: <span className="text-[#273270] text-[16px]">{item.desc}</span></p>                </div>
+<p className="text-gray-600 text-sm"><span className=" font-semibold  mr-1 text-[16px]">{item.title}</span>: <span className=" text-[16px]">{item.desc}</span></p>                </div>
               </div>
             ))}
           </div>
@@ -319,7 +360,7 @@ const scrollRef = useRef(null);
                   />
                 </div>
                 <div>
-<p className="text-gray-600 text-sm"><span className="text-[#273270] font-semibold text-[16px] mr-1">{item.title}</span>: <span className="text-[#273270] text-[16px]">{item.desc}</span></p>
+<p className="text-gray-600 text-sm"><span className=" font-semibold text-[16px] mr-1">{item.title}</span>: <span className=" text-[16px]">{item.desc}</span></p>
                 </div>
               </div>
             ))}
@@ -327,19 +368,19 @@ const scrollRef = useRef(null);
         </div>
 
         {/* Bottom Text */}
-        <p className="text-center text-[19px] text-[#273270] mt-10 italic max-w-4xl mx-auto">
+        <p className="text-center text-[19px]  mt-10 italic max-w-4xl mx-auto">
           Simply put, investing in employee transport is an investment in business continuity, efficiency, and reputation.
         </p>
       </div>
     </div>
       </div>
-      <div className="max-w-[86rem] mx-auto px-6  space-y-20 font-sans mt-16">
+      <div className="max-w-[86rem] mx-auto px-6  space-y-20 mt-16">
       {/* Section 1: How the Future of Employee Mobility is Evolving */}
       <div className="space-y-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-[#273270]">
+        <h2 className="text-2xl md:text-3xl font-bold text-center ">
           How the Future of Employee Mobility is Evolving
         </h2>
-        <p className="text-[#273270]   mx-auto leading-relaxed text-[19px]">
+        <p className="   mx-auto leading-relaxed text-[19px]">
          The employee transportation landscape is undergoing a transformation driven by <strong>technology and sustainability.</strong> technology and sustainability. Modern organizations are moving away from manual rostering and unorganized fleets toward <strong>digitally managed, eco-friendly mobility solutions.</strong> Key trends include:
         </p>
 
@@ -382,7 +423,7 @@ const scrollRef = useRef(null);
                 />
                 </div>
                 <div>
-                  <p className="text-gray-600 text-sm"><span className="text-[#273270] font-semibold text-[16px] mr-1">{item.title}</span>- <span className="text-[16px] text-[#273270]">{item.desc}</span></p>
+                  <p className="text-gray-600 text-sm"><span className=" font-semibold text-[16px] mr-1">{item.title}</span>- <span className="text-[16px] ">{item.desc}</span></p>
                 </div>
               </div>
             ))}
@@ -400,7 +441,7 @@ const scrollRef = useRef(null);
           </div>
         </div>
 
-        <p className="text-[#273270] text-center italic mt-8 text-[19px] mx-auto">
+        <p className=" text-center italic mt-8 text-[19px] mx-auto">
           Forward-thinking companies are already embracing these trends, making transportation not just a support function 
           but a <strong>strategic enabler of sustainable growth</strong>.
         </p>
@@ -408,10 +449,10 @@ const scrollRef = useRef(null);
 
       {/* Section 2: Why Viyagoo Believes in Smarter Employee Transportation */}
       <div className="space-y-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-[#273270]">
+        <h2 className="text-2xl md:text-3xl font-bold text-center ">
           Why Viyagoo Believes in Smarter Employee Transportation
         </h2>
-        <p className="text-[#273270] text-center max-w-[77rem] mx-auto leading-relaxed text-[18px]">
+        <p className=" text-center max-w-[77rem] mx-auto leading-relaxed text-[18px]">
           At Viyagoo, we believe mobility is more than just moving people from point A to point B — it’s about creating value for 
           both employees and employers. We approach employee transportation not as a vendor but as a consulting partner, 
           helping organizations design transport ecosystems that are:
@@ -460,12 +501,12 @@ const scrollRef = useRef(null);
                 <div className="flex items-center gap-4">
                   
                   <div>
-  <h3 className="font-semibold text-[#273270] text-[22px]">{item.title}</h3>
-  <p className="text-[#1E3A8A] text-sm mt-1 text-[16px]">{item.desc}</p>
+  <h3 className="font-semibold  text-[22px]">{item.title}</h3>
+  <p className="text-sm mt-1 text-[16px]">{item.desc}</p>
 </div>
                 </div>
                 <ChevronDown
-                  className={`w-5 h-5 text-[#1E3A8A] transition-transform duration-300 ${
+                  className={`w-5 h-5  transition-transform duration-300 ${
                     openDropdown === item.id ? "rotate-180" : ""
                   }`}
                 />
@@ -479,7 +520,7 @@ const scrollRef = useRef(null);
           ))}
         </div>
 
-        <p className="text-[#273270]  max-w-[78rem] mx-auto  mt-8 text-[19px]">
+        <p className="  max-w-[78rem] mx-auto  mt-8 text-[19px]">
           By rethinking transportation, organizations can unlock productivity, improve retention, and achieve long-term cost 
           efficiency, all while ensuring employee wellbeing remains at the center.
         </p>
@@ -488,15 +529,15 @@ const scrollRef = useRef(null);
       {/* Closing Thought */}
       <div className="rounded-3xl p-8 md:p-12 space-y-6 ">
   <div className=" mx-auto space-y-4">
-    <h3 className="text-[28px] text-2xl md:text-3xl font-bold text-[#273270]">
+    <h3 className="text-[28px] text-2xl md:text-3xl font-bold ">
       Closing Thought
     </h3>
-    <p className="text-[#273270] text-[19px] leading-relaxed">
+    <p className=" text-[19px] leading-relaxed">
       In the evolving world of work, transportation is no longer an afterthought — it is a strategic necessity. 
       Companies that invest in structured, technology-driven employee transport solutions will not only solve today’s commuting challenges 
       but also build a workplace that is safe, efficient, and future-ready.
     </p>
-    <p className="text-[#273270] text-[19px] ">
+    <p className=" text-[19px] ">
       At Viyagoo, we’re committed to making that future a reality — one ride at a time.
     </p>
   </div>

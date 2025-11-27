@@ -7,20 +7,20 @@ function Join() {
       <Helmet>
         <title>Join - VIYAGOO</title>
       </Helmet>
-      <section className="w-full min-h-screen bg-white text-[#1A1A1A] font-sans">
+      <section className="w-full min-h-screen bg-white ">
         {/* HERO SECTION */}
         <div className="relative w-full">
           <img
             src={HeroBanner}
             alt="Banner"
-            className="w-full h-[90vh] object-cover"
+            className="w-full h-[100vh] object-cover"
           />
         </div>
         <div className="max-w-5xl mx-auto mt-[28px]">
-          <h1 className="text-[#273270] text-3xl md:text-4xl font-bold mb-4 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             Drive the Future with Viyagoo
           </h1>
-          <p className="text-[#273270] text-[20px] leading-relaxed text-center">
+          <p className="text-[20px] leading-relaxed text-center">
             Viyagoo believes, our drivers are the heart of every journey. Join a
             team that values professionalism, reliability, and dedication — and
             rewards it. With consistent trips, competitive payouts, and fair
@@ -39,7 +39,7 @@ function Join() {
           <form className="grid grid-cols-1 md:grid-cols-3 gap-8 p-[62px]">
             {/* Name */}
             <div className="flex flex-col">
-              <label className="text-[#0E1D3E] font-[660] mb-2 text-[18px]">
+              <label className=" font-[660] mb-2 text-[18px]">
                 Name
               </label>
               <input
@@ -51,7 +51,7 @@ function Join() {
 
             {/* Phone No */}
             <div className="flex flex-col">
-              <label className="text-[#0E1D3E] font-[660] mb-2 text-[18px]">
+              <label className=" font-[660] mb-2 text-[18px]">
                 Phone no
               </label>
               <input
@@ -63,7 +63,7 @@ function Join() {
 
             {/* City Dropdown */}
             <div className="flex flex-col">
-              <label className="text-[#0E1D3E] font-[660] mb-2 text-[18px]">
+              <label className=" font-[660] mb-2 text-[18px]">
                 City
               </label>
               <select className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white text-[#B7B7B7] font-medium pl-[25px]">
@@ -77,7 +77,7 @@ function Join() {
 
             {/* Email Id */}
             <div className="flex flex-col">
-              <label className="text-[#0E1D3E] font-[660] mb-2 text-[18px]">
+              <label className=" font-[660] mb-2 text-[18px]">
                 Email Id
               </label>
               <input
@@ -89,7 +89,7 @@ function Join() {
 
             {/* Alternate phone number */}
             <div className="flex flex-col">
-              <label className="text-[#0E1D3E] font-[660] mb-2 text-[18px]">
+              <label className=" font-[660] mb-2 text-[18px]">
                 Alternate phone number
               </label>
               <input
@@ -101,7 +101,7 @@ function Join() {
 
             {/* Vehicle Type Dropdown */}
             <div className="flex flex-col">
-              <label className="text-[#0E1D3E] font-[660] mb-2 text-[18px]">
+              <label className=" font-[660] mb-2 text-[18px]">
                 Vehicle Type
               </label>
               <select className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white  text-[#B7B7B7] font-medium pl-[25px]">
@@ -117,7 +117,7 @@ function Join() {
             <div className="flex flex-col md:flex-row items-end md:col-span-3 gap-6 md:gap-24 lg:gap-24">
               {/* Additional Info Dropdown */}
               <div className="flex flex-col w-full md:w-[253px]">
-                <label className="text-[#0E1D3E] font-[660] mb-2 text-[18px]">
+                <label className=" font-[660] mb-2 text-[18px]">
                   Additional Info
                 </label>
                 <select className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white text-[#B7B7B7] font-medium pl-[25px]">
@@ -148,10 +148,10 @@ function Join() {
           </div>
 
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h2 className="text-[#273270] text-2xl md:text-[46px] font-bold mb-2 md:w-[450px] lg:w-[505px]">
+            <h2 className="text-2xl md:text-[46px] font-bold mb-2 md:w-[450px] lg:w-[505px]">
               Got a Vehicle ? and want to work with Routmatic.
             </h2>
-            <h2 className="text-[#273270] text-[24px] leading-relaxed mb-5 mt-[48px] font-[700] lg:w-[416px] md:w-[400px]">
+            <h2 className="text-[24px] leading-relaxed mb-5 mt-[48px] font-[700] lg:w-[416px] md:w-[400px]">
               We are happy to get in touch with you and collaborate with you
               regarding your vehicle{" "}
             </h2>
@@ -162,7 +162,7 @@ function Join() {
         </div>
 
         {/* ===== Footer Title ===== */}
-        <h3 className="text-[#273270] text-3xl md:text-4xl font-bold mb-4 text-center">
+        <h3 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Benefits for you
         </h3>
       </section>

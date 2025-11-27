@@ -57,12 +57,12 @@ export const Airport = () => {
     getData();
   }, []);
   return (
-    <section className="w-full min-h-screen bg-white text-[#1A1A1A] font-sans">
+    <section className="w-full min-h-screen bg-white">
       <div className="max-w-[86rem] mx-auto px-6 ">
         {/* Intro Section */}
         <div className=" mb-12">
           {chaufferData?.description?.map((ele) => (
-            <p className="text-[#273270]  text-[19px] mb-4">{ele}</p>
+            <p className="  text-[19px] mb-4">{ele}</p>
           ))}
         </div>
       </div>
@@ -70,7 +70,7 @@ export const Airport = () => {
         <div className="max-w-[83rem] mx-auto">
           {/* Header Section */}
           <div className=" mb-16">
-            <h1 className="text-4xl font-bold text-[#273270] -mb-9">
+            <h1 className="text-3xl font-bold  -mb-9">
               Why Executive & Airport Mobility Matters
             </h1>
           </div>
@@ -80,17 +80,17 @@ export const Airport = () => {
                 className="bg-white p-6 rounded-xl border border-gray-100 shadow-md"
                 style={{ boxShadow: "0px 2px 4px 2px #c3c1c1" }}
               >
-                <h3 className="text-[31px] font-semibold text-[#273270] mb-2">
+                <h3 className="text-[31px] font-semibold  mb-2">
                   {index + 1}
                 </h3>
-                <p className="text-[#273270] text-sm">
+                <p className=" text-sm">
                   <strong>{ele?.title} –</strong> {ele?.description}.
                 </p>
               </div>
             ))}
           </div>
 
-          <h2 className="text-3xl font-bold text-[#273270]  mb-12">
+          <h2 className="text-3xl font-bold   mb-12">
             Our Chauffeur & Airport Transfer Services
           </h2>
 
@@ -107,7 +107,7 @@ export const Airport = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-[2rem]"></div>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-[#273270] mb-13">
+                <h3 className="text-2xl font-bold  mb-13">
                   {chaufferServiceData[0]?.title}
                 </h3>
                 <ul className="space-y-4 mr-12">
@@ -118,7 +118,7 @@ export const Airport = () => {
                         alt=""
                         className="w-8 h-8 text-green-500 mr-3 flex-shrink-0 mt-0.5"
                       />
-                      <span className="text-[15px] text-[#273270] font-medium">
+                      <span className="text-[15px]  font-medium">
                         {ele}
                       </span>
                     </li>
@@ -130,7 +130,7 @@ export const Airport = () => {
           {chaufferServiceData?.length >= 2 && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
-                <h3 className="text-2xl md:text-3xl font-bold text-[#273270] mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold  mb-8">
                   {chaufferServiceData[1]?.title}
                 </h3>
                 <div className="absolute left-[29px] top-17 bottom-10 border-[#273270] w-[2px] bg-[#273270] " />
@@ -144,7 +144,7 @@ export const Airport = () => {
                           className="w-full h-full object-contain invert brightness-0"
                         />
                       </div>
-                      <p className="font-[600] text-[#273270] pt-1 text-[19px]">
+                      <p className="font-[600]  pt-1 text-[19px]">
                         {chaufferServiceData[1]?.points[0]}
                       </p>
                     </div>
@@ -159,7 +159,7 @@ export const Airport = () => {
                           className="w-full h-full object-contain invert brightness-0"
                         />
                       </div>
-                      <p className="font-[600] text-[#273270] pt-1 text-[19px]">
+                      <p className="font-[600]  pt-1 text-[19px]">
                         {chaufferServiceData[1]?.points[1]}
                       </p>
                     </div>
@@ -173,7 +173,7 @@ export const Airport = () => {
                           className="w-full h-full object-contain invert brightness-0"
                         />
                       </div>
-                      <p className="font-[600] text-[#273270] pt-1 text-[19px]">
+                      <p className="font-[600]  pt-1 text-[19px]">
                         {chaufferServiceData[1]?.points[2]}
                       </p>
                     </div>
@@ -187,7 +187,7 @@ export const Airport = () => {
                           className="w-full h-full object-contain invert brightness-0"
                         />
                       </div>
-                      <p className="font-[600] text-[#273270] pt-1 text-[19px]">
+                      <p className="font-[600]  pt-1 text-[19px]">
                         {chaufferServiceData[1]?.points[3]}
                       </p>
                     </div>
@@ -201,7 +201,7 @@ export const Airport = () => {
                           className="w-full h-full object-contain invert brightness-0"
                         />
                       </div>
-                      <p className="font-[600] text-[#273270] pt-1 text-[19px]">
+                      <p className="font-[600]  pt-1 text-[19px]">
                         {chaufferServiceData[1]?.points[4]}
                       </p>
                     </div>
@@ -223,17 +223,17 @@ export const Airport = () => {
       </div>
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-[#273270]  mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold   mb-12">
           Business Benefits for Corporates
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {corporateData?.map((ele) => (
             <div className="bg-[#F4F6FA] rounded-2xl p-6 border border-gray-100 ">
-              <h3 className="text-xl font-bold text-[#273270] mb-3 relative top-3.5 left-0 md:left-7 lg:left-7">
+              <h3 className="text-xl font-bold  mb-3 relative top-3.5 left-0 md:left-7 lg:left-7">
                 {ele?.title}
               </h3>
-              <p className="text-[#273270] mb-4 relative top:3.5 lg:top-13.5 md:top-13.5 left-0 md:left-7 lg:left-7">
+              <p className=" mb-4 relative top:3.5 lg:top-13.5 md:top-13.5 left-0 md:left-7 lg:left-7">
                 {ele?.description}
               </p>
               <div className="flex justify-end">
@@ -254,10 +254,10 @@ export const Airport = () => {
 
         {/* The Viyagoo Edge */}
         <div className=" mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#273270] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold  mb-4">
             The Viyagoo Edge
           </h2>
-          <p className="text-[#273270] text-[19px] mx-auto leading-relaxed">
+          <p className=" text-[19px] mx-auto leading-relaxed">
             {viyagooEdgeData?.description}
           </p>
         </div>
@@ -273,7 +273,7 @@ export const Airport = () => {
                   />
                 </div>
               </div>
-              <p className="text-[#273270] text-[16px]">{ele?.description}</p>
+              <p className=" text-[16px]">{ele?.description}</p>
             </div>
           ))}
         </div>

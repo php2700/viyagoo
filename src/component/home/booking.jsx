@@ -238,10 +238,10 @@ export const BookingFormBanner = () => {
           muted
           loop
           playsInline
-          className="w-full h-[90vh] object-cover"
+          className="w-full h-[100vh] object-cover"
         />
       ) : (
-        <div className="w-full h-[90vh] flex items-center justify-center text-xl">
+        <div className="w-full h-[100vh] flex items-center justify-center text-xl">
           Loading banner...
         </div>
       )}

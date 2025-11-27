@@ -11,7 +11,7 @@ import {
 const Footer = () => {
   return (
     <footer
-      className="relative bg-cover bg-center text-[#0E1D3E]"
+      className="relative bg-cover bg-center "
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80')",

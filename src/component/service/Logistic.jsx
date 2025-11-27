@@ -72,17 +72,17 @@ export const Logistics = () => {
   }, []);
 
   return (
-    <section className="w-full min-h-screen bg-white text-[#1A1A1A] font-sans">
+    <section className="w-full min-h-screen bg-white">
       {/* CONTENT */}
       <div className="max-w-[86rem] mx-auto px-6">
         {/* Intro Section */}
         <div className=" mb-12">
-          <p className="text-[#273270]  text-[19px]">
+          <p className="  text-[19px]">
             {logisticData?.description}
             
           </p>
           <div className="w-full min-h-screen bg-white px-6 py-12 flex flex-col items-center">
-            <h1 className="text-2xl md:text-3xl font-bold text-center text-[#273270] mb-10">
+            <h1 className="text-2xl md:text-3xl font-bold text-center  mb-10">
               Core Logistics Services (Visually appealing cards)
             </h1>
 
@@ -92,10 +92,10 @@ export const Logistics = () => {
                   key={index}
                   className="bg-[#ECF5FF] p-8 rounded-tr-[92px] rounded-bl-[92px] shadow-[3px_7px_4px_#c7c1c1]  border border-gray-200 hover:shadow-lg transition-all duration-300"
                 >
-                  <h2 className="text-xl font-semibold text-[#273270] mb-3">
+                  <h2 className="text-xl font-semibold  mb-3">
                     {card.title}
                   </h2>
-                  <p className="text-[#273270] leading-relaxed text-sm md:text-base">
+                  <p className=" leading-relaxed text-sm md:text-base">
                     {card.description}
                   </p>
                 </div>
@@ -103,7 +103,7 @@ export const Logistics = () => {
             </div>
             <div className="w-full bg-white px-6 py-2 flex flex-col items-center mt-16">
               {/* Heading */}
-              <h1 className="text-2xl md:text-3xl font-semibold text-[#273270] mb-12 text-center">
+              <h1 className="text-2xl md:text-3xl font-semibold  mb-12 text-center">
                 Why VIYAGOO?
               </h1>
 
@@ -112,12 +112,12 @@ export const Logistics = () => {
                 {/* Left Text */}
                 <div className="text-right space-y-6">
                   <div>
-                    <h3 className="text-[22px] font-semibold text-[#273270] lg:-mt-[100px] md:-mt-[80px]">
+                    <h3 className="text-[22px] font-semibold  lg:-mt-[100px] md:-mt-[80px]">
                       {logisticData?.whyViyagoo?.length &&
                       logisticData?.whyViyagoo[0]?.title
                       }
                     </h3>
-                    <p className="text-[#273270] text-sm ">
+                    <p className=" text-sm ">
                        {logisticData?.whyViyagoo?.length &&
                       logisticData?.whyViyagoo[0]?.description
                       }
@@ -125,13 +125,13 @@ export const Logistics = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-semibold text-[#273270] lg:mt-[80px] md:mt-[50px]">
+                    <h3 className="text-lg font-semibold  lg:mt-[80px] md:mt-[50px]">
                       {(logisticData?.whyViyagoo?.length >=2) &&
                       logisticData?.whyViyagoo[1]?.title
                       }
          
                     </h3>
-                    <p className="text-[#273270] text-sm">
+                    <p className=" text-sm">
                       {(logisticData?.whyViyagoo?.length>=2) &&
                       logisticData?.whyViyagoo[1]?.description
                       }
@@ -151,12 +151,12 @@ export const Logistics = () => {
                 {/* Right Text */}
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-semibold text-[#273270]">
+                    <h3 className="text-lg font-semibold ">
                       {(logisticData?.whyViyagoo?.length >=3) &&
                       logisticData?.whyViyagoo[2]?.title
                       }
                     </h3>
-                    <p className="text-[#273270] text-sm">
+                    <p className=" text-sm">
                      {(logisticData?.whyViyagoo?.length >=3) &&
                       logisticData?.whyViyagoo[2]?.description
                       }
@@ -164,12 +164,12 @@ export const Logistics = () => {
                   </div>
 
                   <div className="lg:mt-[84px] md:mt-[50px]">
-                    <h3 className="text-lg font-semibold text-[#273270]">
+                    <h3 className="text-lg font-semibold ">
                       {(logisticData?.whyViyagoo?.length >=4) &&
                       logisticData?.whyViyagoo[3]?.title
                       }
                     </h3>
-                    <p className="text-[#273270] text-sm">
+                    <p className=" text-sm">
                       {(logisticData?.whyViyagoo?.length >=4) &&
                       logisticData?.whyViyagoo[3]?.description
                       }
@@ -177,12 +177,12 @@ export const Logistics = () => {
                   </div>
 
                   <div className="lg:mt-[56px] md:mt-[40px]">
-                    <h3 className="text-lg font-semibold text-[#273270]">
+                    <h3 className="text-lg font-semibold ">
                        {(logisticData?.whyViyagoo?.length >=5) &&
                       logisticData?.whyViyagoo[4]?.title
                       }
                     </h3>
-                    <p className="text-[#273270] text-sm">
+                    <p className=" text-sm">
                        {(logisticData?.whyViyagoo?.length >=5) &&
                       logisticData?.whyViyagoo[4]?.description
                       }
@@ -192,7 +192,7 @@ export const Logistics = () => {
               </div>
 
               {/* PROCESS SECTION */}
-              <h2 className="text-3xl md:text-4xl font-bold text-[#273270] my-14 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold  my-14 text-center">
                 How We Work / Our Process
               </h2>
 
@@ -218,11 +218,11 @@ export const Logistics = () => {
  flex justify-center items-center shadow-md"
                     ></div>
                     <div className="w-12 h-12 flex justify-center items-center">
-                      <span className="text-[#273270] text-xl font-bold text-[38px] -mt-12 mr-[88px]">
+                      <span className=" text-xl font-bold text-[38px] -mt-12 mr-[88px]">
                         {index+1}
                       </span>
                     </div>
-                    <h3 className="text-xl font-semibold text-[#273270] relative right-[38px] top-[-8px] text-[25px]">
+                    <h3 className="text-xl font-semibold  relative right-[38px] top-[-8px] text-[25px]">
                       
                       {ele}
                     </h3>
