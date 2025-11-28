@@ -7,8 +7,17 @@ import {
   FaEnvelope,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate=useNavigate();
+
+  const handleUrl=(url)=>{
+    navigate(url)
+  }
+
+  
+ 
   return (
     <footer
       className="relative bg-cover bg-center "
@@ -17,27 +26,25 @@ const Footer = () => {
           "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80')",
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-white/85 " style={{border:'solid #0E1D3E 1px'}}></div>
 
-      {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 
-                      grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10
+                      grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10
                       text-center lg:text-left">
-        {/* Company */}
-        <div>
+        <div >
           <h3 className="text-lg font-semibold mb-4">Company</h3>
-          <ul className="space-y-2 text-sm sm:text-base">
-            <li>About Us</li>
-            <li>Services</li>
-            <li>Why Us</li>
-            <li>Testimonials</li>
-            <li>Careers</li>
+          <ul className="space-y-2 text-sm sm:text-base cursor-pointer">
+            <li onClick={()=>handleUrl("/about")}>About Us</li>
+            <li onClick={()=>handleUrl('/service?activeTab=Corporate Employee Transportation')}>Services</li>
+            {/* <li>Why Us</li> */}
+            <li  onClick={() => navigate("/", { state: { scrollTo: "testimonial" } })}>Testimonials</li>
+            <li onClick={()=>handleUrl('/join')}>Why Viyagoo</li>
           </ul>
         </div>
 
+
         {/* Product */}
-        <div>
+        {/* <div>
           <h3 className="text-lg font-semibold mb-4">Product</h3>
           <ul className="space-y-2 text-sm sm:text-base">
             <li>Invoicing</li>
@@ -45,10 +52,10 @@ const Footer = () => {
             <li>Accounting</li>
             <li>Proposal</li>
           </ul>
-        </div>
+        </div> */}
 
         {/* Resources */}
-        <div>
+        {/* <div>
           <h3 className="text-lg font-semibold mb-4">Resources</h3>
           <ul className="space-y-2 text-sm sm:text-base">
             <li>Proposal Template</li>
@@ -56,7 +63,7 @@ const Footer = () => {
             <li>Tutorial</li>
             <li>How to Write a Contract</li>
           </ul>
-        </div>
+        </div> */}
 
         {/* Contact Us */}
         <div className="flex flex-col items-center lg:items-start space-y-4">
@@ -75,7 +82,7 @@ const Footer = () => {
         </div>
 
         {/* Social Icons */}
-        <div className="flex justify-center lg:justify-end items-center gap-4 lg:flex-col lg:gap-4 mt-6 lg:mt-0">
+        <div className="flex justify-center lg:justify-end items-center gap-4 md:flex-col lg:gap-4 mt-6 lg:mt-0">
           <a href="#" className="bg-[#1DA1F2] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition">
             <FaTwitter className="text-lg" />
           </a>

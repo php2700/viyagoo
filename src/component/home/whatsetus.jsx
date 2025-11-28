@@ -116,7 +116,7 @@ export const WhatSetsUsApart = () => {
       <div className="relative max-w-7xl mx-auto flex justify-center mt-16">
 
         {/* Main large image */}
-        <div className="w-full md:w-4/5 h-[700px] overflow-hidden relative">
+        <div className="w-full md:w-4/5  overflow-hidden relative">
           <img
             src={mainImage}
             alt="Main Image"
@@ -125,7 +125,7 @@ export const WhatSetsUsApart = () => {
         </div>
 
         {/* Small overlapping image */}
-        {/* <div
+        <div
           className="absolute top-1/2 transform -translate-y-1/2 
           right-0 sm:right-[-4%] md:right-0 
           w-[60%] sm:w-[50%] md:w-[34%] 
@@ -136,9 +136,9 @@ export const WhatSetsUsApart = () => {
             alt="Small Image"
             className="w-full object-cover"
           />
-        </div> */}
+        </div>
         {/* Small overlapping image */}
-        <div
+        {/* <div
           className="absolute top-1/2 transform -translate-y-1/2 
     right-0 sm:right-[-4%] md:right-0 
     w-[400px] h-[320px]              // FIXED SIZE
@@ -149,7 +149,7 @@ export const WhatSetsUsApart = () => {
             alt="Small Image"
             className="w-full h-full object-contain"
           />
-        </div>
+        </div> */}
 
       </div>
     </section>

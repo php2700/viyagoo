@@ -133,11 +133,11 @@ export const Airport = () => {
                 <h3 className="text-2xl md:text-3xl font-bold  mb-8">
                   {chaufferServiceData[1]?.title}
                 </h3>
-                <div className="absolute left-[29px] top-17 bottom-10 border-[#273270] w-[2px] bg-[#273270] " />
+                <div className="absolute left-[29px] top-17 bottom-10 border-[#273270] w-[2px] bg-[#0572E6] " />
                 <div className="space-y-12 lg:space-y-16">
                   {chaufferServiceData[1]?.points?.length >= 1 && (
                     <div className="flex items-start gap-4">
-                      <div className="relative z-10 flex items-center justify-center bg-[#273270] rounded-full flex-shrink-0 p-2 border-[6px] border-white border-solid w-16 h-16">
+                      <div className="relative z-10 flex items-center justify-center bg-[#0572E6] rounded-full flex-shrink-0 p-2 border-[6px] border-white border-solid w-16 h-16">
                         <img
                           src={Hours}
                           alt="24/7"
@@ -152,7 +152,7 @@ export const Airport = () => {
 
                   {chaufferServiceData[1]?.points?.length >= 2 && (
                     <div className="flex items-start gap-4">
-                      <div className="relative z-10 flex items-center justify-center bg-[#273270] rounded-full flex-shrink-0 p-2 border-[6px] border-white border-solid w-16 h-16">
+                      <div className="relative z-10 flex items-center justify-center bg-[#0572E6] rounded-full flex-shrink-0 p-2 border-[6px] border-white border-solid w-16 h-16">
                         <img
                           src={Tracking}
                           alt="Live flight tracking"
@@ -166,7 +166,7 @@ export const Airport = () => {
                   )}
                   {chaufferServiceData[1]?.points?.length >= 3 && (
                     <div className="flex items-start gap-4">
-                      <div className="relative z-10 flex items-center justify-center bg-[#273270] rounded-full flex-shrink-0 p-2 border-[6px] border-white border-solid w-16 h-16">
+                      <div className="relative z-10 flex items-center justify-center bg-[#0572E6] rounded-full flex-shrink-0 p-2 border-[6px] border-white border-solid w-16 h-16">
                         <img
                           src={Group}
                           alt="Meet & Greet"
@@ -180,7 +180,7 @@ export const Airport = () => {
                   )}
                   {chaufferServiceData[1]?.points?.length >= 4 && (
                     <div className="flex items-start gap-4">
-                      <div className="relative z-10 flex items-center justify-center bg-[#273270] rounded-full flex-shrink-0 p-2 border-[6px] border-white border-solid w-16 h-16">
+                      <div className="relative z-10 flex items-center justify-center bg-[#0572E6] rounded-full flex-shrink-0 p-2 border-[6px] border-white border-solid w-16 h-16">
                         <img
                           src={Taxi}
                           alt="Flexible fleet"
@@ -194,7 +194,7 @@ export const Airport = () => {
                   )}
                   {chaufferServiceData[1]?.points?.length >= 5 && (
                     <div className="flex items-start gap-4">
-                      <div className="relative z-10 flex items-center justify-center bg-[#273270] rounded-full flex-shrink-0 p-2 border-[6px] border-white border-solid w-16 h-16">
+                      <div className="relative z-10 flex items-center justify-center bg-[#0572E6] rounded-full flex-shrink-0 p-2 border-[6px] border-white border-solid w-16 h-16">
                         <img
                           src={Network}
                           alt="Integrated mobility"
@@ -248,7 +248,7 @@ export const Airport = () => {
         </div>
 
         <div className="flex justify-center items-center gap-2 mb-12">
-          <div className="w-2 h-2 bg-[#273270] rounded-full"></div>
+          <div className="w-2 h-2 bg-[#0572E6] rounded-full"></div>
           <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
         </div>
 
