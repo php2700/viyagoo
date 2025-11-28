@@ -139,25 +139,7 @@ export const About = () => {
           </p>
         </div>
     
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
 
-  {[
-    "End to End Tech Savvy",
-    "Vehicles (75+)",
-    "Emergency Response Team",
-    "Dedicated 24*7 Support at the Campus",
-    "Immediate Resolution Mechanism",
-    "100% Safety",
-  ].map((title, index) => (
-    <div
-      key={index}
-      className="bg-white shadow-md rounded-2xl p-6 text-center border-t-4 border-[#0572E6]"
-    >
-      <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
-    </div>
-  ))}
-
-</div>
 
  <div className="w-full py-12 px-6 lg:px-16 bg-white">
       

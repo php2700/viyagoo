@@ -81,7 +81,7 @@ const Testimonials = () => {
   // ---------------- Main Render ----------------
 
   return (
-    <section className="w-full max-w-7xl mx-auto py-10 text-center">
+    <section className="w-full max-w-7xl mx-auto py-10 text-center" >
       <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-2 inline-block">
         Testimonials
       </h2>
@@ -100,8 +100,7 @@ const Testimonials = () => {
           <img
             src={leftQuote}
             alt="Left Quote"
-            // className="w-10 md:w-12 mb-2 self-start"
-            className="w-8 h-8 object-cover filter self-start brightness-0 "
+            className="w-8 md:w-10 mb-2 self-start"
 
           />
           <p className="text-base md:text-xl leading-relaxed px-4">
@@ -110,8 +109,7 @@ const Testimonials = () => {
           <img
             src={rightQuote}
             alt="Right Quote"
-            // className="w-10 md:w-12 mt-2 self-end"
-              className="w-8 h-8 mb-4 object-cover filter self-end brightness-0 "
+            className="w-8 md:w-10 mt-2 self-end"
           />
         </div>
 

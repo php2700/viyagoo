@@ -39,11 +39,11 @@ export const Performance = () => {
       title: "Predictability & Convenience",
       desc: "Door-to-Door or Near-Door Service.",
     },
-    {
-      icon: hexaIcon,
-      title: "Inclusivity",
-      desc: "Accessability for All Equality of Opportunity.",
-    },
+    // {
+    //   icon: hexaIcon,
+    //   title: "Inclusivity",
+    //   desc: "Accessability for All Equality of Opportunity.",
+    // },
   ];
 
   const cleanImagePath = (path) => {

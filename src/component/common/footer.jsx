@@ -15,6 +15,9 @@ const Footer = () => {
   const handleUrl=(url)=>{
     navigate(url)
   }
+
+  
+ 
   return (
     <footer
       className="relative bg-cover bg-center "
@@ -23,24 +26,22 @@ const Footer = () => {
           "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80')",
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-white/85 " style={{border:'solid #0E1D3E 1px'}}></div>
 
-      {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 
                       grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10
                       text-center lg:text-left">
-        {/* Company */}
         <div >
           <h3 className="text-lg font-semibold mb-4">Company</h3>
           <ul className="space-y-2 text-sm sm:text-base cursor-pointer">
             <li onClick={()=>handleUrl("/about")}>About Us</li>
             <li onClick={()=>handleUrl('/service?activeTab=Corporate Employee Transportation')}>Services</li>
             {/* <li>Why Us</li> */}
-            <li >Testimonials</li>
+            <li  onClick={() => navigate("/", { state: { scrollTo: "testimonial" } })}>Testimonials</li>
             <li onClick={()=>handleUrl('/join')}>Why Viyagoo</li>
           </ul>
         </div>
+
 
         {/* Product */}
         {/* <div>
