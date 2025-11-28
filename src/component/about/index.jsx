@@ -1,12 +1,40 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import HeroBanner from "../../assets/herobanner.jpg";
 import image1 from "../../assets/forest.png"
 import image2 from "../../assets/hand.png"
 import image3 from "../../assets/energy.png"
 import leftsideImg from "../../assets/serviceimage1.png"
 
-
+const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 
 export const About = () => {
+
+   const [pageContent, setPageContent] = useState({
+    description: "",
+    subDescription: "",
+    visionTitle: "Vision",
+    visionDesc: "",
+    missionTitle: "Mission",
+    missionDesc: "",
+  });
+const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      try {
+        const res = await axios.get(`${API_URL}/api/user/aboutUS`);
+        if (res.data && res.data.data) {
+          setPageContent(res.data.data);
+        }
+      } catch (err) {
+        console.error("Error fetching about content", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchContent();
+  }, []);
     const whyViyagoo=[
     {
       title: "End-to-End Mobility",
@@ -88,56 +116,64 @@ export const About = () => {
         </h1>
 
         {/* Intro Paragraph */}
-        <p className="text-gray-700 text-lg leading-relaxed mb-8 text-center">
-          <strong className="text-[#0572E6]">VIYAGOO</strong> is a new-age Transport and Logistics Consultancy established 
-          with the vision of becoming a trusted leader in corporate mobility and logistics solutions across India. 
-          With deep industry expertise and a strong commitment to innovation, service excellence, and 
-          sustainability, we are redefining the way organizations and individuals experience transportation.
-        </p>
+          <p className="text-gray-700 text-lg leading-relaxed mb-8 text-center whitespace-pre-line">
+            {pageContent.description || (
+              <>
+                <strong className="text-[#0572E6]">VIYAGOO</strong> is a new-age
+                Transport and Logistics Consultancy established with the vision of
+                becoming a trusted leader in corporate mobility and logistics
+                solutions across India. With deep industry expertise and a
+                strong commitment to innovation, service excellence, and
+                sustainability, we are redefining the way organizations and
+                individuals experience transportation.
+              </>
+            )}
+          </p>
 
         {/* Main Content Box */}
-        <div className="bg-white shadow-lg rounded-2xl p-8 sm:p-12 mb-12">
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            At Viyagoo, we offer a comprehensive range of services, including Corporate Employee Transportation powered 
-            by advanced ETMS technology and an eco-friendly EV fleet, Airport Transfers, Executive Chauffeur Services, 
-            and end-to-end Logistics Transport Solutions.
-          </p>
+          <div className="bg-white shadow-lg rounded-2xl p-8 sm:p-12 mb-12">
+            <div className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
+              {pageContent.subDescription || (
+                <>
+                  <p className="mb-4">
+                    At Viyagoo, we offer a comprehensive range of services,
+                    including Corporate Employee Transportation powered by
+                    advanced ETMS technology and an eco-friendly EV fleet,
+                    Airport Transfers, Executive Chauffeur Services, and
+                    end-to-end Logistics Transport Solutions.
+                  </p>
+                  <p className="mb-6">
+                    Our focus on safety, reliability, and customer satisfaction
+                    forms the cornerstone of our operations. Each service is
+                    delivered with precision, backed by a dedicated team that
+                    upholds the highest standards of professionalism and care.
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+           <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
+            <h2 className="text-2xl font-bold  mb-3">
+              {pageContent.visionTitle || "Vision"}
+            </h2>
+            <p className="text-gray-700 text-lg whitespace-pre-line">
+              {pageContent.visionDesc ||
+                "To revolutionize urban and corporate mobility by delivering integrated, reliable, and sustainable transportation solutions that enhance operational efficiency and commuter experience."}
+            </p>
+          </div>
 
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Our focus on safety, reliability, and customer satisfaction forms the cornerstone of our operations. 
-            Each service is delivered with precision, backed by a dedicated team that upholds the highest standards 
-            of professionalism and care.
-          </p>
-
-          <ul className="list-disc pl-6 text-gray-800 text-lg space-y-2">
-            <li>From route planning to real-time monitoring</li>
-            <li>24/7 support, punctuality, and a people-first approach</li>
-          </ul>
-
-          <p className="text-gray-700 text-lg leading-relaxed mt-6">
-            Viyagoo continues to build long-term partnerships through trust, transparency, and seamless mobility 
-            experiences — moving India forward, one ride at a time.
-          </p>
-        </div>
-
-        {/* Vision */}
-        <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
-          <h2 className="text-2xl font-bold  mb-3">Vision</h2>
-          <p className="text-gray-700 text-lg">
-            To revolutionize urban and corporate mobility by delivering integrated, reliable, and sustainable 
-            transportation solutions that enhance operational efficiency and commuter experience.
-          </p>
-        </div>
+     
 
         {/* Mission */}
-        <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
-          <h2 className="text-2xl font-bold  mb-3">Mission</h2>
-          <p className="text-gray-700 text-lg">
-            To provide end-to-end, technology-driven transport solutions focused on safety, punctuality, 
-            and environmental responsibility. Through continuous innovation and service excellence, we aim 
-            to optimize mobility management for corporates and individuals across India.
-          </p>
-        </div>
+            <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
+            <h2 className="text-2xl font-bold  mb-3">
+              {pageContent.missionTitle || "Mission"}
+            </h2>
+            <p className="text-gray-700 text-lg whitespace-pre-line">
+              {pageContent.missionDesc ||
+                "To provide end-to-end, technology-driven transport solutions focused on safety, punctuality, and environmental responsibility. Through continuous innovation and service excellence, we aim to optimize mobility management for corporates and individuals across India."}
+            </p>
+          </div>
     
 
 
