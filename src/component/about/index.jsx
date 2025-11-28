@@ -79,7 +79,7 @@ export const About = () => {
                 className="w-full h-[100vh] object-cover"
               />
             </div>
-    <div className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-10">
+    <div className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -122,7 +122,7 @@ export const About = () => {
 
         {/* Vision */}
         <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
-          <h2 className="text-2xl font-bold  mb-3">Vision Statement</h2>
+          <h2 className="text-2xl font-bold  mb-3">Vision</h2>
           <p className="text-gray-700 text-lg">
             To revolutionize urban and corporate mobility by delivering integrated, reliable, and sustainable 
             transportation solutions that enhance operational efficiency and commuter experience.
@@ -131,7 +131,7 @@ export const About = () => {
 
         {/* Mission */}
         <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
-          <h2 className="text-2xl font-bold  mb-3">Mission Statement</h2>
+          <h2 className="text-2xl font-bold  mb-3">Mission</h2>
           <p className="text-gray-700 text-lg">
             To provide end-to-end, technology-driven transport solutions focused on safety, punctuality, 
             and environmental responsibility. Through continuous innovation and service excellence, we aim 
@@ -141,7 +141,7 @@ export const About = () => {
     
 
 
- <div className="w-full py-12 px-6 lg:px-16 bg-white">
+ <div className="w-full py-12 ">
       
       {/* MAIN CONTAINER */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -156,7 +156,7 @@ export const About = () => {
         </div>
 
         {/* RIGHT BLACK CARD */}
-        <div className="bg-black text-white rounded-xl p-10 shadow-xl">
+        <div className="bg-black text-white rounded-xl p-4 md:p-10 shadow-xl">
 
           {/* ORANGE SMALL HEADING */}
           <p className="text-[#0572E6] font-semibold tracking-wide">

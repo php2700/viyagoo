@@ -1,7 +1,15 @@
 import HeroBanner from "../assets/herobanner.jpg";
 import { Helmet } from "react-helmet-async";
 import Joinim from "../assets/join.png";
+import { useRef } from "react";
 function Join() {
+   const formRef = useRef(null);
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <Helmet>
@@ -36,7 +44,7 @@ function Join() {
 
         {/* ===== Form Section ===== */}
         <div className="max-w-5xl mx-auto mt-10 bg-[#EAF3FF] rounded-[25px] p-10 shadow-sm rounded-tl-[115px] rounded-br-[115px]">
-          <form className="grid grid-cols-1 md:grid-cols-3 gap-8 p-[62px]">
+          <form  ref={formRef}  className="grid grid-cols-1 md:grid-cols-3 gap-8 p-[62px]">
             {/* Name */}
             <div className="flex flex-col">
               <label className=" font-[660] mb-2 text-[18px]">
@@ -66,13 +74,7 @@ function Join() {
               <label className=" font-[660] mb-2 text-[18px]">
                 City
               </label>
-              <select className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white text-[#B7B7B7] font-medium pl-[25px]">
-                <option value="">Enter</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="Bangalore">Bangalore</option>
-              </select>
+              <input type="text" className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white text-[#B7B7B7] font-medium pl-[25px]" placeholder="Enter City"/>
             </div>
 
             {/* Email Id */}
@@ -104,13 +106,8 @@ function Join() {
               <label className=" font-[660] mb-2 text-[18px]">
                 Vehicle Type
               </label>
-              <select className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white  text-[#B7B7B7] font-medium pl-[25px]">
-                <option value="">Enter</option>
-                <option value="Truck">Truck</option>
-                <option value="Van">Van</option>
-                <option value="Car">Car</option>
-                <option value="Bike">Bike</option>
-              </select>
+               <input type="text" className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white text-[#B7B7B7] font-medium pl-[25px]" placeholder="Enter Vehicle Type"/>
+             
             </div>
 
             {/* Additional Info + Submit Button in same row */}
@@ -141,21 +138,20 @@ function Join() {
           </form>
         </div>
 
-        {/* ===== Attach Vehicle Section ===== */}
         <div className="max-w-5xl mx-auto mt-20 flex flex-col md:flex-row items-center gap-10">
           <div className="w-full md:w-1/2">
             <img src={Joinim} alt="truck" className=" w-full object-cover" />
           </div>
 
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h2 className="text-2xl md:text-[46px] font-bold mb-2 md:w-[450px] lg:w-[505px]">
+            <h2 className="text-2xl md:text-[46px] font-extrabold mb-2 md:w-[450px] lg:w-[505px]">
               Got a Vehicle ? and want to work with Routmatic.
             </h2>
             <h2 className="text-[24px] leading-relaxed mb-5 mt-[48px] font-[700] lg:w-[416px] md:w-[400px]">
               We are happy to get in touch with you and collaborate with you
               regarding your vehicle{" "}
             </h2>
-            <button className="bg-[#3F98FF] text-white px-11 py-4 rounded-[19px] font-semibold hover:bg-[#0572E6] transition mx-auto block">
+            <button  onClick={scrollToForm} className="cursor-pointer bg-[#3F98FF] text-white px-11 py-4 rounded-[19px] font-semibold hover:bg-[#0572E6] transition mx-auto block">
               Attach a vehicle
             </button>
           </div>
