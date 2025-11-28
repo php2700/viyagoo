@@ -200,7 +200,7 @@ const scrollRef = useRef(null);
         key={i}
         className="flex items-start gap-3 bg-[#ECF5FF] rounded-xl px-5 py-6 border border-[#C7D2FE] shadow-sm hover:shadow-md transition-shadow duration-300"
       style={{borderRadius:'24px'}}>
-        <div class="flex-shrink-0 w-10 h-10  text-white rounded-full flex items-center border-2 border-[#273270] justify-center overflow-hidden">
+        <div class="flex-shrink-0 w-10 h-10  text-white rounded-full flex items-center border-2 border-[#0572E6] justify-center overflow-hidden">
   <img
     src={item.icon}
     alt={item.title}

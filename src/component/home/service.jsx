@@ -252,7 +252,7 @@ export const OurServices = () => {
                                                 key={index}
                                                 className="bg-white rounded-2xl shadow-md p-4 sm:p-6 flex flex-col items-center justify-center transition-transform hover:-translate-y-1 hover:shadow-lg min-h-[180px] sm:min-h-[200px]"
                                           >
-                                                {/* <img
+                                                <img
                                                       src={`${API_URL}/${service.image
                                                             .replace("public/", "")
                                                             .replace(/^\/+/, "")
@@ -261,22 +261,9 @@ export const OurServices = () => {
                                                       alt={service.title}
 
                                                       className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-2 sm:mb-4    "
-                                                /> */}
+                                                />
 
-{/* i have used this code only for the testing purpose whwenever it for the client purpose althought i will use baove code  */}
-                                                <div
-  className="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-4"
-  style={{
-    WebkitMaskImage: `url(${API_URL}/${service.image.replace("public/", "").replace(/^\/+/, "")})`,
-    WebkitMaskRepeat: "no-repeat",
-    WebkitMaskSize: "contain",
-    maskImage: `url(${API_URL}/${service.image.replace("public/", "").replace(/^\/+/, "")})`,
-    maskRepeat: "no-repeat",
-    maskSize: "contain",
-    backgroundColor: "#0572E6", 
-    display: "inline-block",
-  }}
-></div>
+
 
                                                 <h3 className="text-sm sm:text-lg font-semibold mb-1 sm:mb-2 text-center">
                                                       {service.title}

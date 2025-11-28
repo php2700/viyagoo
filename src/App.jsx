@@ -10,6 +10,8 @@ import Logistic from "./component/services/logistic";
 
 import Service from "./component/service/service";
 import Join from "./component/Join";
+import { About } from "./component/about";
+import { SlideTop } from "./component/common/slideTop";
 
 function App() {
   return (
@@ -33,11 +35,13 @@ function App() {
       </style>
       <BrowserRouter>
         <Header />
+        <SlideTop/>
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/ser" element={<Airport />} /> */}
 
           <Route path="/service" element={<Service />} />
+          <Route path="/about" element={<About/>} />
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/airport" element={<Airport />} />
           <Route path="/join" element={<Join />} />
