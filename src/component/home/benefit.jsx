@@ -109,6 +109,8 @@ export const EmployerBenefits = () => {
       }, []);
 
       return (
+            <>
+
             <section className="w-full bg-white py-16">
                   <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
                         How Employers Benefit?
@@ -143,5 +145,6 @@ export const EmployerBenefits = () => {
                         ))}
                   </div>
             </section>
+                   </>
       );
 };
