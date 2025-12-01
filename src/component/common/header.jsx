@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo1.png";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-export const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);      
+export const Header = ({ scrollToFooter }) => {
+  const { hash } = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -12,16 +13,21 @@ export const Header = () => {
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
 
-
     {
       name: "Services",
       path: "/service",
       dropdown: [
-        { name: "Corporate", path: "/service?activeTab=Corporate Employee Transportation" },
-        { name: "Chauffer", path: "/service?activeTab=Chauffeur-Airport Transfers" },
+        {
+          name: "Corporate",
+          path: "/service?activeTab=Corporate Employee Transportation",
+        },
+        {
+          name: "Chauffer",
+          path: "/service?activeTab=Chauffeur-Airport Transfers",
+        },
         { name: "Logistic", path: "/service?activeTab=Logistics" },
         { name: "Ev Segment", path: "/service?activeTab=EV SEGMENT" },
-      ]
+      ],
     },
 
     { name: "Join VIYAGOO", path: "/join" },
@@ -33,21 +39,30 @@ export const Header = () => {
     setServiceOpen(false);
   };
 
+  const handleNavContact = () => {
+    const footer = document.getElementById("footer");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     // <header className="bg-[#0572E6] w-full shadow-md">
-      // <div className="mx-auto flex items-center justify-between px-8 md:py-4">
- <header className="fixed top-4 left-1/2 transform -translate-x-1/2 
+    // <div className="mx-auto flex items-center justify-between px-8 md:py-4">
+    <header
+      className="fixed top-4 left-1/2 transform -translate-x-1/2 
   max-w-[95%] md:max-w-[90%] w-full 
-  bg-[#0572E6] rounded-2xl  z-[999]"> 
-
-  <div className="mx-auto flex items-center justify-between px-6 md:px-10 py-3 md:py-4">
-
-        <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
+  bg-[#0572E6] rounded-2xl  z-[999]"
+    >
+      <div className="mx-auto flex items-center justify-between px-6 md:px-10 py-3 md:py-4">
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           <img src={logo} alt="logo" className="h-16 w-auto" />
         </div>
 
         <div className="hidden md:flex items-center space-x-10 relative">
-
           {navItems.map((item) => (
             <div key={item.name} className="relative">
               {item.dropdown ? (
@@ -59,7 +74,9 @@ export const Header = () => {
                     {item.name}
                     <ChevronDown
                       size={18}
-                      className={`transition ${serviceOpen ? "rotate-180" : ""}`}
+                      className={`transition ${
+                        serviceOpen ? "rotate-180" : ""
+                      }`}
                     />
                   </div>
 
@@ -89,25 +106,25 @@ export const Header = () => {
           ))}
 
           <button
-            onClick={() => navigate("/")}
+            onClick={handleNavContact}
             className="bg-[#3A8DFF] text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-blue-600 transition"
           >
             Contact Us
           </button>
         </div>
 
-        <button className="text-white md:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          className="text-white md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-
       {isOpen && (
         <div className="md:hidden bg-[#0E1D3E] border-t border-gray-700">
-
           {navItems.map((item) => (
             <div key={item.name} className="border-b border-[#1B2D5E]">
-
               {/* Dropdown for mobile */}
               {item.dropdown ? (
                 <>
@@ -118,7 +135,9 @@ export const Header = () => {
                     {item.name}
                     <ChevronDown
                       size={20}
-                      className={`transition ${serviceOpen ? "rotate-180" : ""}`}
+                      className={`transition ${
+                        serviceOpen ? "rotate-180" : ""
+                      }`}
                     />
                   </div>
 
@@ -149,7 +168,7 @@ export const Header = () => {
 
           <div className="px-4 pb-3">
             <button
-              onClick={() => handleNavClick("/")}
+              onClick={handleNavContact}
               className="bg-[#3A8DFF] text-white text-sm font-semibold px-5 py-2 rounded-full w-full"
             >
               Contact Us

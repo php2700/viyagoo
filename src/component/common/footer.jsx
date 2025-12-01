@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import {
   FaTwitter,
   FaWhatsapp,
@@ -6,10 +6,11 @@ import {
   FaInstagram,
   FaEnvelope,
   FaPhoneAlt,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ()  => {
   const navigate=useNavigate();
 
   const handleUrl=(url)=>{
@@ -20,6 +21,7 @@ const Footer = () => {
  
   return (
     <footer
+ id='footer'
       className="relative bg-cover bg-center "
       style={{
         backgroundImage:
@@ -70,11 +72,15 @@ const Footer = () => {
           <h3 className="text-lg font-semibold">Contact Us</h3>
           <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm sm:text-base">
             <FaEnvelope />
-            <span>support@company.com</span>
+            <span>viyagoo.solutions@gmail.com , ceo@viyagoo.com</span>
           </div>
           <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm sm:text-base">
             <FaPhoneAlt />
-            <span>+91-98765-43210</span>
+            <span>+91-6364185516</span>
+          </div>
+           <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm sm:text-base">
+           <FaMapMarkerAlt className="text-black"  />
+            <span>342, 1st floor, Bettahalasoor, Tarahunase Road, Bettahalasur, Bangalore North - 562157</span>
           </div>
           <button className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition">
             Request

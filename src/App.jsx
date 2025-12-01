@@ -14,6 +14,7 @@ import { About } from "./component/about";
 import { SlideTop } from "./component/common/slideTop";
 
 function App() {
+   
   return (
     <>
       <style>
@@ -34,7 +35,7 @@ function App() {
         `}
       </style>
       <BrowserRouter>
-        <Header />
+        <Header  />
         <SlideTop/>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -46,7 +47,7 @@ function App() {
           <Route path="/airport" element={<Airport />} />
           <Route path="/join" element={<Join />} />
         </Routes>
-        <Footer />
+        <Footer   />
       </BrowserRouter>
     </>
   );
