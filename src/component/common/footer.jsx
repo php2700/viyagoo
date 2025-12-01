@@ -40,7 +40,7 @@ const Footer = ()  => {
             <li onClick={()=>handleUrl('/service?activeTab=Corporate Employee Transportation')}>Services</li>
             {/* <li>Why Us</li> */}
             <li  onClick={() => navigate("/", { state: { scrollTo: "testimonial" } })}>Testimonials</li>
-            <li onClick={()=>handleUrl('/join')}>Why Viyagoo</li>
+            <li onClick={()=>handleUrl('/about#whyViyago')}>Why Viyagoo</li>
           </ul>
         </div>
 
@@ -83,7 +83,7 @@ const Footer = ()  => {
             <span>342, 1st floor, Bettahalasoor, Tarahunase Road, Bettahalasur, Bangalore North - 562157</span>
           </div>
           <button className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition">
-            Request
+            Request Demo
           </button>
         </div>
 

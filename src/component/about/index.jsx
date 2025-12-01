@@ -5,11 +5,21 @@ import image1 from "../../assets/forest.png"
 import image2 from "../../assets/hand.png"
 import image3 from "../../assets/energy.png"
 import leftsideImg from "../../assets/serviceimage1.png"
+import { useLocation } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 
 export const About = () => {
+  const { hash } = useLocation();
 
+   useEffect(() => {
+    if (hash) {
+      const section = document.querySelector(hash); 
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
    const [pageContent, setPageContent] = useState({
     description: "",
     subDescription: "",
@@ -185,7 +195,7 @@ const [loading, setLoading] = useState(true);
         {/* LEFT IMAGE */}
         <div className="w-full h-full">
           <img
-            src={leftsideImg}  // <-- replace with your image
+           src={`${import.meta.env.VITE_APP_URL}${pageContent?.whatSetImage}`} // <-- replace with your image
             alt="Service Banner"
             className="w-full h-full object-cover rounded-xl shadow-md"
           />
@@ -201,8 +211,8 @@ const [loading, setLoading] = useState(true);
 
           {/* MAIN HEADING */}
           <h2 className="text-3xl lg:text-4xl font-bold leading-tight mt-2">
-            Providing Top-Notch Transportation Services
-            <br /> Since 2008
+            {pageContent?.whatSetDescription}
+            
           </h2>
 
           {/* SUBTEXT */}
@@ -217,36 +227,36 @@ const [loading, setLoading] = useState(true);
 
             {/* CARD 1 */}
             <div className="flex items-center gap-4">
-              <img src={image1} alt="" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="" className="w-10 h-10" />
               <div>
-                <h3 className="text-2xl font-bold">(75+)</h3>
+                <h3 className="text-2xl font-bold"> {pageContent?.vehicles}</h3>
                 <p className="text-gray-400 text-sm">Vehicles</p>
               </div>
             </div>
 
             {/* CARD 2 */}
             <div className="flex items-center gap-4">
-              <img src={image2} alt="" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="" className="w-10 h-10" />
               <div>
-                <h3 className="text-2xl font-bold">10,850+</h3>
+                <h3 className="text-2xl font-bold">{pageContent?.tripDailyIcon}</h3>
                 <p className="text-gray-400 text-sm">Trips per day</p>
               </div>
             </div>
 
             {/* CARD 3 */}
             <div className="flex items-center gap-4">
-              <img src={image3} alt="" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.safetyIcon}`} alt="" className="w-10 h-10" />
               <div>
-                <h3 className="text-2xl font-bold">100%</h3>
+                <h3 className="text-2xl font-bold">{pageContent?.sefety}</h3>
                 <p className="text-gray-400 text-sm">Safety</p>
               </div>
             </div>
 
             {/* CARD 4 */}
             <div className="flex items-center gap-4">
-              <img src={image1} alt="" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.tripIcon}`} alt="" className="w-10 h-10" />
               <div>
-                <h3 className="text-2xl font-bold">282100+</h3>
+                <h3 className="text-2xl font-bold">{pageContent?.trips}</h3>
                 <p className="text-gray-400 text-sm">Trips per month</p>
               </div>
             </div>
@@ -256,7 +266,7 @@ const [loading, setLoading] = useState(true);
 
       </div>
     </div>
-<h2 className="text-3xl font-bold  text-center mt-16 mb-6">
+<h2 id='whyViyago' className="text-3xl font-bold  text-center mt-16 mb-6">
   Why VIYAGOO ?
 </h2>
 
