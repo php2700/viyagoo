@@ -293,9 +293,9 @@ export const BookingFormBanner = () => {
 
                     className="w-full rounded-md border border-gray-300 bg-white py-2 px-3 pr-8 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
-                  {field.type === "text" && (
+                  {/* {field.type === "text" && (
                     <IoChevronDown className="absolute right-3 top-3 text-gray-400" />
-                  )}
+                  )} */}
                 </div>
               </div>
             ))}
