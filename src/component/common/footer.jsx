@@ -1,49 +1,91 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import {
-  FaTwitter,
   FaWhatsapp,
-  FaYoutube,
   FaInstagram,
   FaEnvelope,
   FaPhoneAlt,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
-const Footer = ()  => {
-  const navigate=useNavigate();
+const Footer = () => {
+  const navigate = useNavigate();
 
-  const handleUrl=(url)=>{
-    navigate(url)
-  }
+  const handleUrl = (url) => {
+    navigate(url);
+  };
 
-  
- 
+  const handleDemo = () => {
+    navigate("/#demo");
+  };
+
+  const handleX = () => {
+    window.open(
+      `https://x.com/${import.meta.env.VITE_APP_TWITTER_X}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
+  const handleWhatsApp = () => {
+    const phone = `${import.meta.env.VITE_APP_WHATSAPP}`;
+    const message = "Any Query Please Send a Message";
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const handleInsta = () => {
+    window.open(
+      `https://www.instagram.com/${import.meta.env.VITE_APP_INSTA_USER}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
   return (
     <footer
- id='footer'
+      id="footer"
       className="relative bg-cover bg-center "
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80')",
       }}
     >
-      <div className="absolute inset-0 bg-white/85 " style={{border:'solid #0E1D3E 1px'}}></div>
+      <div
+        className="absolute inset-0 bg-white/85 "
+        style={{ border: "solid #0E1D3E 1px" }}
+      ></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 
+      <div
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 
                       grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10
-                      text-center lg:text-left">
-        <div >
+                      text-center lg:text-left"
+      >
+        <div>
           <h3 className="text-lg font-semibold mb-4">Company</h3>
           <ul className="space-y-2 text-sm sm:text-base cursor-pointer">
-            <li onClick={()=>handleUrl("/about")}>About Us</li>
-            <li onClick={()=>handleUrl('/service?activeTab=Corporate Employee Transportation')}>Services</li>
+            <li onClick={() => handleUrl("/about")}>About Us</li>
+            <li
+              onClick={() =>
+                handleUrl(
+                  "/service?activeTab=Corporate Employee Transportation"
+                )
+              }
+            >
+              Services
+            </li>
             {/* <li>Why Us</li> */}
-            <li  onClick={() => navigate("/", { state: { scrollTo: "testimonial" } })}>Testimonials</li>
-            <li onClick={()=>handleUrl('/about#whyViyago')}>Why Viyagoo</li>
+            <li
+              onClick={() =>
+                navigate("/", { state: { scrollTo: "testimonial" } })
+              }
+            >
+              Testimonials
+            </li>
+            <li onClick={() => handleUrl("/about#whyViyago")}>Why Viyagoo</li>
           </ul>
         </div>
-
 
         {/* Product */}
         {/* <div>
@@ -78,29 +120,32 @@ const Footer = ()  => {
             <FaPhoneAlt />
             <span>+91-6364185516</span>
           </div>
-           <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm sm:text-base">
-           <FaMapMarkerAlt className="text-black"  />
-            <span>342, 1st floor, Bettahalasoor, Tarahunase Road, Bettahalasur, Bangalore North - 562157</span>
+          <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm sm:text-base">
+            <FaMapMarkerAlt className="text-black" />
+            <span>
+              342, 1st floor, Bettahalasoor, Tarahunase Road, Bettahalasur,
+              Bangalore North - 562157
+            </span>
           </div>
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition">
+          <button
+            onClick={handleDemo}
+            className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition"
+          >
             Request Demo
           </button>
         </div>
 
         {/* Social Icons */}
         <div className="flex justify-center lg:justify-end items-center gap-4 md:flex-col lg:gap-4 mt-6 lg:mt-0">
-          <a href="#" className="bg-[#1DA1F2] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition">
-            <FaTwitter className="text-lg" />
-          </a>
-          <a href="#" className="bg-[#25D366] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition">
-            <FaWhatsapp className="text-lg" />
-          </a>
-          <a href="#" className="bg-[#FF0000] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition">
-            <FaYoutube className="text-lg" />
-          </a>
-          <a href="#" className="bg-[#E1306C] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition">
-            <FaInstagram className="text-lg" />
-          </a>
+          <div className="bg-[#1DA1F2] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition">
+            <FaXTwitter onClick={handleX} className="text-lg" />
+          </div>
+          <div className="bg-[#25D366] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition">
+            <FaWhatsapp onClick={handleWhatsApp} className="text-lg" />
+          </div>
+          <div className="bg-[#E1306C] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition">
+            <FaInstagram onClick={handleInsta} className="text-lg" />
+          </div>
         </div>
       </div>
 
