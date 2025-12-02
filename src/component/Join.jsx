@@ -184,7 +184,7 @@ const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 function Join() {
   // --- States ---
    const formRef = useRef(null);
-
+const [bannerData,setBannerData]=useState()
   const [loading, setLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   
@@ -215,8 +215,11 @@ function Join() {
     const fetchContent = async () => {
       try {
         // Fix: Added '/' before api
-        const res = await axios.get(`${API_URL}/api/user/driver-page-content`);
+        const [banner,res] = await Promise.all([axios.get(`${API_URL}/api/user/get-viyagoo-banner`),
+           axios.get(`${API_URL}/api/user/driver-page-content`)]);
         if (res.data.data) {
+      console.log(banner?.data?.data,'ssss')
+          setBannerData(banner?.data?.data)
           setPageContent(res.data.data);
         }
       } catch (err) {
@@ -272,7 +275,7 @@ function Join() {
   }
 
 
-
+console.log( bannerData?.image)
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({
       behavior: "smooth",
@@ -300,10 +303,9 @@ function Join() {
   </div>
 )}
       <section className="w-full min-h-screen bg-white ">
-        {/* HERO SECTION */}
         <div className="relative w-full">
           <img
-            src={HeroBanner}
+            src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
             alt="Banner"
             className="w-full h-[100vh] object-cover"
           />

@@ -7,12 +7,13 @@ import Corporate from "../../component/service/corporate_employee";
 import Logistics from "../../component/service/Logistic";
 import EVSegment from "../../component/service/Evsegment";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 export const Service = () => {
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const currentTab = params.get("activeTab");
-  
+
   const [activeTab, setActiveTab] = useState(
     currentTab || "Corporate Employee Transportation"
   );
@@ -28,6 +29,30 @@ export const Service = () => {
     "EV SEGMENT",
   ];
 
+  const [bannerData, setBannerData] = useState();
+  const [error, setError] = useState();
+
+  const getBannerData = async () => {
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_APP_URL}api/user/get-service-banner`
+      );
+      if (res?.data) {
+        setBannerData(res?.data?.data);
+      }
+    } catch (error) {
+      setError(
+        error?.response?.data?.message ||
+          error?.message ||
+          "something went wrong"
+      );
+    }
+  };
+
+  useEffect(() => {
+    getBannerData();
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -37,7 +62,7 @@ export const Service = () => {
         {/* HERO SECTION */}
         <div className="relative w-full">
           <img
-            src={HeroBanner}
+            src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
             alt="Banner"
             className="w-full h-[100vh] object-cover"
           />

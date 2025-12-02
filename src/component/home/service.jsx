@@ -221,6 +221,7 @@
 
 import { useState, useEffect } from "react";
 import bgImage from "../../assets/natural.jpg";
+import axios from "axios";
 
 export const OurServices = () => {
       const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
@@ -235,6 +236,31 @@ export const OurServices = () => {
                   .catch((err) => console.error("Error fetching:", err));
       }, []);
 
+
+    const [bgData, setBgData] = useState();
+  const [error, setError] = useState();
+
+  const getData = async () => {
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_APP_URL}api/user/home-bg-banner`
+      );
+      if (res?.data) {
+        setBgData(res?.data?.data);
+      }
+    } catch (error) {
+      setError(
+        error?.response?.data?.message ||
+          error?.message ||
+          "something went wrong"
+      );
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
       return (
             <>
                   <h2 className="text-3xl md:text-4xl text-center font-bold mb-12">
@@ -243,7 +269,7 @@ export const OurServices = () => {
 
                   <section
                         className="relative w-full min-h-[80vh] h-full bg-cover bg-center bg-no-repeat flex justify-center items-center px-4 sm:px-6"
-                        style={{ backgroundImage: `url(${bgImage})` }}
+                        style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${bgData?.banner})` }}
                   >
                         <div className="relative z-10 w-full max-w-7xl">
                               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 my-2 gap-6 justify-items-center">

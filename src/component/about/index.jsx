@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 
 export const About = () => {
+  const [bannerData,setBanner]=useState()
   const { hash } = useLocation();
 
    useEffect(() => {
@@ -33,8 +34,10 @@ const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const res = await axios.get(`${API_URL}/api/user/aboutUS`);
+        const [banner,res] = await Promise.all([ axios.get(`${API_URL}/api/user/get-about-banner`),
+           axios.get(`${API_URL}/api/user/aboutUS`)]);
         if (res.data && res.data.data) {
+          setBanner(banner?.data?.data)
           setPageContent(res.data.data);
         }
       } catch (err) {
@@ -112,7 +115,7 @@ const [loading, setLoading] = useState(true);
             {/* HERO SECTION */}
             <div className="relative w-full">
               <img
-                src={HeroBanner}
+                src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
                 alt="Banner"
                 className="w-full h-[100vh] object-cover"
               />

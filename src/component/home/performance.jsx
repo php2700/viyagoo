@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import stress from "../../assets/sad.png";
 import watch from "../../assets/watch.png";
 import costIcon from "../../assets/cash.png";
@@ -6,6 +6,7 @@ import lock from "../../assets/lock.png";
 import happyIcon from "../../assets/happy.png";
 import hexaIcon from "../../assets/hexa.png";
 import timer from "../../assets/timer.png";
+import axios from "axios";
 
 export const Performance = () => {
   const benefits = [
@@ -45,11 +46,22 @@ export const Performance = () => {
     //   desc: "Accessability for All Equality of Opportunity.",
     // },
   ];
+const [securityData,setSecurityData]=useState()
 
-  const cleanImagePath = (path) => {
-    if (!path) return "";
-    return `${API_URL}/${path.replace(/^public\//, "").replace(/^\/+/, "")}`;
-  };
+      const getSecurity = async () => {
+            try {
+                  const res = await axios.get(`${import.meta.env.VITE_APP_URL}api/user/get-security`);
+                  if (res.data?.data) {
+                        setSecurityData(res.data.data);
+                  }
+            } catch (err) {
+                  console.log("Benefit Fetch Error:", err);
+            }
+      };
+
+      useEffect(() => {
+            getSecurity();
+      }, []);
 
   return (
     <section className="w-full bg-white py-16">
@@ -77,7 +89,7 @@ export const Performance = () => {
         ))}
       </div> */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6 justify-items-center">
-        {benefits.map((item, index) => (
+        {securityData?.map((item, index) => (
           <div
             key={index}
             className="w-full max-w-[320px] mb-8 rounded-2xl shadow-gray-600 shadow-md border-2 border-[#0572E6] rounded-[60px] flex flex-col relative"
@@ -85,7 +97,7 @@ export const Performance = () => {
             <div className="bg-[#0572E6] text-white pt-10 pb-4 flex flex-col items-center justify-center rounded-[60px] relative">
               <div className="absolute -top-10 border-2 border-[#0572E6] bg-white rounded-full w-20 h-20 flex items-center justify-center shadow-[4px_0_5px_rgba(39,50,112,0.5)]">
                 <img
-                  src={item.icon}
+                  src={`${import.meta.env.VITE_APP_URL}${item?.image}`}
                   alt={item.title}
                   className="w-10 h-10 object-contain"
                 />
@@ -95,7 +107,7 @@ export const Performance = () => {
             </div>
 
             <div className="py-10 px-6 rounded-b-2xl">
-              <p className="text-lg leading-relaxed">{item.desc}</p>
+              <p className="text-lg leading-relaxed">{item.description}</p>
             </div>
           </div>
         ))}
