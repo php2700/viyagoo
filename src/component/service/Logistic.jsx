@@ -43,7 +43,6 @@ import Airoplan from "../../assets/airoplan.png";
 import Airoplanroad from "../../assets/airoplanroad.png";
 import axios from "axios";
 export const Logistics = () => {
-
   const [openDropdown, setOpenDropdown] = useState(null);
   const [logisticData, setLogisticata] = useState();
   const [error, setError] = useState();
@@ -54,9 +53,11 @@ export const Logistics = () => {
 
   const getLogisticData = async () => {
     try {
-      const res=await axios.get(`${import.meta.env.VITE_APP_URL}api/user/logistic`);
-      if(res?.data){
-        setLogisticata(res?.data?.data)
+      const res = await axios.get(
+        `${import.meta.env.VITE_APP_URL}api/user/logistic`
+      );
+      if (res?.data) {
+        setLogisticata(res?.data?.data);
       }
     } catch (error) {
       setError(
@@ -74,13 +75,10 @@ export const Logistics = () => {
   return (
     <section className="w-full min-h-screen bg-white">
       {/* CONTENT */}
-      <div className="max-w-[86rem] mx-auto px-6">
+      <div className="max-w-[86rem] mx-auto">
         {/* Intro Section */}
         <div className=" mb-12">
-          <p className="  text-[19px]">
-            {logisticData?.description}
-            
-          </p>
+          <p className="p-6  text-[19px]">{logisticData?.description}</p>
           <div className="w-full min-h-screen bg-white px-6 py-12 flex flex-col items-center">
             <h1 className="text-2xl md:text-3xl font-bold text-center  mb-10">
               Core Logistics Services (Visually appealing cards)
@@ -92,16 +90,14 @@ export const Logistics = () => {
                   key={index}
                   className="bg-[#ECF5FF] p-8 rounded-tr-[92px] rounded-bl-[92px] shadow-[3px_7px_4px_#c7c1c1]  border border-gray-200 hover:shadow-lg transition-all duration-300"
                 >
-                  <h2 className="text-xl font-semibold  mb-3">
-                    {card.title}
-                  </h2>
+                  <h2 className="text-xl font-semibold  mb-3">{card.title}</h2>
                   <p className=" leading-relaxed text-sm md:text-base">
                     {card.description}
                   </p>
                 </div>
               ))}
             </div>
-            <div className="w-full bg-white px-6 py-2 flex flex-col items-center mt-16">
+            <div className="w-full bg-white  py-2 flex flex-col items-center mt-16">
               {/* Heading */}
               <h1 className="text-2xl md:text-3xl font-semibold  mb-12 text-center">
                 Why VIYAGOO?
@@ -110,31 +106,26 @@ export const Logistics = () => {
               {/* Section 1 */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-[86rem] w-full items-center">
                 {/* Left Text */}
-                <div className="text-right space-y-6">
+                <div className="text-left md:text-right space-y-6">
                   <div>
                     <h3 className="text-[22px] font-semibold  lg:-mt-[100px] md:-mt-[80px]">
                       {logisticData?.whyViyagoo?.length &&
-                      logisticData?.whyViyagoo[0]?.title
-                      }
+                        logisticData?.whyViyagoo[0]?.title}
                     </h3>
                     <p className=" text-sm ">
-                       {logisticData?.whyViyagoo?.length &&
-                      logisticData?.whyViyagoo[0]?.description
-                      }
+                      {logisticData?.whyViyagoo?.length &&
+                        logisticData?.whyViyagoo[0]?.description}
                     </p>
                   </div>
 
                   <div>
                     <h3 className="text-lg font-semibold  lg:mt-[80px] md:mt-[50px]">
-                      {(logisticData?.whyViyagoo?.length >=2) &&
-                      logisticData?.whyViyagoo[1]?.title
-                      }
-         
+                      {logisticData?.whyViyagoo?.length >= 2 &&
+                        logisticData?.whyViyagoo[1]?.title}
                     </h3>
                     <p className=" text-sm">
-                      {(logisticData?.whyViyagoo?.length>=2) &&
-                      logisticData?.whyViyagoo[1]?.description
-                      }
+                      {logisticData?.whyViyagoo?.length >= 2 &&
+                        logisticData?.whyViyagoo[1]?.description}
                     </p>
                   </div>
                 </div>
@@ -142,7 +133,9 @@ export const Logistics = () => {
                 {/* Center Image */}
                 <div className="flex justify-center">
                   <img
-                    src={`${import.meta.env.VITE_APP_URL}${logisticData?.whyViyagooImage}`}
+                    src={`${import.meta.env.VITE_APP_URL}${
+                      logisticData?.whyViyagooImage
+                    }`}
                     alt="Airplane"
                     className="w-[356px] h-[425px] object-cover"
                   />
@@ -152,40 +145,34 @@ export const Logistics = () => {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-lg font-semibold ">
-                      {(logisticData?.whyViyagoo?.length >=3) &&
-                      logisticData?.whyViyagoo[2]?.title
-                      }
+                      {logisticData?.whyViyagoo?.length >= 3 &&
+                        logisticData?.whyViyagoo[2]?.title}
                     </h3>
                     <p className=" text-sm">
-                     {(logisticData?.whyViyagoo?.length >=3) &&
-                      logisticData?.whyViyagoo[2]?.description
-                      }
+                      {logisticData?.whyViyagoo?.length >= 3 &&
+                        logisticData?.whyViyagoo[2]?.description}
                     </p>
                   </div>
 
                   <div className="lg:mt-[84px] md:mt-[50px]">
                     <h3 className="text-lg font-semibold ">
-                      {(logisticData?.whyViyagoo?.length >=4) &&
-                      logisticData?.whyViyagoo[3]?.title
-                      }
+                      {logisticData?.whyViyagoo?.length >= 4 &&
+                        logisticData?.whyViyagoo[3]?.title}
                     </h3>
                     <p className=" text-sm">
-                      {(logisticData?.whyViyagoo?.length >=4) &&
-                      logisticData?.whyViyagoo[3]?.description
-                      }
+                      {logisticData?.whyViyagoo?.length >= 4 &&
+                        logisticData?.whyViyagoo[3]?.description}
                     </p>
                   </div>
 
                   <div className="lg:mt-[56px] md:mt-[40px]">
                     <h3 className="text-lg font-semibold ">
-                       {(logisticData?.whyViyagoo?.length >=5) &&
-                      logisticData?.whyViyagoo[4]?.title
-                      }
+                      {logisticData?.whyViyagoo?.length >= 5 &&
+                        logisticData?.whyViyagoo[4]?.title}
                     </h3>
                     <p className=" text-sm">
-                       {(logisticData?.whyViyagoo?.length >=5) &&
-                      logisticData?.whyViyagoo[4]?.description
-                      }
+                      {logisticData?.whyViyagoo?.length >= 5 &&
+                        logisticData?.whyViyagoo[4]?.description}
                     </p>
                   </div>
                 </div>
@@ -200,7 +187,9 @@ export const Logistics = () => {
                 {/* Image */}
                 <div className="flex justify-center">
                   <img
-                    src={`${import.meta.env.VITE_APP_URL}${logisticData?.ourProcessImage}`}
+                    src={`${import.meta.env.VITE_APP_URL}${
+                      logisticData?.ourProcessImage
+                    }`}
                     alt="Process"
                     className="w-[385px] h-[568px] object-cover "
                   />
@@ -209,30 +198,22 @@ export const Logistics = () => {
                 {/* Steps */}
                 <div className="space-y-10 lg:-mt-[92px] md:-mt-[60px]">
                   {/* Step 1 */}
-                  {logisticData?.ourProcessTitle?.map((ele,index)=>(
-
-                
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="w-12 h-12 bg-[#18A7B9] rounded-tl-[1px] rounded-bl-[26px] rounded-tr-[26px] rounded-br-[1px]
+                  {logisticData?.ourProcessTitle?.map((ele, index) => (
+                    <div className="flex items-center gap-4">
+                      <div
+                        className="w-12 h-12 bg-[#18A7B9] rounded-tl-[1px] rounded-bl-[26px] rounded-tr-[26px] rounded-br-[1px]
  flex justify-center items-center shadow-md"
-                    ></div>
-                    <div className="w-12 h-12 flex justify-center items-center">
-                      <span className=" text-xl font-bold text-[38px] -mt-12 mr-[88px]">
-                        {index+1}
-                      </span>
+                      ></div>
+                      <div className="w-12 h-12 flex justify-center items-center">
+                        <span className=" text-xl font-bold text-[38px] -mt-12 mr-[88px]">
+                          {index + 1}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-semibold  relative right-[38px] top-[-8px] text-[25px]">
+                        {ele}
+                      </h3>
                     </div>
-                    <h3 className="text-xl font-semibold  relative right-[38px] top-[-8px] text-[25px]">
-                      
-                      {ele}
-                    </h3>
-                  </div>
-  ))}
-                  
-
-                
-                
-
+                  ))}
                 </div>
               </div>
             </div>

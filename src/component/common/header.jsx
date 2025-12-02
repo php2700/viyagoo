@@ -62,7 +62,7 @@ export const Header = ({ scrollToFooter }) => {
           <img src={logo} alt="logo" className="h-16 w-auto" />
         </div>
 
-        <div className="hidden md:flex items-center space-x-10 relative">
+        <div className="hidden lg:flex items-center space-x-10 relative">
           {navItems.map((item) => (
             <div key={item.name} className="relative">
               {item.dropdown ? (
@@ -114,7 +114,7 @@ export const Header = ({ scrollToFooter }) => {
         </div>
 
         <button
-          className="text-white md:hidden"
+          className="text-white lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={26} /> : <Menu size={26} />}
@@ -122,7 +122,7 @@ export const Header = ({ scrollToFooter }) => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-[#0E1D3E] border-t border-gray-700">
+        <div className="lg:hidden bg-[#0E1D3E] border-t border-gray-700">
           {navItems.map((item) => (
             <div key={item.name} className="border-b border-[#1B2D5E]">
               {/* Dropdown for mobile */}

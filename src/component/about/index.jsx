@@ -189,10 +189,8 @@ const [loading, setLoading] = useState(true);
 
  <div className="w-full py-12 ">
       
-      {/* MAIN CONTAINER */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
-        {/* LEFT IMAGE */}
         <div className="w-full h-full">
           <img
            src={`${import.meta.env.VITE_APP_URL}${pageContent?.whatSetImage}`} // <-- replace with your image
@@ -201,31 +199,25 @@ const [loading, setLoading] = useState(true);
           />
         </div>
 
-        {/* RIGHT BLACK CARD */}
         <div className="bg-black text-white rounded-xl p-4 md:p-10 shadow-xl">
 
-          {/* ORANGE SMALL HEADING */}
           <p className="text-[#0572E6] font-semibold tracking-wide">
             What Sets Us Apart
           </p>
 
-          {/* MAIN HEADING */}
           <h2 className="text-3xl lg:text-4xl font-bold leading-tight mt-2">
             {pageContent?.whatSetDescription}
             
           </h2>
 
-          {/* SUBTEXT */}
           <p className="text-gray-300 mt-4 leading-relaxed">
             We are your trusted partner in seamless journeys. You deserve safety,
             reliability, and peace of mind for your commute. Choose us to experience
             travel at its best.
           </p>
 
-          {/* STATS GRID (LIKE SCREENSHOT) */}
-          <div className="grid grid-cols-2 gap-6 mt-8">
+          <div className="grid grid-cols-1 justify-center p-4 md:grid-cols-2 gap-6 mt-8">
 
-            {/* CARD 1 */}
             <div className="flex items-center gap-4">
               <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="" className="w-10 h-10" />
               <div>
@@ -234,16 +226,14 @@ const [loading, setLoading] = useState(true);
               </div>
             </div>
 
-            {/* CARD 2 */}
             <div className="flex items-center gap-4">
               <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="" className="w-10 h-10" />
               <div>
-                <h3 className="text-2xl font-bold">{pageContent?.tripDailyIcon}</h3>
-                <p className="text-gray-400 text-sm">Trips per day</p>
+                <h3 className="text-2xl font-bold">{pageContent?.dailyTrip}</h3>
+                <p className="text-gray-400 text-sm break-words">Trips per day</p>
               </div>
             </div>
 
-            {/* CARD 3 */}
             <div className="flex items-center gap-4">
               <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.safetyIcon}`} alt="" className="w-10 h-10" />
               <div>
@@ -252,7 +242,6 @@ const [loading, setLoading] = useState(true);
               </div>
             </div>
 
-            {/* CARD 4 */}
             <div className="flex items-center gap-4">
               <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.tripIcon}`} alt="" className="w-10 h-10" />
               <div>

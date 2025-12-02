@@ -310,7 +310,7 @@ function Join() {
         </div>
 
         {/* --- DYNAMIC TOP SECTION --- */}
-        <div className="max-w-5xl mx-auto mt-[28px]">
+        <div className="max-w-5xl mx-auto mt-[28px] p-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             {pageContent.topTitle || "Drive the Future with Viyagoo"}
           </h1>
@@ -451,7 +451,7 @@ function Join() {
           </form>
         </div>
 
-        <div className="max-w-5xl mx-auto mt-20 flex flex-col md:flex-row items-center gap-10">
+        <div className="max-w-5xl mx-auto p-2 mt-20 flex flex-col md:flex-row items-center gap-10">
           <div className="w-full md:w-1/2">
             <img 
               src={bottomImageUrl} 
@@ -477,7 +477,7 @@ function Join() {
         <h3 className="text-3xl md:text-4xl font-bold my-4 text-center">
           Benefits for you
         </h3>
-        <div class="flex justify-center my-10">
+        <div class="flex justify-center p-2 my-10">
   <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
 
     <li class="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-[#0572E6] rounded-2xl p-6 text-center">

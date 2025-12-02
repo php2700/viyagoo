@@ -118,11 +118,11 @@ const Footer = () => {
             <span>viyagoo.solutions@gmail.com , ceo@viyagoo.com</span>
           </div>
           <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm sm:text-base">
-            <FaPhoneAlt />
+            <FaPhoneAlt   />
             <span>+91-6364185516</span>
           </div>
-          <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm sm:text-base">
-            <FaMapMarkerAlt className="text-black" />
+          <div className="flex  justify-center lg:justify-start space-x-2 text-sm sm:text-base">
+            <FaMapMarkerAlt className="text-black h-6 w-6" />
             <span>
               342, 1st floor, Bettahalasoor, Tarahunase Road, Bettahalasur,
               Bangalore North - 562157
