@@ -5,6 +5,7 @@ import {
   FaEnvelope,
   FaPhoneAlt,
   FaMapMarkerAlt,
+  FaYoutube,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
@@ -146,6 +147,11 @@ const Footer = () => {
           <div className="bg-[#E1306C] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition">
             <FaInstagram onClick={handleInsta} className="text-lg" />
           </div>
+            <div
+    className="bg-[#FF0000] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition cursor-pointer"
+  >
+    <FaYoutube className="text-lg" />
+  </div>
         </div>
       </div>
 
