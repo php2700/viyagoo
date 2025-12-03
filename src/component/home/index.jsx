@@ -33,7 +33,8 @@ export const Home = () => {
         section.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }, [hash]);
+  }, [hash]);  
+
 
   useEffect(() => {
     if (location.state?.scrollTo === "testimonial") {

@@ -42,7 +42,7 @@ export const OurServices = () => {
   return (
     <>
       <h2 className="text-3xl md:text-4xl text-center font-bold mb-12">
-        Our Services
+        {bgData?.heading}
       </h2>
 
       <section

@@ -38,7 +38,7 @@
 //                                     {/* Text Overlay */}
 //                                     <div
 //                                           className="
-//                 absolute top-0 left-0 w-full h-full flex flex-col justify-center 
+//                 absolute top-0 left-0 w-full h-full flex flex-col justify-center
 //                 p-4 sm:p-6 md:pl-[180px] md:pr-10 text-[#0E1D3E] text-left
 //               "
 //                                     >
@@ -62,7 +62,6 @@
 //       );
 // };
 
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import truckImage from "../../assets/truck.png";
@@ -72,6 +71,7 @@ const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 
 export const AboutUs = () => {
   const [aboutData, setAboutData] = useState({
+    heading: "",
     title: "",
     description: "",
     image: "",
@@ -80,13 +80,20 @@ export const AboutUs = () => {
   const fetchAbout = async () => {
     try {
       const res = await axios.get(`${API_URL}/api/user/get-about`);
+      console.log(res?.data);
       if (res.data?.data) {
         setAboutData({
-          title: res.data.data.title || "We Are Experts <br /> in Building Dreams",
-          description: res.data.data.description || "Construction is a general term meaning the art and science to form objects, systems, or organizations, and comes from Latin constructio and Old French construction.",
-         image: res.data.data.image
-  ? `${API_URL}/${res.data.data.image.replace(/^public\//, "").replace(/^\/+/, "")}`
-  : truckImage,
+          heading: res?.data?.data?.heading || "About Us",
+          title:
+            res.data.data.title || "We Are Experts <br /> in Building Dreams",
+          description:
+            res.data.data.description ||
+            "Construction is a general term meaning the art and science to form objects, systems, or organizations, and comes from Latin constructio and Old French construction.",
+          image: res.data.data.image
+            ? `${API_URL}/${res.data.data.image
+                .replace(/^public\//, "")
+                .replace(/^\/+/, "")}`
+            : truckImage,
         });
       }
     } catch (err) {
@@ -101,7 +108,7 @@ export const AboutUs = () => {
   return (
     <section className="w-full max-w-7xl mx-auto py-16 bg-white text-center mt-80 md:mt-40 overflow-visible">
       <h2 className=" text-2xl md:text-3xl font-bold mb-10">
-        About Us
+        {aboutData?.heading}
       </h2>
 
       {/* <div className="relative flex flex-col md:flex-row items-center min-h-[480px] md:min-h-[520px] p-4 md:p-10 overflow-visible">
@@ -145,39 +152,34 @@ export const AboutUs = () => {
       </div> */}
 
       <div className="relative grid grid-cols-1 lg:grid-cols-2 items-center min-h-[480px] md:min-h-[520px] p-4 md:p-10 gap-8">
+        <div className="w-full flex justify-center relative z-30">
+          <img
+            src={aboutData.image}
+            alt="About"
+            className="max-w-[90%] md:max-w-[80%] h-auto md:h-[450px] object-contain"
+          />
+        </div>
 
-  <div className="w-full flex justify-center relative z-30">
-    <img
-      src={aboutData.image}
-      alt="About"
-      className="max-w-[90%] md:max-w-[80%] h-auto md:h-[450px] object-contain"
-    />
-  </div>
-
-  <div className="w-full flex items-center">
-    <div
-      className="
+        <div className="w-full flex items-center">
+          <div
+            className="
         w-full h-full 
         flex flex-col justify-center 
         p-6 md:pl-16 md:pr-10 
         text-left 
         bg-[#ECF5FF] border border-gray-400 rounded-xl
       "
-    >
-      <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold mb-3 leading-snug">
-        <span dangerouslySetInnerHTML={{ __html: aboutData.title }} />
-      </h3>
+          >
+            <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold mb-3 leading-snug">
+              <span dangerouslySetInnerHTML={{ __html: aboutData.title }} />
+            </h3>
 
-      <p className="text-xs sm:text-sm break-words md:text-base leading-relaxed md:pr-12">
-        {aboutData.description}
-      </p>
-    </div>
-  </div>
-
-</div>
-
+            <p className="text-xs sm:text-sm break-words md:text-base leading-relaxed md:pr-12">
+              {aboutData.description}
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
-
-
