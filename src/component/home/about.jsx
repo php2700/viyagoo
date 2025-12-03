@@ -168,7 +168,7 @@ export const AboutUs = () => {
         <span dangerouslySetInnerHTML={{ __html: aboutData.title }} />
       </h3>
 
-      <p className="text-xs sm:text-sm md:text-base leading-relaxed md:pr-12">
+      <p className="text-xs sm:text-sm break-words md:text-base leading-relaxed md:pr-12">
         {aboutData.description}
       </p>
     </div>

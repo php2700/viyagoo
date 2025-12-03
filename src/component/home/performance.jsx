@@ -9,59 +9,24 @@ import timer from "../../assets/timer.png";
 import axios from "axios";
 
 export const Performance = () => {
-  const benefits = [
-    {
-      icon: stress,
-      title: "Stress Free Commute",
-      desc: "Reduced Mental Load, Relaxed Star",
-    },
-    {
-      icon: watch,
-      title: "Time Savings",
-      desc: "Maximized Personal Time,Productive Commute",
-    },
-    {
-      icon: costIcon,
-      title: "Cost Savings",
-      desc: "Eliminated Expenses,Increased Disposable Income.",
-    },
-    {
-      icon: lock,
-      title: "Safety & Security",
-      desc: "Protected Travel.",
-    },
-    {
-      icon: happyIcon,
-      title: "Improved Wellbeing",
-      desc: "Better Work Life Balance.",
-    },
-    {
-      icon: timer,
-      title: "Predictability & Convenience",
-      desc: "Door-to-Door or Near-Door Service.",
-    },
-    // {
-    //   icon: hexaIcon,
-    //   title: "Inclusivity",
-    //   desc: "Accessability for All Equality of Opportunity.",
-    // },
-  ];
-const [securityData,setSecurityData]=useState()
+  const [securityData, setSecurityData] = useState();
 
-      const getSecurity = async () => {
-            try {
-                  const res = await axios.get(`${import.meta.env.VITE_APP_URL}api/user/get-security`);
-                  if (res.data?.data) {
-                        setSecurityData(res.data.data);
-                  }
-            } catch (err) {
-                  console.log("Benefit Fetch Error:", err);
-            }
-      };
+  const getSecurity = async () => {
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_APP_URL}api/user/get-security`
+      );
+      if (res.data?.data) {
+        setSecurityData(res.data.data);
+      }
+    } catch (err) {
+      console.log("Benefit Fetch Error:", err);
+    }
+  };
 
-      useEffect(() => {
-            getSecurity();
-      }, []);
+  useEffect(() => {
+    getSecurity();
+  }, []);
 
   return (
     <section className="w-full bg-white py-16">
@@ -103,11 +68,20 @@ const [securityData,setSecurityData]=useState()
                 />
               </div>
 
-              <h3 className="text-2xl text-center px-6">{item.title}</h3>
+              <h3 className="text-2xl text-center px-6">
+                {item.title.length > 50
+                  ? item.title.slice(0, 50) + "..."
+                  : item.title}
+              </h3>
             </div>
 
             <div className="py-10 px-6 rounded-b-2xl">
-              <p className="text-lg leading-relaxed">{item.description}</p>
+              <p className="text-lg leading-relaxed">
+                {" "}
+                {item.description.length > 80
+                  ? item.description.slice(0, 80) + "..."
+                  : item.description}
+              </p>
             </div>
           </div>
         ))}
