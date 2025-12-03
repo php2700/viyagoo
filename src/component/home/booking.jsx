@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { IoChevronDown } from "react-icons/io5";
 import axios from "axios";
 
@@ -6,12 +6,14 @@ import axios from "axios";
 const API_URL = import.meta.env.VITE_APP_URL;
 
 export const BookingFormBanner = () => {
+  const pickupDateRef = useRef(null);
+
   // =============== Banner State ===============
   const [banner, setBanner] = useState({
     video: "",
     status: false,
-    image:'',
-    type:''
+    image: "",
+    type: "",
   });
 
   useEffect(() => {
@@ -22,8 +24,8 @@ export const BookingFormBanner = () => {
         console.log("VIDEO PATH:", data?.data?.video);
 
         setBanner({
-          image:data?.data?.image,
-          type:data?.data?.type,
+          image: data?.data?.image,
+          type: data?.data?.type,
           video: data?.data?.video || "",
           status: data?.data?.status || false,
         });
@@ -35,7 +37,6 @@ export const BookingFormBanner = () => {
   const videoUrl = banner.video
     ? `${API_URL}${banner.video.replace("public/", "")}`
     : "";
-
 
   // =============== Booking Form States ===============
   const [tripType, setTripType] = useState("Airport");
@@ -60,7 +61,6 @@ export const BookingFormBanner = () => {
       ...prevData,
 
       [name]: value,
-
     }));
   };
 
@@ -112,26 +112,39 @@ export const BookingFormBanner = () => {
     return `${year}-${month}-${day}T${hours}:${minutes}`;
   };
 
-
   // =============== Form Field List ===============
   const formFields = [
     { label: "Name", name: "name", type: "text", placeholder: "Enter name" },
-    { label: "From", name: "from", type: "text", placeholder: "Enter pickup location" },
+    {
+      label: "From",
+      name: "from",
+      type: "text",
+      placeholder: "Enter pickup location",
+    },
     { label: "To", name: "to", type: "text", placeholder: "Enter destination" },
     { label: "Pickup Date & Time", name: "pickupDate", type: "datetime-local" },
-    { label: "Seats", name: "seats", type: "number", placeholder: "Enter number of seats" },
-    { label: "Vehicle Type", name: "vehicleType", type: "text", placeholder: "e.g., Sedan, SUV" },
+    {
+      label: "Seats",
+      name: "seats",
+      type: "number",
+      placeholder: "Enter number of seats",
+    },
+    {
+      label: "Vehicle Type",
+      name: "vehicleType",
+      type: "text",
+      placeholder: "e.g., Sedan, SUV",
+    },
   ];
 
   return (
     <section className="relative w-full">
-
-      {banner?.type=='image' ?  (
+      {banner?.type == "image" ? (
         <img
           src={`${import.meta.env.VITE_APP_URL}${banner?.image}`}
           className="w-full h-[100vh] object-cover"
         />
-      ) :  (
+      ) : (
         <video
           src={`${import.meta.env.VITE_APP_URL}${banner?.video}`}
           autoPlay
@@ -148,7 +161,10 @@ export const BookingFormBanner = () => {
           {/* Trip Type Buttons */}
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6">
             {["Airport", "Local", "Outstation"].map((type) => (
-              <label key={type} className="flex items-center gap-2 font-medium cursor-pointer">
+              <label
+                key={type}
+                className="flex items-center gap-2 font-medium cursor-pointer"
+              >
                 <input
                   type="radio"
                   name="tripType"
@@ -164,7 +180,7 @@ export const BookingFormBanner = () => {
 
           {/* Form */}
           <form
-          id='demo'
+            id="demo"
             onSubmit={handleSubmit}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto"
           >
@@ -173,21 +189,28 @@ export const BookingFormBanner = () => {
                 <label className="font-medium mb-1">{field.label}</label>
                 <div className="relative">
                   <input
+                    ref={field.name === "pickupDate" ? pickupDateRef : null}
                     type={field.type}
                     name={field.name}
                     placeholder={field.placeholder}
                     value={formData[field.name]}
                     onChange={handleChange}
                     required
-
                     min={
                       field.name === "pickupDate"
                         ? getMinDateTime()
                         : field.name === "seats"
-                          ? 1
-                          : undefined
+                        ? 1
+                        : undefined
                     }
-
+                    onClick={() => {
+                      if (
+                        field.name === "pickupDate" &&
+                        pickupDateRef.current?.showPicker
+                      ) {
+                        pickupDateRef.current.showPicker();
+                      }
+                    }}
                     className="w-full rounded-md border border-gray-300 bg-white py-2 px-3 pr-8 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
                 </div>

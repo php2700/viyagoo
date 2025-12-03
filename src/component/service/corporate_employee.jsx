@@ -199,10 +199,14 @@ export const Corporate = () => {
 
                   <div className="text-center">
                     <h3 className="text-lg font-semibold mb-2  leading-relaxed">
-                      {item.title}
+                      {item.title.length > 70
+                        ? item.title.slice(0, 70) + "..."
+                        : item.title}
                     </h3>
                     <p className=" text-[16px] leading-relaxed w-[212px] mx-auto mt-[21px]">
-                      {item.description}
+                      {item.description.length > 100
+                        ? item.description.slice(0, 100) + "..."
+                        : item.description}
                     </p>
                   </div>
                 </div>
@@ -283,7 +287,7 @@ export const Corporate = () => {
           <div className="grid md:grid-cols-2 gap-0 items-center">
             {/* Left: Features List */}
             <div className="space-y-6">
-              { mobilityDetailData?.map((item, i) => (
+              {mobilityDetailData?.map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12  rounded-full flex items-center justify-center">
                     <img
@@ -334,8 +338,7 @@ export const Corporate = () => {
 
           {/* Dropdown Cards */}
           <div className="space-y-4 max-w-3xl mx-auto">
-            {
-            believeTransData?.services?.map((item) => (
+            {believeTransData?.services?.map((item) => (
               <div
                 key={item.id}
                 className="bg-[#F4F6FA] border border-gray-200 rounded-2xl shadow-sm overflow-hidden transition-all duration-300"
@@ -349,7 +352,6 @@ export const Corporate = () => {
                       <h3 className="font-semibold  text-[22px]">
                         {item.title}
                       </h3>
-                     
                     </div>
                   </div>
                   <ChevronDown

@@ -69,14 +69,14 @@ export const OurServices = () => {
                 />
 
                 <h3 className="text-sm sm:text-lg font-semibold mb-1 sm:mb-2 text-center">
-                  {service.title.length > 50
-                    ? service.title.slice(0, 50) + "..."
+                  {service.title.length > 70
+                    ? service.title.slice(0, 70) + "..."
                     : service.title}
                 </h3>
 
                 <p className="text-xs  sm:text-sm text-center">
-                  {service.description.length > 70
-                    ? service.description.slice(0, 70) + "..."
+                  {service.description.length > 100
+                    ? service.description.slice(0, 100) + "..."
                     : service.description}
                 </p>
               </div>

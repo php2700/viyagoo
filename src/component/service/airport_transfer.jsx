@@ -273,7 +273,12 @@ export const Airport = () => {
                   />
                 </div>
               </div>
-              <p className=" text-[16px]">{ele?.description}</p>
+              <p className=" text-[16px]">
+           
+                      {ele.description.length > 100
+                    ? ele.description.slice(0, 100) + "..."
+                    : ele.description}
+                </p>
             </div>
           ))}
         </div>

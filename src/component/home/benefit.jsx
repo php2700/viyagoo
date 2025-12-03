@@ -128,16 +128,16 @@ export const EmployerBenefits = () => {
                 </div>
 
                 <h3 className="text-2xl text-center px-6">
-                  {item.title.length > 50
-                    ? item.title.slice(0, 50) + "..."
+                  {item.title.length > 70
+                    ? item.title.slice(0, 70) + "..."
                     : item.title}
                 </h3>
               </div>
 
               <div className="py-10 px-6 rounded-b-2xl">
                 <p className="text-lg leading-relaxed">
-                  {item.description.length >80
-                    ? item.description.slice(0,80) + "..."
+                  {item.description.length >100
+                    ? item.description.slice(0,100) + "..."
                     : item.description}
                 </p>
               </div>

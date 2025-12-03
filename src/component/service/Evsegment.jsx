@@ -116,10 +116,15 @@ export const EVSegment = () => {
                     className="h-[30px] bg-[#ECECEC]"
                   />
                   <h4 className=" font-semibold text-lg mb-2 text-start mt-[26px] max-w-[170px]">
-                    {box.title}
+                      {box.title.length > 70
+                    ? box.title.slice(0, 70) + "..."
+                    : box.title}
                   </h4>
                   <p className=" text-[15px] leading-relaxed text-start max-w-[239px]">
-                    {box.description}
+                                {box.description.length > 100
+                    ? box.description.slice(0, 100) + "..."
+                    : box.description}
+                    
                   </p>
                 </div>
               ))}
