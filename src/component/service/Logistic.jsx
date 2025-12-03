@@ -81,7 +81,7 @@ export const Logistics = () => {
           <p className="p-6  text-[19px]">{logisticData?.description}</p>
           <div className="w-full min-h-screen bg-white px-6 py-12 flex flex-col items-center">
             <h1 className="text-2xl md:text-3xl font-bold text-center  mb-10">
-              Core Logistics Services (Visually appealing cards)
+              {logisticData?.mainTitle}
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[86rem] w-full">
