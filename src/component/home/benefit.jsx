@@ -81,6 +81,7 @@ import axios from "axios";
 const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 
 export const EmployerBenefits = () => {
+  const [headingData,setHeadingData]=useState();
   const [benefits, setBenefits] = useState([]);
 
   // ⭐ Image path cleaning (double slash, public/, etc. remove)
@@ -92,8 +93,11 @@ export const EmployerBenefits = () => {
   // ⭐ Fetch benefit list from backend
   const getBenefits = async () => {
     try {
-      const res = await axios.get(`${API_URL}/api/user/get-benefit`);
+      const [headingRes,res] = await Promise.all([ axios.get(`${API_URL}/api/user/benefit-heading`),
+         axios.get(`${API_URL}/api/user/get-benefit`)
+        ])
       if (res.data?.data) {
+        setHeadingData(headingRes?.data?.data)
         setBenefits(res.data.data);
       }
     } catch (err) {
@@ -109,7 +113,7 @@ export const EmployerBenefits = () => {
     <>
       <section className="w-full bg-white py-16">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          How Employers Benefit?
+         {headingData?.heading} 
         </h2>
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6 justify-items-center">

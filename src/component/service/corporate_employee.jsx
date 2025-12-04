@@ -14,6 +14,8 @@ export const Corporate = () => {
   const [mobility, setMobility] = useState();
   const [mobilityDetailData, setmobilityDetailData] = useState();
   const [believeTransData, setbelieveTransData] = useState();
+  const [transHeadingData, setTransHeadingData] = useState();
+  const [businessHeadingsData, setbusinessHeadingsData] = useState();
 
   const scroll = (direction) => {
     const container = scrollRef.current;
@@ -41,6 +43,8 @@ export const Corporate = () => {
         futureRes,
         mobilityDetRes,
         believeRes,
+        transportHeadingRes,
+        businessHeadingRes,
       ] = await Promise.all([
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/transportation`),
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/why-transportation`),
@@ -54,6 +58,10 @@ export const Corporate = () => {
         axios.get(
           `${import.meta.env.VITE_APP_URL}api/user/believe-transportation`
         ),
+        axios.get(
+          `${import.meta.env.VITE_APP_URL}api/user/transportation-heading`
+        ),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/business-heading`),
       ]);
       if (
         transRes?.data &&
@@ -69,6 +77,8 @@ export const Corporate = () => {
         setMobility(futureRes?.data?.data);
         setmobilityDetailData(mobilityDetRes?.data?.data);
         setbelieveTransData(believeRes?.data?.data);
+        setbusinessHeadingsData(businessHeadingRes?.data?.data);
+        setTransHeadingData(transportHeadingRes?.data?.data);
       }
     } catch (error) {
       setError(
@@ -97,14 +107,13 @@ export const Corporate = () => {
           {/* Left Section */}
           <div className="md:w-1/2">
             <h2 className="text-2xl md:text-3xl font-semibold mb-4 ">
-              The Growing Commuting Challenge
+              {transportationData?.growingHeading}
             </h2>
             {transportationData?.growingChallenge?.map((ele) => (
               <p className="  text-[19px] mb-6">{ele}</p>
             ))}
           </div>
 
-          {/* Right Section */}
           <div className="md:w-1/2 flex flex-col gap-4">
             {[
               {
@@ -157,12 +166,10 @@ export const Corporate = () => {
         <div className=" mb-16">
           {/* Heading Section */}
           <h2 className="text-2xl md:text-3xl font-bold mb-4 ">
-            Why Employee Transportation is No Longer a Perk, But a Necessity
+            {transHeadingData?.heading}
           </h2>
           <p className=" leading-relaxed mb-10 max-w-[54rem] text-[19px]">
-            In the past, only large corporations offered employee transport as
-            an additional perk. Today, however, it has become a necessity for
-            businesses of all sizes. Several factors have driven this shift:
+            {transHeadingData?.description}
           </p>
 
           {/* Cards Section */}
@@ -227,12 +234,10 @@ export const Corporate = () => {
         <div className="w-full bg-[#ECF5FF] py-6">
           <div className="max-w-5xl mx-auto px-0">
             <h2 className="text-2xl md:text-3xl font-bold mb-4  text-center">
-              The Business Case for Employee Transportation
+              {businessHeadingsData?.heading}
             </h2>
             <p className=" mb-8  max-w-4xl mx-auto text-[19px]">
-              Providing transportation is not just about employee convenience —
-              it directly impacts the bottom line. Well-structured transport
-              services enable companies to:
+              {businessHeadingsData?.description1}
             </p>
 
             {/* Two Columns Layout */}
@@ -268,8 +273,7 @@ export const Corporate = () => {
 
             {/* Bottom Text */}
             <p className="text-center text-[19px]  mt-10 italic max-w-4xl mx-auto">
-              Simply put, investing in employee transport is an investment in
-              business continuity, efficiency, and reputation.
+              {businessHeadingsData?.description2}
             </p>
           </div>
         </div>
@@ -278,7 +282,7 @@ export const Corporate = () => {
         {/* Section 1: How the Future of Employee Mobility is Evolving */}
         <div className="space-y-10">
           <h2 className="text-2xl md:text-3xl font-bold text-center ">
-            How the Future of Employee Mobility is Evolving
+            {mobility?.heading}
           </h2>
           <p className="   mx-auto leading-relaxed text-[19px]">
             {mobility?.description}
@@ -330,7 +334,7 @@ export const Corporate = () => {
         {/* Section 2: Why Viyagoo Believes in Smarter Employee Transportation */}
         <div className="space-y-10">
           <h2 className="text-2xl md:text-3xl font-bold text-center ">
-            Why Viyagoo Believes in Smarter Employee Transportation
+            {believeTransData?.heading}
           </h2>
           <p className=" text-center max-w-[77rem] mx-auto leading-relaxed text-[18px]">
             {believeTransData?.description}
@@ -382,7 +386,7 @@ export const Corporate = () => {
         <div className="rounded-3xl p-8 md:p-12 space-y-6 ">
           <div className=" mx-auto space-y-4">
             <h3 className="text-[28px] text-2xl md:text-3xl font-bold ">
-              Closing Thought
+              {believeTransData?.closingHeading}
             </h3>
             <p className=" text-[19px] leading-relaxed">
               {believeTransData?.closingDescription}

@@ -9,14 +9,17 @@ import timer from "../../assets/timer.png";
 import axios from "axios";
 
 export const Performance = () => {
+  const [headingData,setHeadingData]=useState();
   const [securityData, setSecurityData] = useState();
 
   const getSecurity = async () => {
     try {
-      const res = await axios.get(
-        `${import.meta.env.VITE_APP_URL}api/user/get-security`
-      );
+      const [headingRes,res] = await Promise.all([axios.get(
+        `${import.meta.env.VITE_APP_URL}api/user/security-heading`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/get-security`
+      )]) 
       if (res.data?.data) {
+        setHeadingData(headingRes?.data?.data)
         setSecurityData(res.data.data);
       }
     } catch (err) {
@@ -31,7 +34,7 @@ export const Performance = () => {
   return (
     <section className="w-full bg-white py-16">
       <h2 className="text-3xl md:text-4xl font-bold  text-center mb-12">
-        How Employers Benefit?
+        {headingData?.heading}
       </h2>
 
       {/* <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-10 px-6">

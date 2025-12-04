@@ -100,7 +100,7 @@ export const Logistics = () => {
             <div className="w-full bg-white  py-2 flex flex-col items-center mt-16">
               {/* Heading */}
               <h1 className="text-2xl md:text-3xl font-semibold  mb-12 text-center">
-                Why VIYAGOO?
+                {logisticData?.viyagooHeading}
               </h1>
 
               {/* Section 1 */}
@@ -180,7 +180,7 @@ export const Logistics = () => {
 
               {/* PROCESS SECTION */}
               <h2 className="text-3xl md:text-4xl font-bold  my-14 text-center">
-                How We Work / Our Process
+                  {logisticData?.processHeading}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-14 max-w-[86rem] w-full items-center">
