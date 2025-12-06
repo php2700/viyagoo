@@ -1,4 +1,5 @@
-import React, { forwardRef, useRef } from "react";
+import axios from "axios";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import {
   FaWhatsapp,
   FaInstagram,
@@ -9,8 +10,13 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Footer = () => {
+  const [email, setEmails] = useState([]);
+  const [address, setAddress] = useState();
+  const [mobile, setMobile] = useState([]);
+
   const navigate = useNavigate();
 
   const handleUrl = (url) => {
@@ -20,6 +26,29 @@ const Footer = () => {
   const handleDemo = () => {
     navigate("/#demo");
   };
+
+  const getData = async () => {
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_APP_URL}api/user/contact`
+      );
+      console.log(res.data.data, "ggg");
+      if (res.data?.data) {
+        const { email, mobile, address } = res.data.data;
+        setEmails(Array.isArray(email) && email.length ? email : [""]);
+        setMobile(Array.isArray(mobile) && mobile.length ? mobile : [""]);
+        setAddress(address || "");
+      }
+    } catch (error) {
+      toast.error(
+        error.response?.data?.message || "Failed to load contact data"
+      );
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const handleX = () => {
     window.open(
@@ -115,18 +144,21 @@ const Footer = () => {
           <h3 className="text-lg font-semibold">Contact Us</h3>
           <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm sm:text-base">
             <FaEnvelope />
-            <span>viyagoo.solutions@gmail.com , ceo@viyagoo.com</span>
+            <div>
+              {email?.map((ele) => (
+                <div>{ele}</div>
+              ))}
+            </div>
           </div>
           <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm sm:text-base">
-            <FaPhoneAlt   />
-            <span>+91-6364185516</span>
+            <FaPhoneAlt />
+            {mobile?.map((ele) => (
+              <span>{ele}</span>
+            ))}
           </div>
           <div className="flex  justify-center lg:justify-start space-x-2 text-sm sm:text-base">
             <FaMapMarkerAlt className="text-black h-6 w-6" />
-            <span>
-              342, 1st floor, Bettahalasoor, Tarahunase Road, Bettahalasur,
-              Bangalore North - 562157
-            </span>
+            <span>{address}</span>
           </div>
           <button
             onClick={handleDemo}
@@ -147,11 +179,9 @@ const Footer = () => {
           <div className="bg-[#E1306C] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition">
             <FaInstagram onClick={handleInsta} className="text-lg" />
           </div>
-            <div
-    className="bg-[#FF0000] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition cursor-pointer"
-  >
-    <FaYoutube className="text-lg" />
-  </div>
+          <div className="bg-[#FF0000] w-10 h-10 flex items-center justify-center text-white rounded-full hover:scale-105 transition cursor-pointer">
+            <FaYoutube className="text-lg" />
+          </div>
         </div>
       </div>
 

@@ -12,6 +12,8 @@ import Service from "./component/service/service";
 import Join from "./component/Join";
 import { About } from "./component/about";
 import { SlideTop } from "./component/common/slideTop";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
    
@@ -36,6 +38,7 @@ function App() {
       </style>
       <BrowserRouter>
         <Header  />
+        <ToastContainer/>
         <SlideTop/>
         <Routes>
           <Route path="/" element={<Home />} />
