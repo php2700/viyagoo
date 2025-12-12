@@ -13,6 +13,9 @@ export const Airport = () => {
   const [corporateData, setCorporateData] = useState();
   const [viyagooEdgeData, setviyagooEdgeData] = useState();
   const [viyagooDtailData, setviyagooDtailData] = useState();
+  const [chaufferHeadingData, setChaufferHeadingData] = useState();
+  const [corporateHeadingData, setCorporateHeadingData] = useState();
+  const [error,setError]=useState()
 
   const getData = async () => {
     try {
@@ -22,6 +25,8 @@ export const Airport = () => {
         corporateRes,
         viyagooEdgeRes,
         viyagooDetailRes,
+        chaufferHeadingRes,
+        corporateHeadingRes
       ] = await Promise.all([
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/chaufer`),
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/chaufer-service`),
@@ -29,6 +34,12 @@ export const Airport = () => {
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/viyagoo-edge`),
         axios.get(
           `${import.meta.env.VITE_APP_URL}api/user/viyagoo-edge-detail`
+        ),
+           axios.get(
+          `${import.meta.env.VITE_APP_URL}api/user/chaufer-service-heading`
+        ),
+           axios.get(
+          `${import.meta.env.VITE_APP_URL}api/user/heading-corporate`
         ),
       ]);
       if (
@@ -43,6 +54,8 @@ export const Airport = () => {
         setCorporateData(corporateRes?.data?.data);
         setviyagooEdgeData(viyagooEdgeRes?.data?.data);
         setviyagooDtailData(viyagooDetailRes?.data?.data);
+        setChaufferHeadingData(chaufferHeadingRes?.data?.data);
+        setCorporateHeadingData(corporateHeadingRes?.data?.data)
       }
     } catch (error) {
       setError(
@@ -71,7 +84,7 @@ export const Airport = () => {
           {/* Header Section */}
           <div className=" mb-16">
             <h1 className="text-3xl font-bold  -mb-9">
-              Why Executive & Airport Mobility Matters
+              {chaufferData?.mobilityHeading}
             </h1>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
@@ -91,7 +104,7 @@ export const Airport = () => {
           </div>
 
           <h2 className="text-3xl font-bold   mb-12">
-            Our Chauffeur & Airport Transfer Services
+            {chaufferHeadingData?.heading}
           </h2>
 
           {chaufferServiceData?.length && (
@@ -224,7 +237,7 @@ export const Airport = () => {
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         {/* Section Title */}
         <h2 className="text-3xl md:text-4xl font-bold   mb-12">
-          Business Benefits for Corporates
+          {corporateHeadingData?.heading}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
@@ -255,7 +268,7 @@ export const Airport = () => {
         {/* The Viyagoo Edge */}
         <div className=" mb-12">
           <h2 className="text-3xl md:text-4xl font-bold  mb-4">
-            The Viyagoo Edge
+           {viyagooEdgeData?.edgeHeading}
           </h2>
           <p className=" text-[19px] mx-auto leading-relaxed">
             {viyagooEdgeData?.description}
@@ -273,7 +286,12 @@ export const Airport = () => {
                   />
                 </div>
               </div>
-              <p className=" text-[16px]">{ele?.description}</p>
+              <p className=" text-[16px]">
+           
+                      {ele.description.length > 100
+                    ? ele.description.slice(0, 100) + "..."
+                    : ele.description}
+                </p>
             </div>
           ))}
         </div>

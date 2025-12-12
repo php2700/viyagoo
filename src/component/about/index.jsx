@@ -5,12 +5,23 @@ import image1 from "../../assets/forest.png"
 import image2 from "../../assets/hand.png"
 import image3 from "../../assets/energy.png"
 import leftsideImg from "../../assets/serviceimage1.png"
+import { useLocation } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 
 export const About = () => {
+  const [bannerData,setBanner]=useState()
+  const { hash } = useLocation();
 
-  const [pageContent, setPageContent] = useState({
+   useEffect(() => {
+    if (hash) {
+      const section = document.querySelector(hash); 
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
+   const [pageContent, setPageContent] = useState({
     description: "",
     subDescription: "",
     visionTitle: "Vision",
@@ -23,8 +34,10 @@ export const About = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const res = await axios.get(`${API_URL}/api/user/aboutUS`);
+        const [banner,res] = await Promise.all([ axios.get(`${API_URL}/api/user/get-about-banner`),
+           axios.get(`${API_URL}/api/user/aboutUS`)]);
         if (res.data && res.data.data) {
+          setBanner(banner?.data?.data)
           setPageContent(res.data.data);
         }
       } catch (err) {
@@ -98,17 +111,17 @@ export const About = () => {
     },
   ]
   return (
-    <section className="w-full min-h-screen bg-white ">
-      {/* HERO SECTION */}
-      <div className="relative w-full">
-        <img
-          src={HeroBanner}
-          alt="Banner"
-          className="w-full h-[100vh] object-cover"
-        />
-      </div>
-      <div className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto">
+     <section className="w-full min-h-screen bg-white ">
+            {/* HERO SECTION */}
+            <div className="relative w-full">
+              <img
+                src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
+                alt="Banner"
+                className="w-full h-[100vh] object-cover"
+              />
+            </div>
+    <div className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto">
 
           {/* Header */}
           <h1 className="text-3xl sm:text-4xl font-extrabold  text-center mb-6">
@@ -176,118 +189,106 @@ export const About = () => {
           </div>
 
 
+ <div className="w-full py-12 ">
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
-          <div className="w-full py-12 ">
+        <div className="w-full h-full">
+          <img
+           src={`${import.meta.env.VITE_APP_URL}${pageContent?.whatSetImage}`} // <-- replace with your image
+            alt="Service Banner"
+            className="w-full h-full object-cover rounded-xl shadow-md"
+          />
+        </div>
 
-            {/* MAIN CONTAINER */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="bg-black text-white rounded-xl p-4 md:p-10 shadow-xl">
 
-              {/* LEFT IMAGE */}
-              <div className="w-full h-full">
-                <img
-                  src={leftsideImg}  // <-- replace with your image
-                  alt="Service Banner"
-                  className="w-full h-full object-cover rounded-xl shadow-md"
-                />
-              </div>
+          <p className="text-[#0572E6] font-semibold tracking-wide">
+            What Sets Us Apart
+          </p>
 
-              {/* RIGHT BLACK CARD */}
-              <div className="bg-black text-white rounded-xl p-4 md:p-10 shadow-xl">
-
-                {/* ORANGE SMALL HEADING */}
-                <p className="text-[#0572E6] font-semibold tracking-wide">
-                  What Sets Us Apart
-                </p>
-
-                {/* MAIN HEADING */}
-                <h2 className="text-3xl lg:text-4xl font-bold leading-tight mt-2">
-                  Providing Top-Notch Transportation Services
-                  <br /> Since 2008
-                </h2>
-
-                {/* SUBTEXT */}
-                <p className="text-gray-300 mt-4 leading-relaxed">
-                  We are your trusted partner in seamless journeys. You deserve safety,
-                  reliability, and peace of mind for your commute. Choose us to experience
-                  travel at its best.
-                </p>
-
-                {/* STATS GRID (LIKE SCREENSHOT) */}
-                <div className="grid grid-cols-2 gap-6 mt-8">
-
-                  {/* CARD 1 */}
-                  <div className="flex items-center gap-4">
-                    <img src={image1} alt="" className="w-10 h-10" />
-                    <div>
-                      <h3 className="text-2xl font-bold">(75+)</h3>
-                      <p className="text-gray-400 text-sm">Vehicles</p>
-                    </div>
-                  </div>
-
-                  {/* CARD 2 */}
-                  <div className="flex items-center gap-4">
-                    <img src={image2} alt="" className="w-10 h-10" />
-                    <div>
-                      <h3 className="text-2xl font-bold">10,850+</h3>
-                      <p className="text-gray-400 text-sm">Trips per day</p>
-                    </div>
-                  </div>
-
-                  {/* CARD 3 */}
-                  <div className="flex items-center gap-4">
-                    <img src={image3} alt="" className="w-10 h-10" />
-                    <div>
-                      <h3 className="text-2xl font-bold">100%</h3>
-                      <p className="text-gray-400 text-sm">Safety</p>
-                    </div>
-                  </div>
-
-                  {/* CARD 4 */}
-                  <div className="flex items-center gap-4">
-                    <img src={image1} alt="" className="w-10 h-10" />
-                    <div>
-                      <h3 className="text-2xl font-bold">282100+</h3>
-                      <p className="text-gray-400 text-sm">Trips per month</p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <h2 className="text-3xl font-bold  text-center mt-16 mb-6">
-            Why VIYAGOO ?
+          <h2 className="text-3xl lg:text-4xl font-bold leading-tight mt-2">
+            {pageContent?.whatSetDescription}
+            
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyViyagoo.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all flex flex-col items-center text-center"
-              >
-                {/* ICON */}
-                <img
-                  src={item.icon}
-                  alt={item.title}
-                  className="w-12 h-12 object-contain mb-4"
-                />
+          <p className="text-gray-300 mt-4 leading-relaxed">
+            We are your trusted partner in seamless journeys. You deserve safety,
+            reliability, and peace of mind for your commute. Choose us to experience
+            travel at its best.
+          </p>
 
-                {/* TITLE */}
-                <h3 className="text-xl font-semibold  mb-2">
-                  {item.title}
-                </h3>
+          <div className="grid grid-cols-1 justify-center p-4 md:grid-cols-2 gap-6 mt-8">
 
-                {/* DESCRIPTION */}
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  {item.desc}
-                </p>
+            <div className="flex items-center gap-4">
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="" className="w-10 h-10" />
+              <div>
+                <h3 className="text-2xl font-bold"> {pageContent?.vehicles}</h3>
+                <p className="text-gray-400 text-sm">Vehicles</p>
               </div>
-            ))}
+            </div>
+
+            <div className="flex items-center gap-4">
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="" className="w-10 h-10" />
+              <div>
+                <h3 className="text-2xl font-bold">{pageContent?.dailyTrip}</h3>
+                <p className="text-gray-400 text-sm break-words">Trips per day</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.safetyIcon}`} alt="" className="w-10 h-10" />
+              <div>
+                <h3 className="text-2xl font-bold">{pageContent?.sefety}</h3>
+                <p className="text-gray-400 text-sm">Safety</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.tripIcon}`} alt="" className="w-10 h-10" />
+              <div>
+                <h3 className="text-2xl font-bold">{pageContent?.trips}</h3>
+                <p className="text-gray-400 text-sm">Trips per month</p>
+              </div>
+            </div>
+
           </div>
 
         </div>
       </div>
+    </div>
+<h2 id='whyViyago' className="text-3xl font-bold  text-center mt-16 mb-6">
+  Why VIYAGOO ?
+</h2>
+
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {whyViyagoo.map((item, index) => (
+    <div
+      key={index}
+      className="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all flex flex-col items-center text-center"
+    >
+      {/* ICON */}
+      <img
+        src={item.icon}
+        alt={item.title}
+        className="w-12 h-12 object-contain mb-4"
+      />
+
+      {/* TITLE */}
+      <h3 className="text-xl font-semibold  mb-2">
+        {item.title}
+      </h3>
+
+      {/* DESCRIPTION */}
+      <p className="text-gray-700 text-sm leading-relaxed">
+        {item.desc}
+      </p>
+    </div>
+  ))}
+</div>
+
+      </div>
+    </div>
     </section>
   );
 };

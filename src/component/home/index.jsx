@@ -13,6 +13,7 @@ import { useEffect, useRef } from "react";
 
 export const Home = () => {
   const location = useLocation();
+  const { hash } = useLocation();
   const navigate = useNavigate();
   const testimonialRef = useRef(null);
 
@@ -24,6 +25,16 @@ export const Home = () => {
       });
     }
   };
+
+  useEffect(() => {
+    if (hash) {
+      const section = document.querySelector(hash);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);  
+
 
   useEffect(() => {
     if (location.state?.scrollTo === "testimonial") {
@@ -38,6 +49,7 @@ export const Home = () => {
       <Helmet>
         <title>Home - VIYAGOO</title>
       </Helmet>
+
       <BookingFormBanner />
       <AboutUs />
       <OurServices />

@@ -13,6 +13,9 @@ export const EVSegment = () => {
   const [segmentData, setSegmentData] = useState();
   const [segmentFleetData, setSegmentFleetData] = useState([]);
   const [whysegmentData, setWhySegmentData] = useState([]);
+  const [segmentHeadingData,setSegmentHeadingData]=useState();
+  const [segmentFleetHeadingData,setsegmentFleetHeadingData]=useState();
+
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,13 +26,17 @@ export const EVSegment = () => {
  
   const getData = async () => {
     try {
-      const [segmentRes, segmentFleetRes, whySegmentRes] = await Promise.all([
+      const [segmentRes,segmentHeadingRes,segmentFleetHeadingRes, segmentFleetRes, whySegmentRes] = await Promise.all([
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/segment`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/why-segment-heading`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/segment-fleet-heading`),
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/segment-fleet`),
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/why-segment`),
       ]);
       if (segmentRes?.data && segmentFleetRes?.data && whySegmentRes?.data) {
         setSegmentData(segmentRes?.data?.data);
+        setSegmentHeadingData(segmentHeadingRes?.data?.data)
+        setsegmentFleetHeadingData(segmentFleetHeadingRes?.data?.data)
         setSegmentFleetData(segmentFleetRes?.data?.data);
         setWhySegmentData(whySegmentRes?.data?.data);
       }
@@ -58,7 +65,7 @@ export const EVSegment = () => {
           <div className="w-full px-6 py-16 flex flex-col items-center">
             {/* Subtitle */}
             <h3 className="text-2xl md:text-3xl font-bold  mb-8   ">
-              Our EV Fleet Advantage
+             {segmentData?.aboutHeading}
             </h3>
 
             <p className="max-w-[86rem]    text-[19px] mb-16">
@@ -68,7 +75,7 @@ export const EVSegment = () => {
 
             {/* Key Services Box */}
             <h3 className="text-2xl md:text-3xl font-bold  text-center mb-8">
-              Key Services Under the EV Segment
+              {segmentData?.evAdvantageHeading}
             </h3>
 
             <div className="bg-[#ECF5FF] shadow-[0px_8px_20px_rgba(0,0,0,0.15)] p-8 rounded-[25px] max-w-[86rem] w-full border border-gray-200 rounded-tr-[105px] rounded-bl-[105px]">
@@ -85,26 +92,15 @@ export const EVSegment = () => {
                 </li>
                 ))}
 
-                <li>
-                  <span className="font-semibold text-[21px] block text-start ">
-                    Sustainable Partnerships for Businesses
-                  </span>
-
-                  <p className=" text-[15px]">
-                    Viyagoo partners with organizations looking to integrate EVs
-                    into their transport strategy. Whether through dedicated
-                    electric fleets, on-demand EV usage, or long-term
-                    sustainable mobility planning, we assist businesses in
-                    achieving their ESG and carbon neutrality targets.
-                  </p>
-                </li>
+           
               </ol>
             </div>
 
             {/* Why Choose EV Section */}
 
             <h3 className="text-2xl md:text-3xl font-bold  mb-8  text-left  mt-[56px]">
-              Why Choose Viyagoo's EV Segment?
+              {segmentHeadingData?.heading}
+              
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[86rem] w-full">
@@ -116,10 +112,15 @@ export const EVSegment = () => {
                     className="h-[30px] bg-[#ECECEC]"
                   />
                   <h4 className=" font-semibold text-lg mb-2 text-start mt-[26px] max-w-[170px]">
-                    {box.title}
+                      {box.title.length > 70
+                    ? box.title.slice(0, 70) + "..."
+                    : box.title}
                   </h4>
                   <p className=" text-[15px] leading-relaxed text-start max-w-[239px]">
-                    {box.description}
+                                {box.description.length > 100
+                    ? box.description.slice(0, 100) + "..."
+                    : box.description}
+                    
                   </p>
                 </div>
               ))}
@@ -131,7 +132,7 @@ export const EVSegment = () => {
         <div className="max-w-[86rem] mx-auto">
           {/* Heading */}
           <h2 className="text-3xl sm:text-4xl text-center font-bold  mb-10">
-            Our Fleet:
+            {segmentFleetHeadingData?.heading}
           </h2>
 
           {/* Carousel Box */}

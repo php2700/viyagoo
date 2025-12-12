@@ -6,17 +6,22 @@ const Clients = () => {
 const [logos, setLogos] = useState([]);
   const track1Ref = useRef(null);
   const track2Ref = useRef(null);
+  const[heading,setHeading]=useState();
 
   const cleanImagePath = (path) =>
     path?.replace(/^\/?public/, "").replace(/^\/+/, "") || "";
 
   const fetchLogos = async () => {
     try {
-      const res = await axios.get(
+      const [headingRes,res] = await Promise.all([
+         axios.get(
+        `${import.meta.env.VITE_APP_URL}api/user/client-heading`),
+         axios.get(
         `${import.meta.env.VITE_APP_URL}api/user/get-clients`
-      );
+      )])
 
       if (res.data?.data) {
+        setHeading(headingRes?.data?.data)
         const formatted = res.data.data.map((item) => ({
           src: `${import.meta.env.VITE_APP_URL}${cleanImagePath(item.image)}`,
         }));
@@ -114,10 +119,9 @@ const [logos, setLogos] = useState([]);
   // </section>
      <div className="w-full py-10 overflow-hidden bg-white">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
-        Clients
+        {heading?.heading}
       </h2>
 
- 
          <div className="marquee">
         <div className="marquee-track">
           {logos.concat(logos).map((logo, i) => (

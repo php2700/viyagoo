@@ -44,13 +44,11 @@
 //   </div>
 // </div>
 
-
 //     </section>
 //   );
 // };
 
 // export default StrategicStrengths;
-
 
 // import React, { useEffect, useRef, useState } from "react";
 // import axios from "axios";
@@ -155,23 +153,25 @@
 //   );
 // }
 
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function StrategicStrengths() {
   const [logos, setLogos] = useState([]);
+  const [headingData, setHeadingData] = useState();
 
   const cleanImagePath = (path) =>
     path?.replace(/^\/?public/, "").replace(/^\/+/, "") || "";
 
   const fetchLogos = async () => {
     try {
-      const res = await axios.get(
-        `${import.meta.env.VITE_APP_URL}api/user/get-stregic`
-      );
+      const [headingRes, res] = await Promise.all([
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/stregic-heading`),
+        axios.get(`${import.meta.env.VITE_APP_URL}api/user/get-stregic`),
+      ]);
 
       if (res.data?.data) {
+        setHeadingData(headingRes?.data?.data);
         const formatted = res.data.data.map((item) => ({
           src: `${import.meta.env.VITE_APP_URL}${cleanImagePath(item.image)}`,
         }));
@@ -189,7 +189,7 @@ export default function StrategicStrengths() {
   return (
     <div className="w-full py-10 overflow-hidden bg-white">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
-        Strategic Strengths
+        {headingData?.heading}
       </h2>
 
       <div className="marquee">
@@ -244,4 +244,3 @@ export default function StrategicStrengths() {
     </div>
   );
 }
-

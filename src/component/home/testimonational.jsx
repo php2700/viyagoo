@@ -16,14 +16,18 @@ const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const[headingData,setHeadingData]=useState();
 
   // ---------------- Fetch Testimonials ----------------
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await apiClient.get("/get-testimonial");
+        const [headingRes,response] = await Promise.all([
+apiClient.get("/testimonial-heading"),
+           apiClient.get("/get-testimonial")])
 
         if (response.data.success && Array.isArray(response.data.data)) {
+          setHeadingData(headingRes?.data?.data)
           setTestimonials(response.data.data);
         } else {
           setTestimonials([]);
@@ -71,7 +75,7 @@ const Testimonials = () => {
     return (
       <section className="w-full max-w-7xl mx-auto py-10 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-2 inline-block">
-          Testimonials
+          Testimonials{headingData?.heading}
         </h2>
         <p>No testimonials available.</p>
       </section>
@@ -83,7 +87,7 @@ const Testimonials = () => {
   return (
     <section className="w-full max-w-7xl mx-auto py-10 text-center" >
       <h2 className="text-2xl md:text-3xl font-bold mb-6 pb-2 inline-block">
-        Testimonials
+        {headingData?.heading}
       </h2>
 
       <div className="bg-white rounded-[20px] p-10 shadow-xl border border-gray-300 relative flex flex-col items-center justify-center min-h-[300px]">

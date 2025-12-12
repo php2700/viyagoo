@@ -184,7 +184,7 @@ const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 function Join() {
   // --- States ---
    const formRef = useRef(null);
-
+const [bannerData,setBannerData]=useState()
   const [loading, setLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   
@@ -215,8 +215,11 @@ function Join() {
     const fetchContent = async () => {
       try {
         // Fix: Added '/' before api
-        const res = await axios.get(`${API_URL}/api/user/driver-page-content`);
+        const [banner,res] = await Promise.all([axios.get(`${API_URL}/api/user/get-viyagoo-banner`),
+           axios.get(`${API_URL}/api/user/driver-page-content`)]);
         if (res.data.data) {
+      console.log(banner?.data?.data,'ssss')
+          setBannerData(banner?.data?.data)
           setPageContent(res.data.data);
         }
       } catch (err) {
@@ -272,7 +275,7 @@ function Join() {
   }
 
 
-
+console.log( bannerData?.image)
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({
       behavior: "smooth",
@@ -300,17 +303,16 @@ function Join() {
   </div>
 )}
       <section className="w-full min-h-screen bg-white ">
-        {/* HERO SECTION */}
         <div className="relative w-full">
           <img
-            src={HeroBanner}
+            src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
             alt="Banner"
             className="w-full h-[100vh] object-cover"
           />
         </div>
 
         {/* --- DYNAMIC TOP SECTION --- */}
-        <div className="max-w-5xl mx-auto mt-[28px]">
+        <div className="max-w-5xl mx-auto mt-[28px] p-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             {pageContent.topTitle || "Drive the Future with Viyagoo"}
           </h1>
@@ -451,7 +453,7 @@ function Join() {
           </form>
         </div>
 
-        <div className="max-w-5xl mx-auto mt-20 flex flex-col md:flex-row items-center gap-10">
+        <div className="max-w-5xl mx-auto p-2 mt-20 flex flex-col md:flex-row items-center gap-10">
           <div className="w-full md:w-1/2">
             <img 
               src={bottomImageUrl} 
@@ -488,9 +490,29 @@ function Join() {
         </div>
 
         {/* ===== Footer Title ===== */}
-        <h3 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+        <h3 className="text-3xl md:text-4xl font-bold my-4 text-center">
           Benefits for you
         </h3>
+        <div class="flex justify-center p-2 my-10">
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
+
+    <li class="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-[#0572E6] rounded-2xl p-6 text-center">
+      <p class="font-semibold text-xl text-blue-600">Fuel Advance</p>
+      <p class="text-gray-600 mt-1">Upto 5000 per week instantly.</p>
+    </li>
+
+    <li class="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-[#0572E6] rounded-2xl p-6 text-center">
+      <p class="font-semibold text-xl text-blue-600">Family Health Cover</p>
+      <p class="text-gray-600 mt-1">Free Health Insurance upto 5 lakhs.</p>
+    </li>
+
+    <li class="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-[#0572E6] rounded-2xl p-6 text-center">
+      <p class="font-semibold text-xl text-blue-600">Discounted Maintenance</p>
+      <p class="text-gray-600 mt-1">Get a discount on vehicle maintenance and service.</p>
+    </li>
+
+  </ul>
+</div>
       </section>
     </>
   );
