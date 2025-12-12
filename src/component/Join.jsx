@@ -460,13 +460,27 @@ function Join() {
             />
           </div>
 
-          <div className="w-full md:w-1/2 text-center md:text-left">
+          {/* <div className="w-full md:w-1/2 text-center md:text-left">
             <h2 className="text-2xl md:text-[46px] font-extrabold mb-2 md:w-[450px] lg:w-[505px]">
               Got a Vehicle ? and want to work with Routmatic.
             </h2>
             <h2 className="text-[24px] leading-relaxed mb-5 mt-[48px] font-[700] lg:w-[416px] md:w-[400px]">
               {pageContent.bottomDescription || "We are happy to get in touch with you and collaborate with you regarding your vehicle"}
             </h2>
+            <button  onClick={scrollToForm} className="cursor-pointer bg-[#3F98FF] text-white px-11 py-4 rounded-[19px] font-semibold hover:bg-[#0572E6] transition mx-auto block">
+              Attach a vehicle
+            </button>
+          </div> */}
+          <div className="w-full md:w-1/2 text-center md:text-left">
+            {/* 👇 Yahan change kiya hai: Hardcoded text hata kar variable lagaya hai */}
+            <h2 className="text-2xl md:text-[46px] font-extrabold mb-2 md:w-[450px] lg:w-[505px]">
+              {pageContent.bottomTitle }
+            </h2>
+
+            <h2 className="text-[24px] leading-relaxed mb-5 mt-[48px] font-[700] lg:w-[416px] md:w-[400px]">
+              {pageContent.bottomDescription || "We are happy to get in touch with you and collaborate with you regarding your vehicle"}
+            </h2>
+            
             <button  onClick={scrollToForm} className="cursor-pointer bg-[#3F98FF] text-white px-11 py-4 rounded-[19px] font-semibold hover:bg-[#0572E6] transition mx-auto block">
               Attach a vehicle
             </button>
