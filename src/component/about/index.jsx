@@ -29,7 +29,7 @@ export const About = () => {
     missionTitle: "Mission",
     missionDesc: "",
   });
-const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -48,66 +48,66 @@ const [loading, setLoading] = useState(true);
     };
     fetchContent();
   }, []);
-    const whyViyagoo=[
+  const whyViyagoo = [
     {
       title: "End-to-End Mobility",
       desc: "Comprehensive transport solutions for corporates, logistics, and individuals.",
-     icon:image1
+      icon: image1
     },
     {
       title: "Tech-Enabled Operations",
       desc: "Real-time tracking and automation powered by advanced ETMS systems.",
-      icon:image2
+      icon: image2
     },
     {
       title: "Safety First",
       desc: "Strict safety protocols with verified drivers and maintained vehicles.",
-      icon:image3
+      icon: image3
     },
     {
       title: "Green Fleet",
       desc: "Sustainable operations with an expanding Electric Vehicle (EV) fleet.",
-      icon:image3
+      icon: image3
     },
     {
       title: "Industry Expertise",
       desc: "Led by professionals with deep transport and mobility experience.",
-      icon:image2
+      icon: image2
     },
     {
       title: "Customized Solutions",
       desc: "Tailored transport models to match each client’s needs and scale.",
-      icon:image1
+      icon: image1
     },
     {
       title: "Cost-Optimized",
       desc: "Smart routing and analytics that reduce operational expenses.",
-      icon:image1
+      icon: image1
     },
     {
       title: "24/7 Support",
       desc: "Always-on monitoring and assistance for smooth operations.",
-      icon:image2
+      icon: image2
     },
     {
       title: "Driver Empowerment",
       desc: "Financial support and free family health insurance for drivers.",
-      icon:image3
+      icon: image3
     },
     {
       title: "Reliable & Punctual",
       desc: "On-time, every time — ensuring consistent service delivery.",
-      icon:image1
+      icon: image1
     },
     {
       title: "Transparent Operations",
       desc: "Clear pricing and ethical business practices at every step.",
-      icon:image3
+      icon: image3
     },
     {
       title: "Customer-Focused",
       desc: "Every journey designed around comfort, safety, and satisfaction.",
-      icon:image2
+      icon: image2
     },
   ]
   return (
@@ -123,12 +123,12 @@ const [loading, setLoading] = useState(true);
     <div className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
 
-        {/* Header */}
-        <h1 className="text-3xl sm:text-4xl font-extrabold  text-center mb-6">
-          ABOUT US
-        </h1>
+          {/* Header */}
+          <h1 className="text-3xl sm:text-4xl font-extrabold  text-center mb-6">
+            ABOUT US
+          </h1>
 
-        {/* Intro Paragraph */}
+          {/* Intro Paragraph */}
           <p className="text-gray-700 text-lg leading-relaxed mb-8 text-center whitespace-pre-line">
             {pageContent.description || (
               <>
@@ -143,7 +143,7 @@ const [loading, setLoading] = useState(true);
             )}
           </p>
 
-        {/* Main Content Box */}
+          {/* Main Content Box */}
           <div className="bg-white shadow-lg rounded-2xl p-8 sm:p-12 mb-12">
             <div className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
               {pageContent.subDescription || (
@@ -165,7 +165,7 @@ const [loading, setLoading] = useState(true);
               )}
             </div>
           </div>
-           <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
+          <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
             <h2 className="text-2xl font-bold  mb-3">
               {pageContent.visionTitle || "Vision"}
             </h2>
@@ -175,10 +175,10 @@ const [loading, setLoading] = useState(true);
             </p>
           </div>
 
-     
 
-        {/* Mission */}
-            <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
+
+          {/* Mission */}
+          <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
             <h2 className="text-2xl font-bold  mb-3">
               {pageContent.missionTitle || "Mission"}
             </h2>
@@ -187,7 +187,6 @@ const [loading, setLoading] = useState(true);
                 "To provide end-to-end, technology-driven transport solutions focused on safety, punctuality, and environmental responsibility. Through continuous innovation and service excellence, we aim to optimize mobility management for corporates and individuals across India."}
             </p>
           </div>
-    
 
 
  <div className="w-full py-12 ">
@@ -254,8 +253,8 @@ const [loading, setLoading] = useState(true);
             </div>
 
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
 <h2 id='whyViyago' className="text-3xl font-bold  text-center mt-16 mb-6">
