@@ -48,7 +48,13 @@ const NotFoundPage = () => {
 
             {/* Compact Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-             
+              <button
+                onClick={() => navigate("/")}
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-indigo-700 transition"
+              >
+                <Home className="w-5 h-5" />
+                Go Home
+              </button>
 
               <button
                 onClick={() => navigate(-1)}

@@ -44,18 +44,77 @@ function App() {
         <SlideTop/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/ser" element={<Airport />} />
+          {/* <Route path="/ser" element={<Airport />} />
 
-          <Route path="/service" element={<Service />} /> 
+          {/* {/* <Route path="/service" element={<Service />} /> */}
           <Route path="/about" element={<About/>} />
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/airport" element={<Airport />} /> 
-         <Route path="/join" element={<Join />} /> 
+          {/* {/* <Route path="/join" element={<Join />} /> */}
             <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer   />
       </BrowserRouter>
     </>
+//   );
+// } */} 
+{/* <BrowserRouter>
+      <Routes>
+        {/* Pages with header/footer */}
+        // <Route
+        //   path="/"
+        //   element={
+        //     <MainLayout>
+        //       <Home />
+        //     </MainLayout>
+        //   }
+        // />
+        // <Route
+        //   path="/service"
+        //   element={
+        //     <MainLayout>
+        //       <Service />
+        //     </MainLayout>
+        //   }
+        // />
+        // <Route
+        //   path="/about"
+        //   element={
+        //     <MainLayout>
+        //       <About />
+        //     </MainLayout>
+        //   }
+        // />
+        // <Route
+        //   path="/corporate"
+        //   element={
+        //     <MainLayout>
+        //       <Corporate />
+        //     </MainLayout>
+        //   }
+        // />
+        // <Route
+        //   path="/airport"
+        //   element={
+        //     <MainLayout>
+        //       <Airport />
+        //     </MainLayout>
+        //   }
+        // />
+        // <Route
+        //   path="/join"
+        //   element={
+        //     <MainLayout>
+        //       <Join />
+        //     </MainLayout>
+        //   }
+        // /> */}
+
+        {/* 404 page without header/footer */}
+        <Route path="*" element={<NotFound />} />
+      // </Routes>
+    // </BrowserRouter>
+      //  </>
   );
 }
 

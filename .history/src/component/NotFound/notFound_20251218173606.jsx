@@ -11,7 +11,7 @@ const NotFoundPage = () => {
   const suggestedPath = `/viya${currentPath}`;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 mt-30 to-purple-50 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 mt-20 to-purple-50 flex items-center justify-center p-6">
       <div className="max-w-2xl w-full">
         {/* Compact Main Card */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -48,7 +48,13 @@ const NotFoundPage = () => {
 
             {/* Compact Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-             
+              <button
+                onClick={() => navigate("/")}
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-indigo-700 transition"
+              >
+                <Home className="w-5 h-5" />
+                Go Home
+              </button>
 
               <button
                 onClick={() => navigate(-1)}

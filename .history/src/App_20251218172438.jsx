@@ -56,6 +56,65 @@ function App() {
         <Footer   />
       </BrowserRouter>
     </>
+//   );
+// } */} 
+{/* <BrowserRouter>
+      <Routes>
+        {/* Pages with header/footer */}
+        // <Route
+        //   path="/"
+        //   element={
+        //     <MainLayout>
+        //       <Home />
+        //     </MainLayout>
+        //   }
+        // />
+        // <Route
+        //   path="/service"
+        //   element={
+        //     <MainLayout>
+        //       <Service />
+        //     </MainLayout>
+        //   }
+        // />
+        // <Route
+        //   path="/about"
+        //   element={
+        //     <MainLayout>
+        //       <About />
+        //     </MainLayout>
+        //   }
+        // />
+        // <Route
+        //   path="/corporate"
+        //   element={
+        //     <MainLayout>
+        //       <Corporate />
+        //     </MainLayout>
+        //   }
+        // />
+        // <Route
+        //   path="/airport"
+        //   element={
+        //     <MainLayout>
+        //       <Airport />
+        //     </MainLayout>
+        //   }
+        // />
+        // <Route
+        //   path="/join"
+        //   element={
+        //     <MainLayout>
+        //       <Join />
+        //     </MainLayout>
+        //   }
+        // /> */}
+
+        {/* 404 page without header/footer */}
+        <Route path="*" element={<NotFound />} />
+      // </Routes>
+    // </BrowserRouter>
+      //  </>
   );
 }
 
