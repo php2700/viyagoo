@@ -4,12 +4,12 @@ import { faqData } from "../FQA/FaqData"
 import { useLocation } from "react-router-dom";
 
 export const FAQAccordion = () => {
-  const location = useLocation();
-  const isFaqPage = location.pathname === "/faq";
+
+
 
   // ✅ show all on /faq, otherwise show only 2
-  const items = isFaqPage ? faqData : faqData.slice(0, 2);
-
+  // const items = isFaqPage ? faqData : faqData.slice(0, 2);
+  const items =  faqData ;
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
@@ -17,21 +17,21 @@ export const FAQAccordion = () => {
   };
 
   return (
-    <div className="space-y-4 m-24 mt-40">
+    <div className="space-y-4 m-24 ">
         
-       {isFaqPage && <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900">
+      <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-gray-900">
             Frequently Asked Questions
-          </h2> }
+          </h2> 
       {items.map((faq, index) => (
         <div
           key={index}
-          className="border border-gray-300 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+          className="border border-gray-300 rounded-lg overflow-hidden shadow-sm ml-70 mr-70  hover:shadow-md transition-shadow"
         >
           <button
             onClick={() => toggle(index)}
             className="w-full px-6 py-4 text-left flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-colors"
           >
-            <span className="text-lg font-medium text-gray-900">
+            <span className="text-lg font-bold text-gray-900">
               {faq.question}
             </span>
             <ChevronDownIcon

@@ -21,11 +21,11 @@ export const faqData= [
     answer: 'Yes. VIYAGOO offers corporate EV fleet solutions to support sustainable and eco friendly mobility while reducing operational costs and carbon footprint.'
   },
   {
-    question: '6.What types of airport transfer services does VIYAGOO provide?',
+    question: '6. What types of airport transfer services does VIYAGOO provide?',
     answer: 'We provide reliable airport pickup and drop services for corporates and individuals, ensuring comfort, safety, and on-time travel.'
   },
   {
-    question: '7.What are executive chauffeur services?',
+    question: '7. What are executive chauffeur services?',
     answer: 'Executive chauffeur services include professional drivers and premium vehicles for senior executives, business travel, and corporate guests.'
   },
   {

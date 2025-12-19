@@ -107,9 +107,9 @@ export const AboutUs = () => {
 
   return (
     <section className="w-full max-w-7xl mx-auto py-16 bg-white text-center mt-80 md:mt-40 overflow-visible">
-      <h2 className=" text-2xl md:text-3xl font-bold mb-10">
+      <h1 className=" text-2xl md:text-3xl font-bold mb-10">
         {aboutData?.heading}
-      </h2>
+      </h1>
 
       {/* <div className="relative flex flex-col md:flex-row items-center min-h-[480px] md:min-h-[520px] p-4 md:p-10 overflow-visible">
 
