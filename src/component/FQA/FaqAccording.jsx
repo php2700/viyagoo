@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { faqData } from "../FAQ/FaqData";
+import { faqData } from "../FQA/FaqData"
 import { useLocation } from "react-router-dom";
 
 export const FAQAccordion = () => {

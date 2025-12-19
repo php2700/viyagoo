@@ -15,7 +15,7 @@ import { SlideTop } from "./component/common/slideTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./component/NotFound/notFound"
-import { FAQAccordion } from "./component/FAQ/FaqAccording";
+import { FAQAccordion } from "./component/FQA/FaqAccording";
 // import MainLayout from "./component/MainLayout"
 
 function App() {

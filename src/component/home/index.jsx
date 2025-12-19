@@ -10,15 +10,15 @@ import Testimonials from "./testimonational";
 import { WhatSetsUsApart } from "./whatsetus";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useRef } from "react";
-import { faqData } from "../FAQ/FaqData";
-import { FAQAccordion}  from "../FAQ/FaqAccording";
+import { faqData } from "../FQA/FaqData";
+import { FAQAccordion}  from "../FQA/FaqAccording";
 import { Link } from "react-router-dom";
 export const Home = () => {
   const location = useLocation();
   const { hash } = useLocation();
   const navigate = useNavigate();
   const testimonialRef = useRef(null);
-  const previewFaqs = faqData.slice(0, 2);
+
   const scrollToSection = () => {
     if (testimonialRef.current) {
       testimonialRef.current.scrollIntoView({
