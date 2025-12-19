@@ -15,6 +15,7 @@ import { SlideTop } from "./component/common/slideTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./component/NotFound/notFound"
+import { FAQAccordion } from "./component/FAQ/FaqAccording";
 // import MainLayout from "./component/MainLayout"
 
 function App() {
@@ -51,6 +52,8 @@ function App() {
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/airport" element={<Airport />} /> 
          <Route path="/join" element={<Join />} /> 
+          <Route path="/faq" element={<FAQAccordion />} /> 
+   
             <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer   />

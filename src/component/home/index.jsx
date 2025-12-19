@@ -10,13 +10,15 @@ import Testimonials from "./testimonational";
 import { WhatSetsUsApart } from "./whatsetus";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useRef } from "react";
-
+import { faqData } from "../FAQ/FaqData";
+import { FAQAccordion}  from "../FAQ/FaqAccording";
+import { Link } from "react-router-dom";
 export const Home = () => {
   const location = useLocation();
   const { hash } = useLocation();
   const navigate = useNavigate();
   const testimonialRef = useRef(null);
-
+  const previewFaqs = faqData.slice(0, 2);
   const scrollToSection = () => {
     if (testimonialRef.current) {
       testimonialRef.current.scrollIntoView({
@@ -33,8 +35,7 @@ export const Home = () => {
         section.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }, [hash]);  
-
+  }, [hash]);
 
   useEffect(() => {
     if (location.state?.scrollTo === "testimonial") {
@@ -62,6 +63,25 @@ export const Home = () => {
       <div id="testimonial" ref={testimonialRef}>
         <Testimonials />
       </div>
+  <section className="py-10">
+  <div className="max-w-4xl mx-auto px-4">
+    
+    <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6">
+      Frequently Asked Questions
+    </h2>
+
+    <FAQAccordion />
+
+          <div className="text-center mt-10">
+            <Link to="/faq">
+              <button className="px-8 py-4 bg-blue-600 text-white font-medium text-lg rounded-lg hover:bg-blue-700 transition-colors shadow-lg">
+                See all FAQs
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* <Testimonials /> */}
     </>
   );
