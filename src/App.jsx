@@ -1,5 +1,6 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes,useLocation } from "react-router-dom";
+import {  useEffect} from "react";
 import { Header } from "./component/common/header";
 import { Home } from "./component/home";
 import { Corporate } from "./component/service/corporate_employee";
@@ -19,6 +20,29 @@ import { FAQAccordion } from "./component/FQA/FaqAccording";
 // import MainLayout from "./component/MainLayout"
 
 function App() {
+   const { pathname, hash } = useLocation();
+
+useEffect(() => {
+  if (hash === "#contactus") {
+    const scrollToFooter = () => {
+      const footer = document.getElementById("footer");
+      if (footer) {
+        footer.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      } else {
+    
+        setTimeout(scrollToFooter, 100);
+      }
+    };
+
+    requestAnimationFrame(() => {
+      setTimeout(scrollToFooter, 200);
+    });
+  }
+}, [pathname, hash]);
+
    
   return (
     <>
@@ -39,7 +63,7 @@ function App() {
 
         `}
       </style>
-      <BrowserRouter>
+   
         <Header  />
         <ToastContainer/>
         <SlideTop/>
@@ -47,8 +71,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/ser" element={<Airport />} />
 
-          <Route path="/service" element={<Service />} /> 
-          <Route path="/about" element={<About/>} />
+          <Route path="/ourservice" element={<Service />} /> 
+          <Route path="/aboutus" element={<About/>} />
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/airport" element={<Airport />} /> 
          <Route path="/join" element={<Join />} /> 
@@ -57,7 +81,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer   />
-      </BrowserRouter>
+
     </>
   );
 }

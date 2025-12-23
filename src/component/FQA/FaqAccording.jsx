@@ -17,15 +17,16 @@ export const FAQAccordion = () => {
   };
 
   return (
-    <div className="space-y-4 m-24 ">
+    <div className="space-y-4 my-10 px-4 md:px-0 md:m-24">
         
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-gray-900">
+      <h2 className="text-xl md:text-3xl font-bold text-center mb-10 text-gray-900">
             Frequently Asked Questions
           </h2> 
       {items.map((faq, index) => (
         <div
           key={index}
-          className="border border-gray-300 rounded-lg overflow-hidden shadow-sm ml-70 mr-70  hover:shadow-md transition-shadow"
+          className="border border-gray-300 rounded-lg overflow-hidden shadow-sm 
+           max-w-7xl mx-auto hover:shadow-md transition-shadow"
         >
           <button
             onClick={() => toggle(index)}

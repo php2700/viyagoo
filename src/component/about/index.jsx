@@ -110,16 +110,53 @@ export const About = () => {
       icon: image2
     },
   ]
+  const [showMoreDesc, setShowMoreDesc] = useState(false);
+const [showMoreSubDesc, setShowMoreSubDesc] = useState(false);
+
+const description = pageContent?.description || `
+Redefining Mobility, Your Way is a new-age Transport and Logistics Consultancy established with the vision of becoming a trusted leader in corporate mobility and logistics solutions across India. With deep industry expertise and a strong commitment to innovation, service excellence, and sustainability, we are redefining the way organizations and individuals experience transportation.
+`;
+
+const subDescription = pageContent?.subDescription || `
+We support enterprises with customized enterprise transport solutions, business transport services, and a robust transport management solution Bangalore, ensuring safe, efficient, and cost-optimized employee mobility. With strong expertise in employee transport management, fleet management services Bangalore, and corporate mobility solutions, VIYAGOO helps organizations improve daily employee commute through reliable employee pickup drops Bangalore, company shuttle services, and integrated office transportation management. By combining innovation, sustainability, and operational excellence, we redefine urban and corporate travel—your way.
+
+Our focus on safety, reliability, and customer satisfaction forms the cornerstone of our operations. Each service is delivered with precision, backed by a dedicated team that upholds the highest standards of professionalism and care.
+`;
+
+const descLimit = 400; 
+const subDescLimit = 400; 
+
+const shortDesc = description.slice(0, descLimit);
+const shortSubDesc = subDescription.slice(0, subDescLimit);
   return (
      <section className="w-full min-h-screen bg-white ">
             {/* HERO SECTION */}
-            <div className="relative w-full">
-              <img
-                src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
-                alt="Banner"
-                className="w-full h-[100vh] object-cover"
-              />
-            </div>
+         <div className="relative w-full h-[100vh]">
+
+    {/* Banner Image */}
+    <img
+      src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
+      alt="Banner"
+      className="w-full h-full object-cover"
+    />
+
+    {/* Overlay (dark layer for readability) */}
+    <div className="absolute inset-0 bg-black/40"></div>
+
+  <div className="absolute inset-0 flex flex-col items-start justify-center px-6 sm:px-12 md:px-20 overflow-auto">
+  <p className="text-white text-xl sm:text-2xl max-w-4xl whitespace-pre-line mt-10 md:mt-0">
+    {bannerData?.subtitle || `
+VIYAGOO offers employee transportation services designed to meet the daily mobility needs of modern businesses across India. As a trusted provider of employee transportation services in Bangalore, we deliver safe, reliable, and well-managed corporate employee transportation services for IT parks, enterprises, and corporate offices.
+Our solutions include employee daily pickup and drop service, office cab services Bangalore, corporate staff cab services, and employee shuttle transport, ensuring smooth and on-time travel for employees.
+`}
+  </p>
+
+
+
+
+    </div>
+
+  </div>
     <div className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
 
@@ -129,42 +166,42 @@ export const About = () => {
           </h1>
 
           {/* Intro Paragraph */}
-          <p className="text-gray-700 text-lg leading-relaxed mb-8 text-center whitespace-pre-line">
-            {pageContent.description || (
-              <>
-                <strong className="text-[#0572E6]">VIYAGOO</strong> is a new-age
-                Transport and Logistics Consultancy established with the vision of
-                becoming a trusted leader in corporate mobility and logistics
-                solutions across India. With deep industry expertise and a
-                strong commitment to innovation, service excellence, and
-                sustainability, we are redefining the way organizations and
-                individuals experience transportation.
-              </>
-            )}
-          </p>
+       <p className="text-gray-700 text-lg leading-relaxed mb-4 text-center whitespace-pre-line">
+  {showMoreDesc ? description : shortDesc}
+  {!showMoreDesc && description.length > descLimit && "..."}
+</p>
+
+{description.length > descLimit && (
+  <div className="text-center mb-8">
+    <button
+      onClick={() => setShowMoreDesc(!showMoreDesc)}
+      className="text-[#0572E6] font-semibold hover:underline"
+    >
+      {showMoreDesc ? "Read Less" : "Read More"}
+    </button>
+  </div>
+)}
+
 
           {/* Main Content Box */}
-          <div className="bg-white shadow-lg rounded-2xl p-8 sm:p-12 mb-12">
-            <div className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
-              {pageContent.subDescription || (
-                <>
-                  <p className="mb-4">
-                    At Viyagoo, we offer a comprehensive range of services,
-                    including Corporate Employee Transportation powered by
-                    advanced ETMS technology and an eco-friendly EV fleet,
-                    Airport Transfers, Executive Chauffeur Services, and
-                    end-to-end Logistics Transport Solutions.
-                  </p>
-                  <p className="mb-6">
-                    Our focus on safety, reliability, and customer satisfaction
-                    forms the cornerstone of our operations. Each service is
-                    delivered with precision, backed by a dedicated team that
-                    upholds the highest standards of professionalism and care.
-                  </p>
-                </>
-              )}
-            </div>
-          </div>
+     <div className="bg-white shadow-lg rounded-2xl p-8 sm:p-12 mb-12">
+  <div className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
+    {showMoreSubDesc ? subDescription : shortSubDesc}
+    {!showMoreSubDesc && subDescription.length > subDescLimit && "..."}
+  </div>
+
+  {subDescription.length > subDescLimit && (
+    <div className="mt-4 text-right">
+      <button
+        onClick={() => setShowMoreSubDesc(!showMoreSubDesc)}
+        className="text-[#0572E6] font-semibold hover:underline"
+      >
+        {showMoreSubDesc ? "Read Less" : "Read More"}
+      </button>
+    </div>
+  )}
+</div>
+
           <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
             <h2 className="text-2xl font-bold  mb-3">
               {pageContent.visionTitle || "Vision"}

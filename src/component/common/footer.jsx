@@ -23,9 +23,16 @@ const Footer = () => {
     navigate(url);
   };
 
+  // const handleDemo = () => {
+  //   navigate("/#demo");
+  // };
   const handleDemo = () => {
-    navigate("/#demo");
-  };
+  const section = document.getElementById("demo");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 
   const getData = async () => {
     try {

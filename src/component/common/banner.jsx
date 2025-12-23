@@ -6,7 +6,7 @@ export const Banner = () => {
                   <img
                         src={HeroBanner}
                         alt="banner"
-                        className="w-full h-[80vh] object-cover"
+                        className="w-full h-[50vh] md:h-[70vh] object-cover"
                   />
             </div>
       );

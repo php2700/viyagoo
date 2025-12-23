@@ -11,22 +11,22 @@ export const Header = ({ scrollToFooter }) => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
+    { name: "About Us", path: "/aboutus" },
 
     {
       name: "Services",
-      path: "/service",
+      path: "/ourservice",
       dropdown: [
         {
           name: "Corporate",
-          path: "/service?activeTab=Corporate Employee Transportation",
+          path: "/ourservice?activeTab=Corporate Employee Transportation",
         },
         {
           name: "Chauffer",
-          path: "/service?activeTab=Chauffeur-Airport Transfers",
+          path: "ourservice?activeTab=Chauffeur-Airport Transfers",
         },
-        { name: "Logistic", path: "/service?activeTab=Logistics" },
-        { name: "Ev Segment", path: "/service?activeTab=EV SEGMENT" },
+        { name: "Logistic", path: "/ourservice?activeTab=Logistics" },
+        { name: "Ev Segment", path: "ourservice?activeTab=EV SEGMENT" },
       ],
     },
 
@@ -38,13 +38,24 @@ export const Header = ({ scrollToFooter }) => {
     setIsOpen(false);
     setServiceOpen(false);
   };
+// working
+  // const handleNavContact = () => {
+  //   const footer = document.getElementById("footer");
+  //   if (footer) {
+  //     footer.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
-  const handleNavContact = () => {
-    const footer = document.getElementById("footer");
-    if (footer) {
-      footer.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+
+
+
+const handleNavContact = () => {
+
+  navigate("/#contactus");
+  setIsOpen(false);
+  setServiceOpen(false);
+};
+
 
   return (
     // <header className="bg-[#0572E6] w-full shadow-md">

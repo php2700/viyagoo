@@ -1,24 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Home page -->
   <url>
     <loc>https://viyagoo.com/</loc>
-    <lastmod>2025-12-17</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- About Us page -->
   <url>
-    <loc>https://viyagoo.com/</loc>
-    <lastmod>2025-12-17</lastmod>
+    <loc>https://viyagoo.com/aboutus</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Join page -->
+  <url>
+    <loc>https://viyagoo.com/join</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FAQ page -->
+  <url>
+    <loc>https://viyagoo.com/faq</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Services main page -->
+  <url>
+    <loc>https://viyagoo.com/ourservice</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Service dropdown pages with query parameters -->
+  <url>
+    <loc>https://viyagoo.com/ourservice?activeTab=Corporate%20Employee%20Transportation</loc>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>hhttps://viyagoo.com/</loc>
-    <lastmod>2025-12-17</lastmod>
+    <loc>https://viyagoo.com/ourservice?activeTab=Chauffeur-Airport%20Transfers</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://viyagoo.com/ourservice?activeTab=Logistics</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://viyagoo.com/ourservice?activeTab=EV%20SEGMENT</loc>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
