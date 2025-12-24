@@ -383,8 +383,8 @@ export const BookingFormBanner = () => {
 
   <>
     {/* Hero Banner Section - Full height, no overlap */}
-  <section className="relative w-full h-[80vh] md:h-[100vh] overflow-hidden">
-  {banner?.type === "image" ? (
+  <section className="relative w-full h-[80vh] md:h-[100vh] overflow-hidden"> 
+   {banner?.type === "image" ? ( 
     <img
       src={`${import.meta.env.VITE_APP_URL}${banner?.image}`}
       alt="Banner"
@@ -401,26 +401,51 @@ export const BookingFormBanner = () => {
     />
   )}
 
-  <div className="absolute inset-0 bg-black/50"></div>
 
 
-  <div className="absolute inset-0 flex flex-col justify-center text-center md:text-left text-white px-4 sm:px-8 md:px-12">
-  
-  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-6 drop-shadow-2xl leading-tight max-w-5xl md:pl-12">
+
+  {/* Optional overlay for text or gradient */}
+  <div className="absolute inset-0 bg-black/30"></div>
+
+  {/* Optional content in the banner */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <h1 className="text-white text-3xl md:text-5xl font-bold text-center">
+      {banner?.heading}
+    </h1>
+  </div>
+
+
+<div
+  className="
+    absolute inset-0
+    flex flex-col
+    justify-start md:justify-center
+    text-left text-white
+    px-4 sm:px-6 md:px-12
+
+    pt-[calc(env(safe-area-inset-top)+8rem)]
+    sm:pt-[calc(env(safe-area-inset-top)+9rem)]
+    md:pt-0
+  "
+>
+  {/* Heading */}
+  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6 drop-shadow-2xl leading-tight max-w-5xl md:pl-12">
     Leading Transport and Mobility Consultancy in India
   </h1>
-<div className="text-base sm:text-lg md:text-xl lg:text-xl font-medium drop-shadow-lg max-w-4xl md:pl-12">  <h6> Top Employee Transportation Services in Bangalore</h6>
-  <h6> Employee Daily Pickup & Drop – Employee Transport Service</h6>
-      <h6> Corporate Employee Transportation Services </h6>
-     <h6> Transport Management Solution for Businesses in Bangalore  </h6>
-     <h6> Best Corporate Shuttle Services in Bangalore   </h6>
-      <h6>  Top Corporate Transport & Logistics Solution Providers    </h6>
-<h6>  ETMS, EV fleet operations, airport transfers, executive chauffeur services  </h6></div>
- 
-   
-    
 
+  {/* Text */}
+  <div className="text-sm sm:text-base md:text-xl font-medium drop-shadow-lg max-w-4xl space-y-2 md:pl-12">
+    <p>Top Employee Transportation Services in Bangalore</p>
+    <p>Employee Daily Pickup & Drop – Employee Transport Service</p>
+    <p>Corporate Employee Transportation Services</p>
+    <p>Transport Management Solution for Businesses in Bangalore</p>
+    <p>Best Corporate Shuttle Services in Bangalore</p>
+    <p>Top Corporate Transport & Logistics Solution Providers</p>
+    <p>ETMS, EV fleet operations, airport transfers, executive chauffeur services</p>
   </div>
+</div>
+
+
 </section> 
 
  
