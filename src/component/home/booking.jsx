@@ -247,6 +247,138 @@ export const BookingFormBanner = () => {
 //     </section>
 //   );
 // };
+//  return (
+
+//   <>
+//     {/* Hero Banner Section - Full height, no overlap */}
+//   <section className="relative w-full h-[80vh] md:h-[100vh] overflow-hidden">
+//   {banner?.type === "image" ? (
+//     <img
+//       src={`${import.meta.env.VITE_APP_URL}${banner?.image}`}
+//       alt="Banner"
+//       className="absolute inset-0 w-full h-full object-cover"
+//     />
+//   ) : (
+//     <video
+//       src={`${import.meta.env.VITE_APP_URL}${banner?.video}`}
+//       autoPlay
+//       muted
+//       loop
+//       playsInline
+//       className="absolute inset-0 w-full h-full object-cover"
+//     />
+//   )}
+
+//   <div className="absolute inset-0 bg-black/50"></div>
+
+
+//   <div className="absolute inset-0 flex flex-col justify-center text-center md:text-left text-white px-4 sm:px-8 md:px-12">
+  
+//   <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-6 drop-shadow-2xl leading-tight max-w-5xl md:pl-12">
+//     Leading Transport and Mobility Consultancy in India
+//   </h1>
+// <div className="text-base sm:text-lg md:text-xl lg:text-xl font-medium drop-shadow-lg max-w-4xl md:pl-12">  <h6> Top Employee Transportation Services in Bangalore</h6>
+//   <h6> Employee Daily Pickup & Drop – Employee Transport Service</h6>
+//       <h6> Corporate Employee Transportation Services </h6>
+//      <h6> Transport Management Solution for Businesses in Bangalore  </h6>
+//      <h6> Best Corporate Shuttle Services in Bangalore   </h6>
+//       <h6>  Top Corporate Transport & Logistics Solution Providers    </h6>
+// <h6>  ETMS, EV fleet operations, airport transfers, executive chauffeur services  </h6></div>
+ 
+   
+    
+
+//   </div>
+// </section> 
+
+ 
+//     <section className="w-full bg-gray-50 py-12 md:py-20 -mt-10 md:-mt-20 relative z-10">
+//       <div className="max-w-6xl mx-auto px-4">
+//         <div className="bg-white shadow-2xl rounded-2xl p-8 md:p-12">
+      
+//           <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-10">
+//             {["Airport", "Local", "Outstation"].map((type) => (
+//               <label
+//                 key={type}
+//                 className="flex items-center gap-3 font-semibold text-gray-800 cursor-pointer select-none"
+//               >
+//                 <input
+//                   type="radio"
+//                   name="tripType"
+//                   value={type}
+//                   checked={tripType === type}
+//                   onChange={() => setTripType(type)}
+//                   className="w-5 h-5 accent-[#0E1D3E]"
+//                 />
+//                 <span className={tripType === type ? "text-[#0E1D3E]" : "text-gray-700"}>
+//                   {type} Trip
+//                 </span>
+//               </label>
+//             ))}
+//           </div>
+
+      
+//           <form
+//             id="demo"
+//             onSubmit={handleSubmit}
+//             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+//           >
+//             {formFields.map((field) => (
+//               <div key={field.name} className="flex flex-col">
+//                 <label className="font-semibold text-gray-700 mb-2">
+//                   {field.label}
+//                 </label>
+//                 <input
+//                   ref={field.name === "pickupDate" ? pickupDateRef : null}
+//                   type={field.type}
+//                   name={field.name}
+//                   placeholder={field.placeholder}
+//                   value={formData[field.name]}
+//                   onChange={handleChange}
+//                   required
+//                   min={
+//                     field.name === "pickupDate"
+//                       ? getMinDateTime()
+//                       : field.name === "seats"
+//                       ? 1
+//                       : undefined
+//                   }
+//                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0E1D3E] transition"
+//                 />
+//               </div>
+//             ))}
+
+            
+//             <div className="lg:col-span-3 sm:col-span-2 flex justify-center mt-8">
+//               <button
+//                 type="submit"
+//                 disabled={loading}
+//                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-16 rounded-full shadow-lg transition duration-300 disabled:bg-gray-400"
+//               >
+//                 {loading ? "Submitting..." : "Get Quote"}
+//               </button>
+//             </div>
+//           </form>
+
+
+//           <div className="mt-8 max-w-xl mx-auto">
+//             {successMessage && (
+//               <p className="text-center text-green-800 font-bold bg-green-100 border border-green-500 rounded-lg p-4">
+//                 {successMessage}
+//               </p>
+//             )}
+//             {error && (
+//               <p className="text-center text-red-800 font-bold bg-red-100 border border-red-500 rounded-lg p-4">
+//                 {error}
+//               </p>
+//             )}
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   </>
+// );
+// };
  return (
 
   <>
@@ -277,11 +409,17 @@ export const BookingFormBanner = () => {
   <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-6 drop-shadow-2xl leading-tight max-w-5xl md:pl-12">
     Leading Transport and Mobility Consultancy in India
   </h1>
+<div className="text-base sm:text-lg md:text-xl lg:text-xl font-medium drop-shadow-lg max-w-4xl md:pl-12">  <h6> Top Employee Transportation Services in Bangalore</h6>
+  <h6> Employee Daily Pickup & Drop – Employee Transport Service</h6>
+      <h6> Corporate Employee Transportation Services </h6>
+     <h6> Transport Management Solution for Businesses in Bangalore  </h6>
+     <h6> Best Corporate Shuttle Services in Bangalore   </h6>
+      <h6>  Top Corporate Transport & Logistics Solution Providers    </h6>
+<h6>  ETMS, EV fleet operations, airport transfers, executive chauffeur services  </h6></div>
+ 
+   
+    
 
-  <p className="text-base sm:text-lg md:text-xl lg:text-xl font-medium drop-shadow-lg max-w-4xl md:pl-12">
-    Top Employee Transportation Services in Bangalore Employee Daily Pickup & Drop – Employee Transport Service Corporate Employee Transportation Services 
-    Transport Management Solution for Businesses in Bangalore Best Corporate Shuttle Services in Bangalore Top Corporate Transport & Logistics Solution Providers ETMS, EV fleet operations, airport transfers, executive chauffeur services
-  </p>
   </div>
 </section> 
 
