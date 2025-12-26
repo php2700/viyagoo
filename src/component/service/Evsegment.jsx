@@ -13,30 +13,39 @@ export const EVSegment = () => {
   const [segmentData, setSegmentData] = useState();
   const [segmentFleetData, setSegmentFleetData] = useState([]);
   const [whysegmentData, setWhySegmentData] = useState([]);
-  const [segmentHeadingData,setSegmentHeadingData]=useState();
-  const [segmentFleetHeadingData,setsegmentFleetHeadingData]=useState();
+  const [segmentHeadingData, setSegmentHeadingData] = useState();
+  const [segmentFleetHeadingData, setsegmentFleetHeadingData] = useState();
 
-  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
- 
+
   const getData = async () => {
     try {
-      const [segmentRes,segmentHeadingRes,segmentFleetHeadingRes, segmentFleetRes, whySegmentRes] = await Promise.all([
+      const [
+        segmentRes,
+        segmentHeadingRes,
+        segmentFleetHeadingRes,
+        segmentFleetRes,
+        whySegmentRes,
+      ] = await Promise.all([
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/segment`),
-        axios.get(`${import.meta.env.VITE_APP_URL}api/user/why-segment-heading`),
-        axios.get(`${import.meta.env.VITE_APP_URL}api/user/segment-fleet-heading`),
+        axios.get(
+          `${import.meta.env.VITE_APP_URL}api/user/why-segment-heading`
+        ),
+        axios.get(
+          `${import.meta.env.VITE_APP_URL}api/user/segment-fleet-heading`
+        ),
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/segment-fleet`),
         axios.get(`${import.meta.env.VITE_APP_URL}api/user/why-segment`),
       ]);
       if (segmentRes?.data && segmentFleetRes?.data && whySegmentRes?.data) {
         setSegmentData(segmentRes?.data?.data);
-        setSegmentHeadingData(segmentHeadingRes?.data?.data)
-        setsegmentFleetHeadingData(segmentFleetHeadingRes?.data?.data)
+        setSegmentHeadingData(segmentHeadingRes?.data?.data);
+        setsegmentFleetHeadingData(segmentFleetHeadingRes?.data?.data);
         setSegmentFleetData(segmentFleetRes?.data?.data);
         setWhySegmentData(whySegmentRes?.data?.data);
       }
@@ -53,124 +62,127 @@ export const EVSegment = () => {
     getData();
   }, []);
   return (
-    <section className="w-full min-h-screen bg-white">
-      {/* CONTENT */}
-      <div className="max-w-[86rem] mx-auto px-6">
-        {/* Intro Section */}
-        <div className=" mb-12">
-          <p className="  text-[19px] ">
-            {segmentData?.about}
-            {" "}
-          </p>
-          <div className="w-full px-6 py-16 flex flex-col items-center">
-            {/* Subtitle */}
-            <h3 className="text-2xl md:text-3xl font-bold  mb-8   ">
-             {segmentData?.aboutHeading}
-            </h3>
+    <>
+      <Helmet>
+        <title>VIYAGOO</title>
+        <meta
+          name="description"
+          content="Viyagoo-Corporate Employee Transportation Services | ETMS, EV Fleet & Shuttle Solutions. We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
+        />
+      </Helmet>
+      <DynamicCanonical />
+      <section className="w-full min-h-screen bg-white">
+        {/* CONTENT */}
+        <div className="max-w-[86rem] mx-auto px-6">
+          {/* Intro Section */}
+          <div className=" mb-12">
+            <p className="  text-[19px] ">{segmentData?.about} </p>
+            <div className="w-full px-6 py-16 flex flex-col items-center">
+              {/* Subtitle */}
+              <h3 className="text-2xl md:text-3xl font-bold  mb-8   ">
+                {segmentData?.aboutHeading}
+              </h3>
 
-            <p className="max-w-[86rem]    text-[19px] mb-16">
-              {segmentData?.evAdvantage}
-              
-            </p>
+              <p className="max-w-[86rem]    text-[19px] mb-16">
+                {segmentData?.evAdvantage}
+              </p>
 
-            {/* Key Services Box */}
-            <h3 className="text-2xl md:text-3xl font-bold  text-center mb-8">
-              {segmentData?.evAdvantageHeading}
-            </h3>
+              {/* Key Services Box */}
+              <h3 className="text-2xl md:text-3xl font-bold  text-center mb-8">
+                {segmentData?.evAdvantageHeading}
+              </h3>
 
-            <div className="bg-[#ECF5FF] shadow-[0px_8px_20px_rgba(0,0,0,0.15)] p-8 rounded-[25px] max-w-[86rem] w-full border border-gray-200 rounded-tr-[105px] rounded-bl-[105px]">
-              <ol className="list-decimal pl-6 space-y-6  text-[15px] leading-relaxed">
-                {segmentData?.services?.map((ele)=>(
-                <li>
-                  <span className="font-semibold text-[21px] block text-start ">
-                    {ele?.title}
-                  </span>
-                  <p className=" text-[15px]">
-                    {ele?.description}
-                    
-                  </p>
-                </li>
-                ))}
+              <div className="bg-[#ECF5FF] shadow-[0px_8px_20px_rgba(0,0,0,0.15)] p-8 rounded-[25px] max-w-[86rem] w-full border border-gray-200 rounded-tr-[105px] rounded-bl-[105px]">
+                <ol className="list-decimal pl-6 space-y-6  text-[15px] leading-relaxed">
+                  {segmentData?.services?.map((ele) => (
+                    <li>
+                      <span className="font-semibold text-[21px] block text-start ">
+                        {ele?.title}
+                      </span>
+                      <p className=" text-[15px]">{ele?.description}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
 
-           
-              </ol>
-            </div>
+              {/* Why Choose EV Section */}
 
-            {/* Why Choose EV Section */}
+              <h3 className="text-2xl md:text-3xl font-bold  mb-8  text-left  mt-[56px]">
+                {segmentHeadingData?.heading}
+              </h3>
 
-            <h3 className="text-2xl md:text-3xl font-bold  mb-8  text-left  mt-[56px]">
-              {segmentHeadingData?.heading}
-              
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[86rem] w-full">
-              {whysegmentData?.map((box, index) => (
-                <div key={index} className="bg-[#F8F8F8] p-6 rounded-2xl  ">
-                  <img
-                    src={`${import.meta.env.VITE_APP_URL}${box?.image}`}
-                    alt=""
-                    className="h-[30px] bg-[#ECECEC]"
-                  />
-                  <h4 className=" font-semibold text-lg mb-2 text-start mt-[26px] max-w-[170px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[86rem] w-full">
+                {whysegmentData?.map((box, index) => (
+                  <div key={index} className="bg-[#F8F8F8] p-6 rounded-2xl  ">
+                    <img
+                      src={`${import.meta.env.VITE_APP_URL}${box?.image}`}
+                      alt="segment"
+                      className="h-[30px] bg-[#ECECEC]"
+                      loading="lazy"
+                    />
+                    <h4 className=" font-semibold text-lg mb-2 text-start mt-[26px] max-w-[170px]">
                       {box.title.length > 70
-                    ? box.title.slice(0, 70) + "..."
-                    : box.title}
-                  </h4>
-                  <p className=" text-[15px] leading-relaxed text-start max-w-[239px]">
-                                {box.description.length > 100
-                    ? box.description.slice(0, 100) + "..."
-                    : box.description}
-                    
-                  </p>
-                </div>
-              ))}
+                        ? box.title.slice(0, 70) + "..."
+                        : box.title}
+                    </h4>
+                    <p className=" text-[15px] leading-relaxed text-start max-w-[239px]">
+                      {box.description.length > 100
+                        ? box.description.slice(0, 100) + "..."
+                        : box.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-[86rem] mx-auto">
-          {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl text-center font-bold  mb-10">
-            {segmentFleetHeadingData?.heading}
-          </h2>
+        <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[86rem] mx-auto">
+            {/* Heading */}
+            <h2 className="text-3xl sm:text-4xl text-center font-bold  mb-10">
+              {segmentFleetHeadingData?.heading}
+            </h2>
 
-          {/* Carousel Box */}
-          <div className="flex flex-col items-center gap-8">
-            {/* Image Section */}
-            <div className="relative flex justify-center items-center">
-              <div className="rounded-[85px] overflow-hidden shadow-xl mx-auto lg:w-[1292px] md:w-[1000px] h-[415px]">
-                <img
-                  src={ `${import.meta.env.VITE_APP_URL}${segmentFleetData[current]?.image}`}
-                  alt="Fleet"
-                  className="w-full h-full object-cover transition-all duration-500 "
-                />
-              </div>
+            {/* Carousel Box */}
+            <div className="flex flex-col items-center gap-8">
+              {/* Image Section */}
+              <div className="relative flex justify-center items-center">
+                <div className="rounded-[85px] overflow-hidden shadow-xl mx-auto lg:w-[1292px] md:w-[1000px] h-[415px]">
+                  <img
+                    src={`${import.meta.env.VITE_APP_URL}${
+                      segmentFleetData[current]?.image
+                    }`}
+                    alt="Fleet"
+                    className="w-full h-full object-cover transition-all duration-500 "
+                    loading="lazy"
+                  />
+                </div>
 
-              {/* Dots */}
-              <div className="absolute bottom-4 flex gap-3">
-                {segmentFleetData?.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrent(index)}
-                    className={`w-4 h-4 rounded-full transition-all duration-300 
+                {/* Dots */}
+                <div className="absolute bottom-4 flex gap-3">
+                  {segmentFleetData?.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrent(index)}
+                      className={`w-4 h-4 rounded-full transition-all duration-300 
                     ${current === index ? "bg-white shadow" : "bg-gray-400"}
                   `}
-                  ></button>
-                ))}
+                    ></button>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Text Section */}
-            <div className="text-center">
-              <h2 className="text-[18px] font-bold  max-w-[900px]">
-                {segmentFleetData?.length &&  segmentFleetData[0].description}
-              </h2>
+              {/* Text Section */}
+              <div className="text-center">
+                <h2 className="text-[18px] font-bold  max-w-[900px]">
+                  {segmentFleetData?.length && segmentFleetData[0].description}
+                </h2>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

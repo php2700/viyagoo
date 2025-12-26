@@ -116,6 +116,7 @@ export const Airport = () => {
                   }`}
                   alt="Executive being greeted by chauffeur"
                   className="rounded-[2rem] shadow-lg w-full object-cover h-96"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-[2rem]"></div>
               </div>
@@ -128,8 +129,9 @@ export const Airport = () => {
                     <li className="flex items-start">
                       <img
                         src={Vector}
-                        alt=""
+                        alt="vector"
                         className="w-8 h-8 text-green-500 mr-3 flex-shrink-0 mt-0.5"
+                        loading="lazy"
                       />
                       <span className="text-[15px]  font-medium">
                         {ele}
@@ -155,6 +157,7 @@ export const Airport = () => {
                           src={Hours}
                           alt="24/7"
                           className="w-full h-full object-contain invert brightness-0"
+                          loading="lazy"
                         />
                       </div>
                       <p className="font-[600]  pt-1 text-[19px]">
@@ -170,6 +173,7 @@ export const Airport = () => {
                           src={Tracking}
                           alt="Live flight tracking"
                           className="w-full h-full object-contain invert brightness-0"
+                          loading="lazy"
                         />
                       </div>
                       <p className="font-[600]  pt-1 text-[19px]">
@@ -184,6 +188,7 @@ export const Airport = () => {
                           src={Group}
                           alt="Meet & Greet"
                           className="w-full h-full object-contain invert brightness-0"
+                          loading="lazy"
                         />
                       </div>
                       <p className="font-[600]  pt-1 text-[19px]">
@@ -198,6 +203,7 @@ export const Airport = () => {
                           src={Taxi}
                           alt="Flexible fleet"
                           className="w-full h-full object-contain invert brightness-0"
+                          loading="lazy"
                         />
                       </div>
                       <p className="font-[600]  pt-1 text-[19px]">
@@ -212,6 +218,7 @@ export const Airport = () => {
                           src={Network}
                           alt="Integrated mobility"
                           className="w-full h-full object-contain invert brightness-0"
+                          loading="lazy"
                         />
                       </div>
                       <p className="font-[600]  pt-1 text-[19px]">
@@ -228,6 +235,7 @@ export const Airport = () => {
                   }`}
                   alt="Private jet and luxury car at airport"
                   className="w-[623px] h-[596px] object-contain drop-shadow-lg"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -254,6 +262,7 @@ export const Airport = () => {
                   src={`${import.meta.env.VITE_APP_URL}${ele?.image}`}
                   alt="Hardworking"
                   className="w-55 h-41 md:w-55 md:h-41 relative left-[23px] top-[25px]"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -281,8 +290,9 @@ export const Airport = () => {
                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center">
                   <img
                     src={`${import.meta.env.VITE_APP_URL}${ele?.image}`}
-                    alt=""
+                    alt="viyagoo"
                     className="w-15 h-15"
+                    loading="lazy"
                   />
                 </div>
               </div>

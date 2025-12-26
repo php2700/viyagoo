@@ -128,6 +128,7 @@ export const EmployerBenefits = () => {
                     src={cleanImagePath(item.image)}
                     alt={item.title}
                     className="w-10 h-10 object-contain"
+                    loading="lazy"
                   />
                 </div>
 

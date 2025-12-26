@@ -105,6 +105,7 @@ apiClient.get("/testimonial-heading"),
             src={leftQuote}
             alt="Left Quote"
             className="w-8 md:w-10 mb-2 self-start"
+            loading="lazy"
 
           />
           <p className="text-base md:text-xl leading-relaxed px-4">
@@ -114,6 +115,7 @@ apiClient.get("/testimonial-heading"),
             src={rightQuote}
             alt="Right Quote"
             className="w-8 md:w-10 mt-2 self-end"
+            loading="lazy"
           />
         </div>
 

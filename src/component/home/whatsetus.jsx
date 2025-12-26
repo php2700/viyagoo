@@ -70,6 +70,7 @@ export const WhatSetsUsApart = () => {
             src={smallImage}
             alt="Small Image"
             className="w-full object-cover"
+            loading="lazy"
           />
         </div>
         {/* Small overlapping image */}

@@ -126,7 +126,7 @@ const [logos, setLogos] = useState([]);
         <div className="marquee-track">
           {logos.concat(logos).map((logo, i) => (
             <div key={i} className="marquee-item">
-              <img src={logo.src} className="logo-img  rounded-lg" />
+              <img src={logo.src} alt="Client Logo" className="logo-img  rounded-lg" loading="lazy"/>
             </div>
           ))}
         </div>

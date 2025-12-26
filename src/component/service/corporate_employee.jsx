@@ -94,6 +94,15 @@ export const Corporate = () => {
   }, []);
 
   return (
+    <>
+     <Helmet>
+        <title>VIYAGOO</title>
+         <meta
+      name="description"
+      content="Viyagoo-Corporate Employee Transportation Services | ETMS, EV Fleet & Shuttle Solutions. We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
+    />
+      </Helmet>
+            <DynamicCanonical />
     <section className="w-full min-h-screen bg-white ">
       <div className="max-w-[86rem] mx-auto px-6">
         <div className=" mb-12">
@@ -147,6 +156,7 @@ export const Corporate = () => {
                     src={`${import.meta.env.VITE_APP_URL}${item?.icon}`}
                     alt={item.title}
                     class="w-full h-full object-contain p-1"
+                    loading="lazy"
                   />
                 </div>
                 <div>
@@ -179,7 +189,7 @@ export const Corporate = () => {
               onClick={() => scroll("left")}
               className="absolute -left-4 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-[9px]  hover:bg-[#e2e4ed] z-10 shadow-[1px_2px_4px_0px_#898484]"
             >
-              <img src={Leftarrow} alt="Left Arrow" className="w-5 h-5" />
+              <img src={Leftarrow} alt="Left Arrow" className="w-5 h-5" loading="lazy" />
             </button>
 
             {/* Scroll Container */}
@@ -201,6 +211,7 @@ export const Corporate = () => {
                       src={`${import.meta.env.VITE_APP_URL}${item?.image}`}
                       alt={item.title}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   </div>
 
@@ -225,7 +236,7 @@ export const Corporate = () => {
               onClick={() => scroll("right")}
               className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-[9px]  hover:bg-[#e2e4ed] z-10 shadow-[1px_2px_4px_0px_#898484]"
             >
-              <img src={Rightarrow} alt="Right Arrow" className="w-5 h-5" />
+              <img src={Rightarrow} alt="Right Arrow" className="w-5 h-5" loading="lazy" />
             </button>
           </div>
         </div>
@@ -253,6 +264,7 @@ export const Corporate = () => {
                         src={`${import.meta.env.VITE_APP_URL}${item?.image}`}
                         alt={item.title}
                         className="w-full h-full object-contain"
+                        loading="lazy"
                       />
                     </div>
                     <div>
@@ -298,6 +310,7 @@ export const Corporate = () => {
                       src={`${import.meta.env.VITE_APP_URL}${item?.image}`}
                       alt={item.title}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   </div>
                   <div>
@@ -319,6 +332,7 @@ export const Corporate = () => {
                   src={`${import.meta.env.VITE_APP_URL}${mobility?.image}`}
                   alt="Future of employee mobility - woman looking at hot air balloons"
                   className="w-full h-auto rounded-2xl shadow-lg object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -399,6 +413,7 @@ export const Corporate = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

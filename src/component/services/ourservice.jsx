@@ -34,6 +34,15 @@ import ser5 from "../../assets/services/service-backg.png"
 
 const Services = () => {
   return (
+    <>
+     <Helmet>
+        <title>VIYAGOO</title>
+         <meta
+      name="description"
+      content="Viyagoo-Corporate Employee Transportation Services | ETMS, EV Fleet & Shuttle Solutions. We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
+    />
+      </Helmet>
+            <DynamicCanonical />
     <div className="flex flex-col min-h-screen bg-white ">
       {/* Top Section */}
       <section
@@ -128,6 +137,7 @@ const Services = () => {
             src={ser1}
             alt="Employee Transportation Vans"
             className=""
+            loading="lazy"
           />
         </div>
       </section>
@@ -140,6 +150,7 @@ const Services = () => {
             src={ser3}
             alt="Fleet Vehicles"
             className=""
+            loading="lazy"
           />
         </div>
 
@@ -183,6 +194,7 @@ const Services = () => {
             src={ser4}
             alt="Transport Fleet"
             className=""
+            loading="lazy"
           />
         </div>
       </section>
@@ -199,6 +211,7 @@ const Services = () => {
         </p>
       </section>
     </div>
+    </>
   );
 };
 

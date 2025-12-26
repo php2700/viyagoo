@@ -116,6 +116,7 @@ const Logistic = () => {
         src={planeImage}
         alt="Air Logistics"
         className="  h-[500px] w-[511px]"
+        loading="lazy"
       />
     </div>
 
@@ -141,7 +142,7 @@ const Logistic = () => {
       {/* How We Work Section */}
       <section className="bg-white py-12 px-4">
                   <div className="flex justify-center">
-            <img src={workflow} alt="Logistics Process" className="h-[750px]" />
+            <img src={workflow} alt="Logistics Process" className="h-[750px]" loading="lazy" />
           </div>
         {/* <h2 className="text-2xl font-semibold text-center  md:text-[28px] mb-10" style={{ fontFamily: "Bell MT" }}>
           How We Work / Our Process

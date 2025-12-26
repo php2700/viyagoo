@@ -73,6 +73,15 @@ export const Logistics = () => {
   }, []);
 
   return (
+    <>
+     <Helmet>
+            <title>VIYAGOO</title>
+             <meta
+          name="description"
+          content="Viyagoo-Corporate Employee Transportation Services | ETMS, EV Fleet & Shuttle Solutions. We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
+        />
+          </Helmet>
+                <DynamicCanonical />
     <section className="w-full min-h-screen bg-white">
       {/* CONTENT */}
       <div className="max-w-[86rem] mx-auto">
@@ -99,9 +108,9 @@ export const Logistics = () => {
             </div>
             <div className="w-full bg-white  py-2 flex flex-col items-center mt-16">
               {/* Heading */}
-              <h1 className="text-2xl md:text-3xl font-semibold  mb-12 text-center">
+              <h2 className="text-2xl md:text-3xl font-semibold  mb-12 text-center">
                 {logisticData?.viyagooHeading}
-              </h1>
+              </h2>
 
               {/* Section 1 */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-[86rem] w-full items-center">
@@ -138,6 +147,7 @@ export const Logistics = () => {
                     }`}
                     alt="Airplane"
                     className="w-[356px] h-[425px] object-cover"
+                    loading="lazy"
                   />
                 </div>
 
@@ -192,6 +202,7 @@ export const Logistics = () => {
                     }`}
                     alt="Process"
                     className="w-[385px] h-[568px] object-cover "
+                    loading="lazy"
                   />
                 </div>
 
@@ -221,6 +232,7 @@ export const Logistics = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

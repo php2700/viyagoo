@@ -68,6 +68,7 @@ export const Performance = () => {
                   src={`${import.meta.env.VITE_APP_URL}${item?.image}`}
                   alt={item.title}
                   className="w-10 h-10 object-contain"
+                  loading="lazy"
                 />
               </div>
 

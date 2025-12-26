@@ -171,7 +171,6 @@
 // }
 // export default Join;
 
-
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
@@ -183,11 +182,11 @@ const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 
 function Join() {
   // --- States ---
-   const formRef = useRef(null);
-const [bannerData,setBannerData]=useState()
+  const formRef = useRef(null);
+  const [bannerData, setBannerData] = useState();
   const [loading, setLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  
+
   // 1. Page Content State (Dynamic Text & Image)
   const [pageContent, setPageContent] = useState({
     topTitle: "",
@@ -215,11 +214,13 @@ const [bannerData,setBannerData]=useState()
     const fetchContent = async () => {
       try {
         // Fix: Added '/' before api
-        const [banner,res] = await Promise.all([axios.get(`${API_URL}/api/user/get-viyagoo-banner`),
-           axios.get(`${API_URL}/api/user/driver-page-content`)]);
+        const [banner, res] = await Promise.all([
+          axios.get(`${API_URL}/api/user/get-viyagoo-banner`),
+          axios.get(`${API_URL}/api/user/driver-page-content`),
+        ]);
         if (res.data.data) {
-      console.log(banner?.data?.data,'ssss')
-          setBannerData(banner?.data?.data)
+          console.log(banner?.data?.data, "ssss");
+          setBannerData(banner?.data?.data);
           setPageContent(res.data.data);
         }
       } catch (err) {
@@ -244,7 +245,7 @@ const [bannerData,setBannerData]=useState()
       // Fix 2: Changed 'admiin' to 'public' (Assuming you created public route as discussed)
       // Note: Agar aapne backend me route '/api/admin' me banaya hai to yaha 'public' ki jagah 'admin' likhein.
       await axios.post(`${API_URL}/api/user/submit-driver-form`, formData);
-      
+
       setShowSuccess(true);
       setFormData({
         name: "",
@@ -270,12 +271,13 @@ const [bannerData,setBannerData]=useState()
       bottomImageUrl = pageContent.bottomImage;
     } else {
       // Fix: Use correct API_URL with slash
-      bottomImageUrl = `${API_URL}/${pageContent.bottomImage.replace(/^\/+/, "").replace(/\\/g, "/")}`;
+      bottomImageUrl = `${API_URL}/${pageContent.bottomImage
+        .replace(/^\/+/, "")
+        .replace(/\\/g, "/")}`;
     }
   }
 
-
-console.log( bannerData?.image)
+  console.log(bannerData?.image);
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({
       behavior: "smooth",
@@ -285,29 +287,52 @@ console.log( bannerData?.image)
     <>
       <Helmet>
         <title>Join - VIYAGOO</title>
+
+        <meta
+          name="description"
+          content="Viyagoo-Corporate Employee Transportation Services | ETMS, EV Fleet & Shuttle Solutions. We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
+        />
       </Helmet>
+      <DynamicCanonical />
+
       {showSuccess && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-    <div className="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-sm border-t-4 border-green-500">
-      <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
-        <svg className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-        </svg>
-      </div>
-      <h3 className="text-2xl font-bold text-gray-800">Successfully Submitted!</h3>
-      <p className="text-gray-600 mt-2 mb-6">We will contact you soon.</p>
-      <button onClick={() => setShowSuccess(false)} className="bg-green-600 text-white px-6 py-2 rounded-full w-full font-semibold">
-        Okay, Got it
-      </button>
-    </div>
-  </div>
-)}
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-sm border-t-4 border-green-500">
+            <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+              <svg
+                className="h-8 w-8 text-green-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800">
+              Successfully Submitted!
+            </h3>
+            <p className="text-gray-600 mt-2 mb-6">We will contact you soon.</p>
+            <button
+              onClick={() => setShowSuccess(false)}
+              className="bg-green-600 text-white px-6 py-2 rounded-full w-full font-semibold"
+            >
+              Okay, Got it
+            </button>
+          </div>
+        </div>
+      )}
       <section className="w-full min-h-screen bg-white ">
         <div className="relative w-full">
           <img
             src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
             alt="Banner"
             className="w-full h-[100vh] object-cover"
+            loading="lazy"
           />
         </div>
 
@@ -319,16 +344,17 @@ console.log( bannerData?.image)
           <p className="text-[20px] leading-relaxed text-center whitespace-pre-wrap">
             {pageContent.topDescription || (
               <>
-                Viyagoo believes, our drivers are the heart of every journey. Join a
-                team that values professionalism, reliability, and dedication — and
-                rewards it. With consistent trips, competitive payouts, and fair
-                incentives, you’ll earn more while driving smarter. Our operations
-                are designed to make your experience effortless, from transparent
-                scheduling to full-time driver support.
+                Viyagoo believes, our drivers are the heart of every journey.
+                Join a team that values professionalism, reliability, and
+                dedication — and rewards it. With consistent trips, competitive
+                payouts, and fair incentives, you’ll earn more while driving
+                smarter. Our operations are designed to make your experience
+                effortless, from transparent scheduling to full-time driver
+                support.
                 <br />
-                Drive in comfort, work on your terms, and be part of a brand that’s
-                shaping the future of mobility. With Viyagoo, you don’t just drive —
-                you move forward, confidently and with purpose.
+                Drive in comfort, work on your terms, and be part of a brand
+                that’s shaping the future of mobility. With Viyagoo, you don’t
+                just drive — you move forward, confidently and with purpose.
               </>
             )}
           </p>
@@ -336,12 +362,14 @@ console.log( bannerData?.image)
 
         {/* ===== Form Section ===== */}
         <div className="max-w-5xl mx-auto mt-10 bg-[#EAF3FF] rounded-[25px] p-10 shadow-sm rounded-tl-[115px] rounded-br-[115px]">
-          <form onSubmit={handleSubmit} ref={formRef}  className="grid grid-cols-1 md:grid-cols-3 gap-8 p-[62px]">
+          <form
+            onSubmit={handleSubmit}
+            ref={formRef}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 p-[62px]"
+          >
             {/* Name */}
             <div className="flex flex-col">
-              <label className=" font-[660] mb-2 text-[18px]">
-                Name
-              </label>
+              <label className=" font-[660] mb-2 text-[18px]">Name</label>
               <input
                 type="text"
                 name="name"
@@ -355,9 +383,7 @@ console.log( bannerData?.image)
 
             {/* Phone No */}
             <div className="flex flex-col">
-              <label className=" font-[660] mb-2 text-[18px]">
-                Phone no
-              </label>
+              <label className=" font-[660] mb-2 text-[18px]">Phone no</label>
               <input
                 type="tel"
                 name="phone"
@@ -371,18 +397,20 @@ console.log( bannerData?.image)
 
             {/* City Dropdown */}
             <div className="flex flex-col">
-              <label className=" font-[660] mb-2 text-[18px]">
-                City
-              </label>
-              <input type="text"   name="city"  value={formData.city}
-                onChange={handleChange} className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white text-[#B7B7B7] font-medium pl-[25px]" placeholder="Enter City"/>
+              <label className=" font-[660] mb-2 text-[18px]">City</label>
+              <input
+                type="text"
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
+                className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white text-[#B7B7B7] font-medium pl-[25px]"
+                placeholder="Enter City"
+              />
             </div>
 
             {/* Email Id */}
             <div className="flex flex-col">
-              <label className=" font-[660] mb-2 text-[18px]">
-                Email Id
-              </label>
+              <label className=" font-[660] mb-2 text-[18px]">Email Id</label>
               <input
                 type="email"
                 name="email"
@@ -413,10 +441,15 @@ console.log( bannerData?.image)
               <label className=" font-[660] mb-2 text-[18px]">
                 Vehicle Type
               </label>
-              
-               <input type="text"  name="vehicleType"  value={formData.vehicleType}
-                onChange={handleChange} className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white text-[#B7B7B7] font-medium pl-[25px]" placeholder="Enter Vehicle Type"/>
-             
+
+              <input
+                type="text"
+                name="vehicleType"
+                value={formData.vehicleType}
+                onChange={handleChange}
+                className="p-1 rounded-lg border border-gray-300 w-full focus:outline-none bg-white text-[#B7B7B7] font-medium pl-[25px]"
+                placeholder="Enter Vehicle Type"
+              />
             </div>
 
             {/* Additional Info + Submit Button in same row */}
@@ -426,7 +459,7 @@ console.log( bannerData?.image)
                 <label className=" font-[660] mb-2 text-[18px]">
                   Additional Info
                 </label>
-                <select 
+                <select
                   name="additionalInfo"
                   value={formData.additionalInfo}
                   onChange={handleChange}
@@ -455,10 +488,11 @@ console.log( bannerData?.image)
 
         <div className="max-w-5xl mx-auto p-2 mt-20 flex flex-col md:flex-row items-center gap-10">
           <div className="w-full md:w-1/2">
-            <img 
-              src={bottomImageUrl} 
-              alt="truck" 
-              className=" w-full object-cover" 
+            <img
+              src={bottomImageUrl}
+              alt="truck"
+              className=" w-full object-cover"
+              loading="lazy"
             />
           </div>
 
@@ -476,14 +510,18 @@ console.log( bannerData?.image)
           <div className="w-full md:w-1/2 text-center md:text-left">
             {/* 👇 Yahan change kiya hai: Hardcoded text hata kar variable lagaya hai */}
             <h2 className="text-2xl md:text-[46px] font-extrabold mb-2 md:w-[450px] lg:w-[505px]">
-              {pageContent.bottomTitle }
+              {pageContent.bottomTitle}
             </h2>
 
             <h2 className="text-[24px] leading-relaxed mb-5 mt-[48px] font-[700] lg:w-[416px] md:w-[400px]">
-              {pageContent.bottomDescription || "We are happy to get in touch with you and collaborate with you regarding your vehicle"}
+              {pageContent.bottomDescription ||
+                "We are happy to get in touch with you and collaborate with you regarding your vehicle"}
             </h2>
-            
-            <button  onClick={scrollToForm} className="cursor-pointer bg-[#3F98FF] text-white px-11 py-4 rounded-[19px] font-semibold hover:bg-[#0572E6] transition mx-auto block">
+
+            <button
+              onClick={scrollToForm}
+              className="cursor-pointer bg-[#3F98FF] text-white px-11 py-4 rounded-[19px] font-semibold hover:bg-[#0572E6] transition mx-auto block"
+            >
               Attach a vehicle
             </button>
           </div>
@@ -494,25 +532,31 @@ console.log( bannerData?.image)
           Benefits for you
         </h3>
         <div class="flex justify-center p-2 my-10">
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
+          <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
+            <li class="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-[#0572E6] rounded-2xl p-6 text-center">
+              <p class="font-semibold text-xl text-blue-600">Fuel Advance</p>
+              <p class="text-gray-600 mt-1">Upto 5000 per week instantly.</p>
+            </li>
 
-    <li class="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-[#0572E6] rounded-2xl p-6 text-center">
-      <p class="font-semibold text-xl text-blue-600">Fuel Advance</p>
-      <p class="text-gray-600 mt-1">Upto 5000 per week instantly.</p>
-    </li>
+            <li class="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-[#0572E6] rounded-2xl p-6 text-center">
+              <p class="font-semibold text-xl text-blue-600">
+                Family Health Cover
+              </p>
+              <p class="text-gray-600 mt-1">
+                Free Health Insurance upto 5 lakhs.
+              </p>
+            </li>
 
-    <li class="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-[#0572E6] rounded-2xl p-6 text-center">
-      <p class="font-semibold text-xl text-blue-600">Family Health Cover</p>
-      <p class="text-gray-600 mt-1">Free Health Insurance upto 5 lakhs.</p>
-    </li>
-
-    <li class="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-[#0572E6] rounded-2xl p-6 text-center">
-      <p class="font-semibold text-xl text-blue-600">Discounted Maintenance</p>
-      <p class="text-gray-600 mt-1">Get a discount on vehicle maintenance and service.</p>
-    </li>
-
-  </ul>
-</div>
+            <li class="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-[#0572E6] rounded-2xl p-6 text-center">
+              <p class="font-semibold text-xl text-blue-600">
+                Discounted Maintenance
+              </p>
+              <p class="text-gray-600 mt-1">
+                Get a discount on vehicle maintenance and service.
+              </p>
+            </li>
+          </ul>
+        </div>
       </section>
     </>
   );

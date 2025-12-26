@@ -102,6 +102,8 @@ import { useEffect, useRef } from "react";
 import { faqData } from "../FQA/FaqData";          
 import { FAQAccordion } from "../FQA/FaqAccording";      
 import { Link } from "react-router-dom";
+import {DynamicCanonical} from "../common/DynamicCanonical"
+import { FAQSchema } from  "../common/FaqDataSeo"
 
 export const Home = () => {
   const location = useLocation();
@@ -139,10 +141,16 @@ export const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Home - VIYAGOO</title>
+        <title>VIYAGOO</title>
+         <meta
+      name="description"
+      content="Viyagoo-Corporate Employee Transportation Services | ETMS, EV Fleet & Shuttle Solutions. We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
+    />
       </Helmet>
+            <DynamicCanonical />
 
       <BookingFormBanner />
+      
       <AboutUs />
       <OurServices />
       <EmployerBenefits />
@@ -155,6 +163,7 @@ export const Home = () => {
         <Testimonials />
       </div>
    <FAQAccordion items={faqData} />
+    <FAQSchema />
 
                     
        

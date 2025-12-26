@@ -95,6 +95,7 @@ const Airport = () => {
             src={air1}
             alt="Employee Transportation Vans"
             className="h-[560px] w-[410px]"
+            loading="lazy"
           />
         </div>
       </section>
@@ -107,6 +108,7 @@ const Airport = () => {
             src={air2}
             alt="Fleet Vehicles"
             className="h-[700px] w-[410px]"
+            loading="lazy"
           />
         </div>
 
@@ -195,6 +197,7 @@ const Airport = () => {
             src={air1}
             alt="Transport Fleet"
             className="h-[560px] w-[410px]"
+            loading="lazy"
           />
         </div>
       </section>
@@ -205,6 +208,7 @@ const Airport = () => {
             src={air1}
             alt="Fleet Vehicles"
             className="h-[560px] w-[410px]"
+            loading="lazy"
           />
         </div>
 

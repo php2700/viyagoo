@@ -383,12 +383,16 @@ export const BookingFormBanner = () => {
 
   <>
     {/* Hero Banner Section - Full height, no overlap */}
-  <section className="relative w-full h-[80vh] md:h-[100vh] overflow-hidden"> 
+  <section className="relative w-full w-full h-screen overflow-hidden"> 
    {banner?.type === "image" ? ( 
     <img
       src={`${import.meta.env.VITE_APP_URL}${banner?.image}`}
       alt="Banner"
       className="absolute inset-0 w-full h-full object-cover"
+       loading="eager"
+  fetchpriority="high"
+  decoding="async"
+
     />
   ) : (
     <video
@@ -429,9 +433,9 @@ export const BookingFormBanner = () => {
   "
 >
   {/* Heading */}
-  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6 drop-shadow-2xl leading-tight max-w-5xl md:pl-12">
+  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6 drop-shadow-2xl leading-tight max-w-5xl md:pl-12">
     Leading Transport and Mobility Consultancy in India
-  </h1>
+  </h2>
 
   {/* Text */}
   <div className="text-sm sm:text-base md:text-xl font-medium drop-shadow-lg max-w-4xl space-y-2 md:pl-12">

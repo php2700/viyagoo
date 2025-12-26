@@ -7,6 +7,7 @@ export const Banner = () => {
                         src={HeroBanner}
                         alt="banner"
                         className="w-full h-[50vh] md:h-[70vh] object-cover"
+                             loading="lazy"
                   />
             </div>
       );

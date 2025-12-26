@@ -435,6 +435,7 @@ return (
             src={aboutData.image}
             alt="About"
             className="w-full max-w-[450px] h-auto object-contain"
+            loading="lazy"
           />
         </div>
 

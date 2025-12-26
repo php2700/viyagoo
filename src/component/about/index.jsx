@@ -6,7 +6,9 @@ import image2 from "../../assets/hand.png"
 import image3 from "../../assets/energy.png"
 import leftsideImg from "../../assets/serviceimage1.png"
 import { useLocation } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
+import { DynamicCanonical } from "../common/DynamicCanonical";
+    import { OrganizationSchema } from "../common/OrganizationSchema"
 const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 
 export const About = () => {
@@ -129,6 +131,18 @@ const subDescLimit = 400;
 const shortDesc = description.slice(0, descLimit);
 const shortSubDesc = subDescription.slice(0, subDescLimit);
   return (
+    <>
+     <Helmet>
+      <title>About Us - VIYAGOO</title>
+      <meta
+        name="description"
+        content="Viyagoo - Corporate Employee Transportation Services. We provide employee transport, airport transfers, executive chauffeur services, and corporate shuttles."
+      />
+ 
+    </Helmet>
+     <OrganizationSchema />
+
+         <DynamicCanonical />
      <section className="w-full min-h-screen bg-white ">
             {/* HERO SECTION */}
          <div className="relative w-full h-[100vh]">
@@ -137,24 +151,23 @@ const shortSubDesc = subDescription.slice(0, subDescLimit);
     <img
       src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
       alt="Banner"
+      loading="lazy"
       className="w-full h-full object-cover"
+      
     />
 
     {/* Overlay (dark layer for readability) */}
     <div className="absolute inset-0 bg-black/40"></div>
 
-  <div className="absolute inset-0 flex flex-col items-start justify-center px-6 sm:px-12 md:px-20 overflow-auto">
-  <p className="text-white text-xl sm:text-2xl max-w-4xl whitespace-pre-line mt-10 md:mt-0">
+  <div className="absolute inset-0 flex flex-col items-start justify-center px-6 sm:px-12 md:px-20 py-10 md:py-0">
+  <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-4xl whitespace-pre-line">
     {bannerData?.subtitle || `
 VIYAGOO offers employee transportation services designed to meet the daily mobility needs of modern businesses across India. As a trusted provider of employee transportation services in Bangalore, we deliver safe, reliable, and well-managed corporate employee transportation services for IT parks, enterprises, and corporate offices.
 Our solutions include employee daily pickup and drop service, office cab services Bangalore, corporate staff cab services, and employee shuttle transport, ensuring smooth and on-time travel for employees.
 `}
   </p>
+</div>
 
-
-
-
-    </div>
 
   </div>
     <div className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-8">
@@ -258,7 +271,7 @@ Our solutions include employee daily pickup and drop service, office cab service
           <div className="grid grid-cols-1 justify-center p-4 md:grid-cols-2 gap-6 mt-8">
 
             <div className="flex items-center gap-4">
-              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="image" className="w-10 h-10" />
               <div>
                 <h3 className="text-2xl font-bold"> {pageContent?.vehicles}</h3>
                 <p className="text-gray-400 text-sm">Vehicles</p>
@@ -266,7 +279,7 @@ Our solutions include employee daily pickup and drop service, office cab service
             </div>
 
             <div className="flex items-center gap-4">
-              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="picture" className="w-10 h-10" />
               <div>
                 <h3 className="text-2xl font-bold">{pageContent?.dailyTrip}</h3>
                 <p className="text-gray-400 text-sm break-words">Trips per day</p>
@@ -274,7 +287,7 @@ Our solutions include employee daily pickup and drop service, office cab service
             </div>
 
             <div className="flex items-center gap-4">
-              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.safetyIcon}`} alt="" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.safetyIcon}`} alt="Safety" className="w-10 h-10" />
               <div>
                 <h3 className="text-2xl font-bold">{pageContent?.sefety}</h3>
                 <p className="text-gray-400 text-sm">Safety</p>
@@ -282,7 +295,7 @@ Our solutions include employee daily pickup and drop service, office cab service
             </div>
 
             <div className="flex items-center gap-4">
-              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.tripIcon}`} alt="" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.tripIcon}`} alt="Trips" className="w-10 h-10" />
               <div>
                 <h3 className="text-2xl font-bold">{pageContent?.trips}</h3>
                 <p className="text-gray-400 text-sm">Trips per month</p>
@@ -327,5 +340,6 @@ Our solutions include employee daily pickup and drop service, office cab service
       </div>
     </div>
     </section>
+    </>
   );
 };

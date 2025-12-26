@@ -65,6 +65,7 @@ export const Service = () => {
             src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
             alt="Banner"
             className="w-full h-[100vh] object-cover"
+            loading="lazy"
           />
         </div>
         <h1 className=" text-2xl sm:text-3xl md:text-3xl font-bold text-center mt-4">

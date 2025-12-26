@@ -65,7 +65,8 @@ export const OurServices = () => {
                     .replace("public/", "")
                     .replace(/^\/+/, "")}`}
                   alt={service.title}
-                  className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-2 sm:mb-4    "
+                  className="w-12 h-12 sm:w-16 sm:h-16 object-contain mb-2 sm:mb-4"
+                  loading="lazy"
                 />
 
                 <h3 className="text-sm sm:text-lg font-semibold mb-1 sm:mb-2 text-center">
