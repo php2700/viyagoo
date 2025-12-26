@@ -176,6 +176,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import HeroBanner from "../assets/herobanner.jpg";
 import Joinim from "../assets/join.png"; // Fallback image
+import {DynamicCanonical} from "./common/DynamicCanonical"
 
 // 1. Fix: Ensure trailing slash is removed for consistency
 const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
