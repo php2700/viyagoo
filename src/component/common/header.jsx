@@ -11,7 +11,7 @@ export const Header = ({ scrollToFooter }) => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/aboutus" },
+    { name: "About Us", path: "/aboutus#aboutsection" },
 
     {
       name: "Services",

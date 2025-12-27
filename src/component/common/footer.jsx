@@ -27,10 +27,12 @@ const Footer = () => {
   //   navigate("/#demo");
   // };
   const handleDemo = () => {
-    const section = document.getElementById("demo");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+    // const section = document.getElementById("demo");
+    // if (section) {
+    //   section.scrollIntoView({ behavior: "smooth" });
+    // }
+    navigate("/#demo");
+
   };
 
   const getData = async () => {
@@ -101,7 +103,7 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Company</h3>
           <ul className="space-y-2 text-sm sm:text-base cursor-pointer">
-            <li onClick={() => handleUrl("/aboutus")}>About Us</li>
+            <li onClick={() => handleUrl("/aboutus#aboutsection")}>About Us</li>
             <li
               onClick={() =>
                 handleUrl(

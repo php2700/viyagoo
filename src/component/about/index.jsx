@@ -160,6 +160,7 @@ const shortSubDesc = subDescription.slice(0, subDescLimit);
     <div className="absolute inset-0 bg-black/40"></div>
 
   <div className="absolute inset-0 flex flex-col items-start justify-center px-6 sm:px-12 md:px-20 py-10 md:py-0">
+    <p className="text-4xl font-bold text-white">VIYAGOO Employee Transportation Services <br/> in Bangalore for Corporates</p>
   <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-4xl whitespace-pre-line">
     {bannerData?.subtitle || `
 VIYAGOO offers employee transportation services designed to meet the daily mobility needs of modern businesses across India. As a trusted provider of employee transportation services in Bangalore, we deliver safe, reliable, and well-managed corporate employee transportation services for IT parks, enterprises, and corporate offices.
@@ -170,11 +171,11 @@ Our solutions include employee daily pickup and drop service, office cab service
 
 
   </div>
-    <div className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-8">
+    <div className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-8" id='aboutsection'>
       <div className="max-w-7xl mx-auto">
 
           {/* Header */}
-          <h1 className="text-3xl sm:text-4xl font-extrabold  text-center mb-6">
+          <h1  className="text-3xl sm:text-4xl font-extrabold  text-center mb-6">
             ABOUT US
           </h1>
 

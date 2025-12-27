@@ -284,6 +284,10 @@ function Join() {
       behavior: "smooth",
     });
   };
+
+  useEffect(()=>{
+    scrollToForm()
+  },[])
   return (
     <>
       <Helmet>
@@ -362,7 +366,7 @@ function Join() {
         </div>
 
         {/* ===== Form Section ===== */}
-        <div className="max-w-5xl mx-auto mt-10 bg-[#EAF3FF] rounded-[25px] p-10 shadow-sm rounded-tl-[115px] rounded-br-[115px]">
+        <div  className="max-w-5xl mx-auto mt-10 bg-[#EAF3FF] rounded-[25px] p-10 shadow-sm rounded-tl-[115px] rounded-br-[115px]">
           <form
             onSubmit={handleSubmit}
             ref={formRef}

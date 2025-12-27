@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IoChevronDown } from "react-icons/io5";
 import HeroBanner from "../../assets/herobanner.jpg";
 import { Helmet } from "react-helmet-async";
@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 export const Service = () => {
+  const formRef = useRef(null);
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const currentTab = params.get("activeTab");
@@ -53,6 +54,16 @@ export const Service = () => {
     getBannerData();
   }, []);
 
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    scrollToForm();
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -68,7 +79,7 @@ export const Service = () => {
             loading="lazy"
           />
         </div>
-        <h1 className=" text-2xl sm:text-3xl md:text-3xl font-bold text-center mt-4">
+        <h1 ref={formRef} className=" text-2xl sm:text-3xl md:text-3xl font-bold text-center mt-4">
           Our Services
         </h1>
 
