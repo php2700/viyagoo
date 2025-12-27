@@ -15,7 +15,7 @@ export const Service = () => {
   const currentTab = params.get("activeTab");
 
   const [activeTab, setActiveTab] = useState(
-    currentTab || "Corporate Employee Transportation"
+    currentTab || "Corporate-Employee-Transportation"
   );
   useEffect(() => {
     if (currentTab) {
@@ -23,10 +23,10 @@ export const Service = () => {
     }
   }, [currentTab]);
   const tabs = [
-    "Corporate Employee Transportation",
-    "Chauffeur-Airport Transfers",
+    "Corporate-Employee-Transportation",
+    "Chauffeur-Airport-Transfers",
     "Logistics",
-    "EV SEGMENT",
+    "EV-SEGMENT",
   ];
 
   const [bannerData, setBannerData] = useState();
@@ -90,10 +90,10 @@ export const Service = () => {
         </div>
 
         <div className="mt-8">
-          {activeTab === "Corporate Employee Transportation" && <Corporate />}
-          {activeTab === "Chauffeur-Airport Transfers" && <AirportTransfer />}
+          {activeTab === "Corporate-Employee-Transportation" && <Corporate />}
+          {activeTab === "Chauffeur-Airport-Transfers" && <AirportTransfer />}
           {activeTab === "Logistics" && <Logistics />}
-          {activeTab === "EV SEGMENT" && <EVSegment />}
+          {activeTab === "EV-SEGMENT" && <EVSegment />}
           {/* Agar baaki tabs ke components bhi hai toh yaha add kar do */}
         </div>
       </section>

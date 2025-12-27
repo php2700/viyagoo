@@ -27,12 +27,11 @@ const Footer = () => {
   //   navigate("/#demo");
   // };
   const handleDemo = () => {
-  const section = document.getElementById("demo");
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
+    const section = document.getElementById("demo");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const getData = async () => {
     try {
@@ -102,11 +101,11 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Company</h3>
           <ul className="space-y-2 text-sm sm:text-base cursor-pointer">
-            <li onClick={() => handleUrl("/about")}>About Us</li>
+            <li onClick={() => handleUrl("/aboutus")}>About Us</li>
             <li
               onClick={() =>
                 handleUrl(
-                  "/service?activeTab=Corporate Employee Transportation"
+                  "/ourservice?activeTab=Corporate-Employee-Transportation"
                 )
               }
             >
@@ -120,7 +119,7 @@ const Footer = () => {
             >
               Testimonials
             </li>
-            <li onClick={() => handleUrl("/about#whyViyago")}>Why Viyagoo</li>
+            <li onClick={() => handleUrl("/aboutus#whyViyago")}>Why Viyagoo</li>
           </ul>
         </div>
 

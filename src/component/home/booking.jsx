@@ -453,7 +453,7 @@ export const BookingFormBanner = () => {
 </section> 
 
  
-    <section className="w-full bg-gray-50 py-12 md:py-20 -mt-10 md:-mt-20 relative z-10">
+    <section   id="demo" className="w-full bg-gray-50 py-12 md:py-20 -mt-10 md:-mt-20 relative z-10">
       <div className="max-w-6xl mx-auto px-4">
         <div className="bg-white shadow-2xl rounded-2xl p-8 md:p-12">
       
@@ -480,7 +480,7 @@ export const BookingFormBanner = () => {
 
       
           <form
-            id="demo"
+          
             onSubmit={handleSubmit}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >

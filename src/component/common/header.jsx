@@ -19,14 +19,14 @@ export const Header = ({ scrollToFooter }) => {
       dropdown: [
         {
           name: "Corporate",
-          path: "/ourservice?activeTab=Corporate Employee Transportation",
+          path: "/ourservice?activeTab=Corporate-Employee-Transportation",
         },
         {
           name: "Chauffer",
-          path: "ourservice?activeTab=Chauffeur-Airport Transfers",
+          path: "ourservice?activeTab=Chauffeur-Airport-Transfers",
         },
         { name: "Logistic", path: "/ourservice?activeTab=Logistics" },
-        { name: "Ev Segment", path: "ourservice?activeTab=EV SEGMENT" },
+        { name: "Ev Segment", path: "ourservice?activeTab=EV-SEGMENT" },
       ],
     },
 
