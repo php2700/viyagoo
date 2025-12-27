@@ -5,7 +5,6 @@ import Rightarrow from "../../assets/rightarrow.png";
 import { ChevronDown, Leaf, Shield, DollarSign, Heart } from "lucide-react";
 import axios from "axios";
 import { DynamicCanonical } from "../common/DynamicCanonical";
-import { Helmet } from "react-helmet-async";
 
 export const Corporate = () => {
   const scrollRef = useRef(null);

@@ -424,9 +424,9 @@ export const AboutUs = () => {
 return (
   <section className="w-full py-16 bg-white overflow-visible">
     <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">
+      <h1 className="text-2xl md:text-3xl font-bold mb-10 text-center">
         {aboutData?.heading}
-      </h2>
+      </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-10">
         {/* Image */}

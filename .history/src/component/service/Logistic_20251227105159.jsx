@@ -43,7 +43,6 @@ import Airoplan from "../../assets/airoplan.png";
 import Airoplanroad from "../../assets/airoplanroad.png";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
-import { DynamicCanonical } from "../common/DynamicCanonical";
 export const Logistics = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [logisticData, setLogisticata] = useState();

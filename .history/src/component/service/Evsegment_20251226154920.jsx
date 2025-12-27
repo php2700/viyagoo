@@ -5,8 +5,6 @@ import Car3 from "../../assets/car3.avif";
 import Car4 from "../../assets/car2.avif";
 import { useEffect } from "react";
 import axios from "axios";
-import { Helmet } from "react-helmet-async";
-import { DynamicCanonical } from "../common/DynamicCanonical";
 
 export const EVSegment = () => {
   const images = [Car1, Car2, Car3, Car4];
