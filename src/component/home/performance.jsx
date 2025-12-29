@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import stress from "../../assets/sad.png";
-import watch from "../../assets/watch.png";
-import costIcon from "../../assets/cash.png";
-import lock from "../../assets/lock.png";
-import happyIcon from "../../assets/happy.png";
-import hexaIcon from "../../assets/hexa.png";
-import timer from "../../assets/timer.png";
+// import stress from "../../assets/sad.png";
+// import watch from "../../assets/watch.png";
+// import costIcon from "../../assets/cash.png";
+// import lock from "../../assets/lock.png";
+// import happyIcon from "../../assets/happy.png";
+// import hexaIcon from "../../assets/hexa.png";
+// import timer from "../../assets/timer.png";
 import axios from "axios";
 
 export const Performance = () => {

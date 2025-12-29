@@ -1,4 +1,4 @@
-import HeroBanner from "../../assets/herobanner.png";
+import HeroBanner from "../../assets/herobanner.webp";
 
 export const Banner = () => {
       return (

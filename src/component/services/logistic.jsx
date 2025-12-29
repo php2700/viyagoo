@@ -7,9 +7,9 @@ import Footer from "../common/footer";
 
 
 // Add your imported images
-import planeImage from "../../assets/services/logistic1.png"; // Replace this
-import processImage from "../../assets/services/logistic2.png";
-import workflow from "../../assets/services/logistic-work.png"; // Replace this
+import planeImage from "../../assets/logistic1.webp"; // Replace this
+// import processImage from "../../assets/services/logistic2.png";
+import workflow from "../../assets/logistic-work.webp"; // Replace this
  // Replace this
 
 const Logistic = () => {

@@ -174,14 +174,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
-import HeroBanner from "../assets/herobanner.jpg";
-import Joinim from "../assets/join.png"; // Fallback image
+
+import Joinim from "../assets/join.webp"; // Fallback image
 import {DynamicCanonical} from "./common/DynamicCanonical"
 
 // 1. Fix: Ensure trailing slash is removed for consistency
 const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 
-function Join() {
+function  Join() {
   // --- States ---
   const formRef = useRef(null);
   const [bannerData, setBannerData] = useState();
@@ -346,7 +346,7 @@ function Join() {
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             {pageContent.topTitle || "Drive the Future with Viyagoo"}
           </h1>
-          <p className="text-[20px] leading-relaxed text-center whitespace-pre-wrap">
+          <p  className="text-[20px] leading-relaxed text-center whitespace-pre-wrap">
             {pageContent.topDescription || (
               <>
                 Viyagoo believes, our drivers are the heart of every journey.
@@ -366,10 +366,10 @@ function Join() {
         </div>
 
         {/* ===== Form Section ===== */}
-        <div  className="max-w-5xl mx-auto mt-10 bg-[#EAF3FF] rounded-[25px] p-10 shadow-sm rounded-tl-[115px] rounded-br-[115px]">
+        <div  ref={formRef}    className="max-w-5xl mx-auto mt-10 bg-[#EAF3FF] rounded-[25px] p-10 shadow-sm rounded-tl-[115px] rounded-br-[115px]">
           <form
             onSubmit={handleSubmit}
-            ref={formRef}
+          
             className="grid grid-cols-1 md:grid-cols-3 gap-8 p-[62px]"
           >
             {/* Name */}

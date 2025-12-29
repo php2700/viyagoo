@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IoChevronDown } from "react-icons/io5";
 
-// import Job from "../../assets/job.png";
+import Job from "../../assets/job.png";
 // import Clock from "../../assets/clocked.png";
 // import Diversity from "../../assets/diversity.png";
 // import Portfolio from "../../assets/portfolio.png";
@@ -39,8 +39,8 @@ import {
   DollarSign,
   Heart,
 } from "lucide-react";
-// import Airoplan from "../../assets/airoplan.png";
-// import Airoplanroad from "../../assets/airoplanroad.png";
+import Airoplan from "../../assets/airoplan.png";
+import Airoplanroad from "../../assets/airoplanroad.png";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import { DynamicCanonical } from "../common/DynamicCanonical";

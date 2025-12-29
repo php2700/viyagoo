@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import bgImage from "../../assets/natural.jpg";
+// import bgImage from "../../assets/natural.jpg";
 import axios from "axios";
 
 export const OurServices = () => {

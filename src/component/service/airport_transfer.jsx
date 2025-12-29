@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Vector from "../../assets/vector.png";
-import Hours from "../../assets/24.png";
-import Tracking from "../../assets/tracking.png";
-import Group from "../../assets/group.png";
-import Taxi from "../../assets/taxi.png";
-import Network from "../../assets/network.png";
+import Vector from "../../assets/vector.webp";
+import Hours from "../../assets/24.webp";
+import Tracking from "../../assets/tracking.webp";
+import Group from "../../assets/group.webp";
+import Taxi from "../../assets/taxi.webp";
+import Network from "../../assets/network.webp";
 import axios from "axios";
 
 export const Airport = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import logo from "../../assets/logo1.png";
+import logo from "../../assets/logo1.webp";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 export const Header = ({ scrollToFooter }) => {

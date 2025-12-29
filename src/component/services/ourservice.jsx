@@ -21,13 +21,13 @@
 
 // export default Services;
 import React from "react";
-import { Banner } from "../common/banner";
-import { Header } from "../common/header";
-import Footer from "../common/footer";
-import ser1 from "../../assets/services/service2.png"
-import ser3 from "../../assets/services/service3.png"
-import ser4 from "../../assets/services/service4.png"
-import ser5 from "../../assets/services/service-backg.png"
+// import { Banner } from "../common/banner";
+// import { Header } from "../common/header";
+// import Footer from "../common/footer";
+import ser1 from "../../assets//service2.webp"
+import ser3 from "../../assets/service3.webp"
+import ser4 from "../../assets/service4.webp"
+import ser5 from "../../assets/service-backg.webp"
 
 
 

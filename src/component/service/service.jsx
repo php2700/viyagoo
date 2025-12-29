@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IoChevronDown } from "react-icons/io5";
-import HeroBanner from "../../assets/herobanner.jpg";
 import { Helmet } from "react-helmet-async";
 import AirportTransfer from "../../component/service/airport_transfer";
 import Corporate from "../../component/service/corporate_employee";

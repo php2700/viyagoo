@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import Leftarrow from "../../assets/leftarrow.png";
-import Rightarrow from "../../assets/rightarrow.png";
+import Leftarrow from "../../assets/leftarrow.webp";
+import Rightarrow from "../../assets/rightarrow.webp";
 import { ChevronDown, Leaf, Shield, DollarSign, Heart } from "lucide-react";
 import axios from "axios";
 import { DynamicCanonical } from "../common/DynamicCanonical";

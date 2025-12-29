@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import leftQuote from "../../assets/quoteLeft.png";
-import rightQuote from "../../assets/rightQuote.png";
+import leftQuote from "../../assets/quoteLeft.webp";
+import rightQuote from "../../assets/rightQuote.webp";
 
 // -------------- Dynamic API Base URL --------------
 const API_URL = import.meta.env.VITE_APP_URL;

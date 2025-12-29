@@ -20,12 +20,12 @@
 
 // export default Services;
 import React from "react";
-import { Banner } from "../common/banner";
-import { Header } from "../common/header";
-import Footer from "../common/footer";
-import air1 from "../../assets/services/airservice1.png";
+// import { Banner } from "../common/banner";
+// import { Header } from "../common/header";
+// import Footer from "../common/footer";
+import air1 from "../../assets/airservice1.webp";
 
-import air2 from "../../assets/services/airservice2.png";
+import air2 from "../../assets/airservice2.webp";
 
 const Airport = () => {
   return (

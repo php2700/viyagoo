@@ -249,8 +249,8 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import truckImage from "../../assets/truck.png";
-import bgImg from "../../assets/about-bg.png";
+import truckImage from "../../assets/truck.webp";
+// import bgImg from "../../assets/about-bg.png";
 
 const API_URL = import.meta.env.VITE_APP_URL.replace(/\/+$/, "");
 

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import HeroBanner from "../../assets/herobanner.jpg";
-import image1 from "../../assets/forest.png"
-import image2 from "../../assets/hand.png"
-import image3 from "../../assets/energy.png"
-import leftsideImg from "../../assets/serviceimage1.png"
+
+import image1 from "../../assets/forest.webp"
+import image2 from "../../assets/hand.webp"
+import image3 from "../../assets/energy.webp"
+// import leftsideImg from "../../assets/serviceimage1.png"
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { DynamicCanonical } from "../common/DynamicCanonical";
