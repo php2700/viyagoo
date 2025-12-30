@@ -141,10 +141,12 @@ export const Home = () => {
   return (
     <>
       <Helmet>
-        <title>VIYAGOO</title>
-         <meta
+
+      <title>Viyagoo – Corporate Transport & Mobility Solutions</title>
+
+    <meta
       name="description"
-      content="Viyagoo-Corporate Employee Transportation Services | ETMS, EV Fleet & Shuttle Solutions. We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
+      content="Viyagoo- We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
     />
       </Helmet>
             <DynamicCanonical />

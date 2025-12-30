@@ -132,14 +132,14 @@ const shortDesc = description.slice(0, descLimit);
 const shortSubDesc = subDescription.slice(0, subDescLimit);
   return (
     <>
-     <Helmet>
+     {/* <Helmet>
       <title>About Us - VIYAGOO</title>
       <meta
         name="description"
         content="Viyagoo - Corporate Employee Transportation Services. We provide employee transport, airport transfers, executive chauffeur services, and corporate shuttles."
       />
  
-    </Helmet>
+    </Helmet> */}
      <OrganizationSchema />
 
          <DynamicCanonical />
