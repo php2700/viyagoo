@@ -378,9 +378,9 @@ export const BookingFormBanner = () => {
         {banner?.type === "image" ? (
           <img
             src={`${import.meta.env.VITE_APP_URL}${banner?.image}`}
-            alt="Banner"
+            alt="Viyagoo – Corporate Transport & Mobility Solutions"
             className="absolute inset-0 w-full h-full object-cover"
-            loading="eager"
+          
             fetchpriority="high"
             decoding="async"
           />

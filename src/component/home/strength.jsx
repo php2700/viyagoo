@@ -196,7 +196,8 @@ export default function StrategicStrengths() {
         <div className="marquee-track">
           {logos.concat(logos).map((logo, i) => (
             <div key={i} className="marquee-item">
-              <img src={logo.src} alt="logo" className="logo-img" loading="lazy" />
+              <img src={logo.src} alt="VIYAGOO strategic and reliable corporate transport and logistics solutions in India"
+ className="logo-img" loading="lazy" />
             </div>
           ))}
         </div>

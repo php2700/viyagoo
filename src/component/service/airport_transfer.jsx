@@ -114,7 +114,8 @@ export const Airport = () => {
                   src={`${import.meta.env.VITE_APP_URL}${
                     chaufferServiceData[0]?.image
                   }`}
-                  alt="Executive being greeted by chauffeur"
+                alt="Chauffeur-driven executive travel services with professional corporate chauffeur greeting client"
+
                   className="rounded-[2rem] shadow-lg w-full object-cover h-96"
                   loading="lazy"
                 />
@@ -233,7 +234,8 @@ export const Airport = () => {
                   src={`${import.meta.env.VITE_APP_URL}${
                     chaufferServiceData[1]?.image
                   }`}
-                  alt="Private jet and luxury car at airport"
+                  alt="Premium airport transfer services with luxury cars and executive travel support"
+
                   className="w-[623px] h-[596px] object-contain drop-shadow-lg"
                   loading="lazy"
                 />
@@ -260,7 +262,8 @@ export const Airport = () => {
               <div className="flex justify-end">
                 <img
                   src={`${import.meta.env.VITE_APP_URL}${ele?.image}`}
-                  alt="Hardworking"
+                 alt="Business benefits of corporate mobility services for executives and organizations"
+
                   className="w-55 h-41 md:w-55 md:h-41 relative left-[23px] top-[25px]"
                   loading="lazy"
                 />
@@ -290,7 +293,8 @@ export const Airport = () => {
                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center">
                   <img
                     src={`${import.meta.env.VITE_APP_URL}${ele?.image}`}
-                    alt="viyagoo"
+                   alt="VIYAGOO corporate mobility service benefits icon"
+
                     className="w-15 h-15"
                     loading="lazy"
                   />

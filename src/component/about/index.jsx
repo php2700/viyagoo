@@ -150,7 +150,8 @@ const shortSubDesc = subDescription.slice(0, subDescLimit);
     {/* Banner Image */}
     <img
       src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
-      alt="Banner"
+      alt="About VIYAGOO employee transportation services and corporate mobility solutions in India"
+
       loading="lazy"
       className="w-full h-full object-cover"
       
@@ -247,7 +248,7 @@ Our solutions include employee daily pickup and drop service, office cab service
         <div className="w-full h-full">
           <img
            src={`${import.meta.env.VITE_APP_URL}${pageContent?.whatSetImage}`} // <-- replace with your image
-            alt="Service Banner"
+            alt="Why VIYAGOO stands out in employee transportation and corporate mobility services"
             className="w-full h-full object-cover rounded-xl shadow-md"
           />
         </div>
@@ -272,7 +273,7 @@ Our solutions include employee daily pickup and drop service, office cab service
           <div className="grid grid-cols-1 justify-center p-4 md:grid-cols-2 gap-6 mt-8">
 
             <div className="flex items-center gap-4">
-              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="image" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="Total vehicles in VIYAGOO employee transportation fleet" className="w-10 h-10" />
               <div>
                 <h3 className="text-2xl font-bold"> {pageContent?.vehicles}</h3>
                 <p className="text-gray-400 text-sm">Vehicles</p>
@@ -280,7 +281,7 @@ Our solutions include employee daily pickup and drop service, office cab service
             </div>
 
             <div className="flex items-center gap-4">
-              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="picture" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.vehicleIcon}`} alt="Number of daily employee transportation trips" className="w-10 h-10" />
               <div>
                 <h3 className="text-2xl font-bold">{pageContent?.dailyTrip}</h3>
                 <p className="text-gray-400 text-sm break-words">Trips per day</p>
@@ -288,7 +289,7 @@ Our solutions include employee daily pickup and drop service, office cab service
             </div>
 
             <div className="flex items-center gap-4">
-              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.safetyIcon}`} alt="Safety" className="w-10 h-10" />
+              <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.safetyIcon}`} alt="Safety standards for VIYAGOO employee transportation services" className="w-10 h-10" />
               <div>
                 <h3 className="text-2xl font-bold">{pageContent?.sefety}</h3>
                 <p className="text-gray-400 text-sm">Safety</p>
@@ -299,7 +300,7 @@ Our solutions include employee daily pickup and drop service, office cab service
               <img src={`${import.meta.env.VITE_APP_URL}${pageContent?.tripIcon}`} alt="Trips" className="w-10 h-10" />
               <div>
                 <h3 className="text-2xl font-bold">{pageContent?.trips}</h3>
-                <p className="text-gray-400 text-sm">Trips per month</p>
+                <p className="text-gray-400 text-sm">Total employee transportation trips completed per month</p>
               </div>
             </div>
 

@@ -335,7 +335,8 @@ function  Join() {
         <div className="relative w-full">
           <img
             src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
-            alt="Banner"
+          alt="Join VIYAGOO as a professional driver partner for reliable trips, fair earnings, and future-ready mobility"
+
             className="w-full h-[100vh] object-cover"
             loading="lazy"
           />
@@ -495,7 +496,8 @@ function  Join() {
           <div className="w-full md:w-1/2">
             <img
               src={bottomImageUrl}
-              alt="truck"
+            alt="Professional drivers partnering with Viyagoo for reliable trips, fair earnings, and future-ready mobility"
+
               className=" w-full object-cover"
               loading="lazy"
             />

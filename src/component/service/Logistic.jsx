@@ -147,7 +147,9 @@ export const Logistics = () => {
                     src={`${import.meta.env.VITE_APP_URL}${
                       logisticData?.whyViyagooImage
                     }`}
-                    alt="Airplane"
+                 alt="Experienced corporate mobility and logistics team with industry expertise"
+
+
                     className="w-[356px] h-[425px] object-cover"
                     loading="lazy"
                   />
@@ -202,7 +204,8 @@ export const Logistics = () => {
                     src={`${import.meta.env.VITE_APP_URL}${
                       logisticData?.ourProcessImage
                     }`}
-                    alt="Process"
+                    alt="VIYAGOO logistics process showing pickup, transport, handling, and final delivery workflow"
+
                     className="w-[385px] h-[568px] object-cover "
                     loading="lazy"
                   />

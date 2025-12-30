@@ -54,7 +54,8 @@ export const WhatSetsUsApart = () => {
         <div className="w-full md:w-4/5  overflow-hidden relative">
           <img
             src={mainImage}
-            alt="Main Image"
+           alt="VIYAGOO corporate transport and logistics solutions in India for smart, reliable, and sustainable mobility"
+
             className="w-full h-full object-contain rounded-[35px]"
           />
         </div>
@@ -68,7 +69,8 @@ export const WhatSetsUsApart = () => {
         >
           <img
             src={smallImage}
-            alt="Small Image"
+         alt="End-to-end corporate mobility and logistics solutions powered by technology and EV fleet"
+
             className="w-full object-cover"
             loading="lazy"
           />

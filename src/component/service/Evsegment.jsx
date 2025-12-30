@@ -118,7 +118,8 @@ export const EVSegment = () => {
                   <div key={index} className="bg-[#F8F8F8] p-6 rounded-2xl  ">
                     <img
                       src={`${import.meta.env.VITE_APP_URL}${box?.image}`}
-                      alt="segment"
+                    alt="Electric vehicle fleet for sustainable corporate mobility with zero-emission transportation"
+
                       className="h-[30px] bg-[#ECECEC]"
                       loading="lazy"
                     />
@@ -154,7 +155,8 @@ export const EVSegment = () => {
                     src={`${import.meta.env.VITE_APP_URL}${
                       segmentFleetData[current]?.image
                     }`}
-                    alt="Fleet"
+                  alt="Electric mobility driving a cleaner, greener future with sustainable transportation solutions"
+
                     className="w-full h-full object-cover transition-all duration-500 "
                     loading="lazy"
                   />

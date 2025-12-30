@@ -73,7 +73,7 @@ export const Service = () => {
         <div className="relative w-full">
           <img
             src={`${import.meta.env.VITE_APP_URL}${bannerData?.banner}`}
-            alt="Banner"
+             alt="Corporate travel, airport transfer, and employee transportation services by VIYAGOO"
             className="w-full h-[100vh] object-cover"
             loading="lazy"
           />

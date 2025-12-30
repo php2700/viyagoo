@@ -441,7 +441,7 @@ export const AboutUs = () => {
           <div className="flex justify-center lg:justify-end">
             <img
               src={aboutData.image}
-              alt="About"
+              alt="VIYAGOO redefining corporate mobility and employee transportation in India"
               className="w-full max-w-[450px] h-auto object-contain"
               loading="lazy"
             />
