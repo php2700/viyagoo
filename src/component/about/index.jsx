@@ -4,6 +4,7 @@ import axios from "axios";
 import image1 from "../../assets/forest.webp"
 import image2 from "../../assets/hand.webp"
 import image3 from "../../assets/energy.webp"
+import { motion } from "framer-motion";
 // import leftsideImg from "../../assets/serviceimage1.png"
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -182,30 +183,32 @@ Our solutions include employee daily pickup and drop service, office cab service
 
           {/* Intro Paragraph */}
        <p className="text-gray-700 text-lg leading-relaxed mb-4 text-center whitespace-pre-line">
-  {showMoreDesc ? description : shortDesc}
-  {!showMoreDesc && description.length > descLimit && "..."}
+  {/* {showMoreDesc ? description : shortDesc}
+  {!showMoreDesc && description.length > descLimit && "..."} */}
+  {description}
 </p>
 
-{description.length > descLimit && (
+{/* {description.length > descLimit && (
   <div className="text-center mb-8">
     <button
       onClick={() => setShowMoreDesc(!showMoreDesc)}
       className="text-[#0572E6] font-semibold hover:underline"
     >
-      {showMoreDesc ? "Read Less" : "Read More"}
-    </button>
-  </div>
-)}
+//       {/* {showMoreDesc ? "Read Less" : "Read More"} */}
+{/* //     </button> */}
+{/* //   </div> */}
+{/* // )}  */}
 
 
           {/* Main Content Box */}
      <div  className="bg-white shadow-lg rounded-2xl p-8 sm:p-12 mb-12">
   <div className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
-    {showMoreSubDesc ? subDescription : shortSubDesc}
-    {!showMoreSubDesc && subDescription.length > subDescLimit && "..."}
+    {/* {showMoreSubDesc ? subDescription : shortSubDesc}
+    {!showMoreSubDesc && subDescription.length > subDescLimit && "..."} */}
+    {subDescription}
   </div>
 
-  {subDescription.length > subDescLimit && (
+  {/* {subDescription.length > subDescLimit && (
     <div className="mt-4 text-right">
       <button
         onClick={() => setShowMoreSubDesc(!showMoreSubDesc)}
@@ -214,7 +217,7 @@ Our solutions include employee daily pickup and drop service, office cab service
         {showMoreSubDesc ? "Read Less" : "Read More"}
       </button>
     </div>
-  )}
+  )} */}
 </div>
 
           <div className="bg-white shadow-md border-l-4 border-[#0572E6] rounded-xl p-8 mb-10">
@@ -241,7 +244,7 @@ Our solutions include employee daily pickup and drop service, office cab service
           </div>
 
 
- <div className="w-full py-12 ">
+ {/* <div className="w-full py-12 ">
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
@@ -308,7 +311,109 @@ Our solutions include employee daily pickup and drop service, office cab service
 
         </div>
       </div>
-    </div>
+    </div> */}
+    <div className="w-full py-12">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+    {/* IMAGE animation */}
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="w-full h-full"
+    >
+      <img
+        src={`${import.meta.env.VITE_APP_URL}${pageContent?.whatSetImage}`}
+        alt="Why VIYAGOO stands out in employee transportation and corporate mobility services"
+        className="w-full h-full object-cover rounded-xl shadow-md"
+      />
+    </motion.div>
+
+    {/* CONTENT animation */}
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="bg-black text-white rounded-xl p-4 md:p-10 shadow-xl"
+    >
+      <p className="text-[#0572E6] font-semibold tracking-wide">
+        What Sets Us Apart
+      </p>
+
+      <h2 className="text-3xl lg:text-4xl font-bold leading-tight mt-2">
+        {pageContent?.whatSetDescription}
+      </h2>
+
+      <p className="text-gray-300 mt-4 leading-relaxed">
+        We are your trusted partner in seamless journeys. You deserve safety,
+        reliability, and peace of mind for your commute. Choose us to experience
+        travel at its best.
+      </p>
+
+      {/* STATS stagger animation */}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          show: {
+            transition: {
+              staggerChildren: 0.15,
+            },
+          },
+        }}
+        className="grid grid-cols-1 justify-center p-4 md:grid-cols-2 gap-6 mt-8"
+      >
+        {[
+          {
+            icon: pageContent?.vehicleIcon,
+            value: pageContent?.vehicles,
+            label: "Vehicles",
+          },
+          {
+            icon: pageContent?.vehicleIcon,
+            value: pageContent?.dailyTrip,
+            label: "Trips per day",
+          },
+          {
+            icon: pageContent?.safetyIcon,
+            value: pageContent?.sefety,
+            label: "Safety",
+          },
+          {
+            icon: pageContent?.tripIcon,
+            value: pageContent?.trips,
+            label: "Total employee transportation trips completed per month",
+          },
+        ].map((item, index) => (
+          <motion.div
+            key={index}
+            variants={{
+              hidden: { opacity: 0, y: 25 },
+              show: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.4 }}
+            className="flex items-center gap-4"
+          >
+            <img
+              src={`${import.meta.env.VITE_APP_URL}${item.icon}`}
+              alt={item.label}
+              className="w-10 h-10"
+            />
+            <div>
+              <h3 className="text-2xl font-bold">{item.value}</h3>
+              <p className="text-gray-400 text-sm">{item.label}</p>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.div>
+  </div>
+</div>
+
 <h2 id='whyViyago' className="text-3xl font-bold  text-center mt-16 mb-6">
   Why VIYAGOO ?
 </h2>

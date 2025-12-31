@@ -104,6 +104,7 @@ import { FAQAccordion } from "../FQA/FaqAccording";
 import { Link } from "react-router-dom";
 import {DynamicCanonical} from "../common/DynamicCanonical"
 import { FAQSchema } from  "../common/FaqDataSeo"
+import BookingProcess from "../home/BookingProcess"
 
 export const Home = () => {
   const location = useLocation();
@@ -164,6 +165,7 @@ export const Home = () => {
       <div id="testimonial" ref={testimonialRef}>
         <Testimonials />
       </div>
+      <BookingProcess/>
    <FAQAccordion items={faqData} />
     <FAQSchema />
 

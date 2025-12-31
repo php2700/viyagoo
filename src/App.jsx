@@ -17,7 +17,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./component/NotFound/notFound"
 import { FAQAccordion } from "./component/FQA/FaqAccording";
-import ScrollToTop from "./component/common/ScrollTop"
+import ScrollToTop from "./component/common/ScrollTop";
+import BookingProcess from "./component/home/BookingProcess"
+
 // import MainLayout from "./component/MainLayout"
 
 function App() {
@@ -87,6 +89,7 @@ useEffect(() => {
           <Route path="/airport" element={<Airport />} /> 
          <Route path="/join" element={<Join />} /> 
           <Route path="/faq" element={<FAQAccordion />} /> 
+          <Route path="/bookingprocess"element={<BookingProcess/>}/>
    
             <Route path="*" element={<NotFound />} />
         </Routes>
