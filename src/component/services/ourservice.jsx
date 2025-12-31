@@ -3,21 +3,6 @@
 // import { Header } from "../common/header";
 // import Footer from "../common/footer";
 
-// const Services = () => {
-//   return (
-//     <div className="flex flex-col min-h-screen">
-//       {/* <Header /> */}
-
-//       {/* Banner Section */}
-//       <Banner title="Our Services" subtitle="Safe, Reliable & Comfortable Transportation Solutions" />
-
-//       {/* Main Content */}
-
-
-//       {/* <Footer /> */}
-//     </div>
-//   );
-// };
 
 // export default Services;
 import React from "react";
@@ -36,7 +21,7 @@ const Services = () => {
   return (
     <>
      <Helmet>
-        <title>VIYAGOO</title>
+        <title>Chauffeur & Airport Transfers in Bangalore</title>
          <meta
       name="description"
       content="Viyagoo-Corporate Employee Transportation Services | ETMS, EV Fleet & Shuttle Solutions. We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."

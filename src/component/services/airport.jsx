@@ -56,11 +56,7 @@ const Airport = () => {
         </div>
       </section>
 
-      {/* Section 1 */}
-
-      {/* Section 2 */}
-
-      {/* Section 3 */}
+      
       <section className="max-w-6xl mx-auto py-12 px-4 grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 className="text-2xl font-semibold text-[#273270] md:text-[32px] mb-4">

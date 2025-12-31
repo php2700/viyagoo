@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { IoChevronDown } from "react-icons/io5";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 // API Base URL
 const API_URL = import.meta.env.VITE_APP_URL;
@@ -374,7 +375,7 @@ export const BookingFormBanner = () => {
   return (
     <>
       {/* Hero Banner Section - Full height, no overlap */}
-      <section className="relative w-full w-full h-screen overflow-hidden">
+      {/* <section className="relative w-full w-full h-screen overflow-hidden">
         {banner?.type === "image" ? (
           <img
             src={`${import.meta.env.VITE_APP_URL}${banner?.image}`}
@@ -396,10 +397,10 @@ export const BookingFormBanner = () => {
         )}
 
         {/* Optional overlay for text or gradient */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        {/* <div className="absolute inset-0 bg-black/30"></div> */}
 
         {/* Optional content in the banner */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        {/* <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-white text-3xl md:text-5xl font-bold text-center">
             {banner?.heading}
           </h1>
@@ -407,36 +408,84 @@ export const BookingFormBanner = () => {
 
         <div
           className="
-    absolute inset-0
+      absolute inset-0
     flex flex-col
-    justify-start md:justify-center
-    text-left text-white
+    justify-center
+    items-center
+    text-center text-white
     px-4 sm:px-6 md:px-12
-
-    pt-[calc(env(safe-area-inset-top)+8rem)]
-    sm:pt-[calc(env(safe-area-inset-top)+9rem)]
-    md:pt-0
-  "
-        >
+    pt-[calc(env(safe-area-inset-top)+4rem)]
+    sm:pt-[calc(env(safe-area-inset-top)+5rem)]
+    md:pt-[calc(env(safe-area-inset-top)+6rem)]
+  " */}
+        {/* > */}
           {/* Heading */}
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6 drop-shadow-2xl leading-tight max-w-5xl md:pl-12">
-            Leading Transport and Mobility Consultancy in India
+          {/* <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold drop-shadow-2xl leading-tight whitespace-nowrap">
+      Employee Transportation Services in Bangalore | Viyagoo
           </h2>
 
           {/* Text */}
-          <div className="text-sm sm:text-base md:text-xl font-medium drop-shadow-lg max-w-4xl space-y-2 md:pl-12">
-            <p>Best Corporate Shuttle Services in Bangalore</p>
-            <p>Corporate Employee Transportation Services</p>
-            <p>Top Employee Transportation Services in Bangalore</p>
-            <p>Top Corporate Transport & Logistics Solution Providers</p>
-            <p>Employee Daily Pickup & Drop – Employee Transport Service</p>
-            <p>Transport Management Solution for Businesses in Bangalore</p>
-            <p>ETMS, EV fleet operations, airport transfers, executive chauffeur services</p>
+          {/* <div className="text-sm sm:text-base md:text-xl font-medium drop-shadow-lg max-w-4xl space-y-2 md:pl-12">
+        
+          
           </div>
         </div>
-      </section>
+      </section>   */}
+      
+<section className="relative w-full h-screen overflow-hidden">
+  {banner?.type === "image" ? (
+    <img
+      src={`${import.meta.env.VITE_APP_URL}${banner?.image}`}
+      alt="Viyagoo – Corporate Transport & Mobility Solutions"
+      className="absolute inset-0 w-full h-full object-cover"
+      fetchPriority="high"
+      decoding="async"
+    />
+  ) : (
+    <video
+      src={`${import.meta.env.VITE_APP_URL}${banner?.video}`}
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+  )}
 
-      <section
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/30"></div>
+
+  {/* Animated content */}
+  <motion.div
+    className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 sm:px-6 md:px-12"
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  >
+    {/* Heading */}
+    {/* <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-2xl leading-snug max-w-full truncate md:whitespace-normal">
+      Employee Transportation Services in Bangalore | Viyagoo
+    </h2> */}
+    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold drop-shadow-2xl leading-snug max-w-full text-center">
+  Employee Transportation Services in Bangalore | Viyagoo
+</h2>
+
+
+    {/* Optional text */}
+    <motion.div
+      className="text-sm sm:text-base md:text-xl font-medium drop-shadow-lg max-w-4xl mt-4 space-y-2 md:pl-12"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.5 }}
+    >
+      {/* <p>
+        Smart and secure employee transportation services in Bangalore for modern enterprises. Technology-driven fleets with ETMS, EV operations, and corporate shuttle services.
+      </p> */}
+    </motion.div>
+  </motion.div>
+</section>
+
+      {/* <section
         id="demo"
         className="w-full bg-gray-50 py-12 md:py-20 -mt-10 md:-mt-20 relative z-10"
       >
@@ -521,7 +570,129 @@ export const BookingFormBanner = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <section
+  id="demo"
+  className="w-full bg-gray-50 py-12 md:py-20 -mt-10 md:-mt-20 relative z-10"
+>
+  <div className="max-w-6xl mx-auto px-4">
+    <motion.div
+      className="bg-white shadow-2xl rounded-2xl p-8 md:p-12"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.div
+        className="flex flex-wrap justify-center gap-6 md:gap-12 mb-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.2 } },
+        }}
+      >
+        {["Airport", "Local", "Outstation"].map((type) => (
+          <motion.label
+            key={type}
+            className="flex items-center gap-3 font-semibold text-gray-800 cursor-pointer select-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <input
+              type="radio"
+              name="tripType"
+              value={type}
+              checked={tripType === type}
+              onChange={() => setTripType(type)}
+              className="w-5 h-5 accent-[#0E1D3E]"
+            />
+            <span className={tripType === type ? "text-[#0E1D3E]" : "text-gray-700"}>
+              {type} Trip
+            </span>
+          </motion.label>
+        ))}
+      </motion.div>
+
+      <motion.form
+        onSubmit={handleSubmit}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        {formFields.map((field) => (
+          <motion.div
+            key={field.name}
+            className="flex flex-col"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <label className="font-semibold text-gray-700 mb-2">{field.label}</label>
+            <input
+              ref={field.name === "pickupDate" ? pickupDateRef : null}
+              type={field.type}
+              name={field.name}
+              placeholder={field.placeholder}
+              value={formData[field.name]}
+              onChange={handleChange}
+              required
+              min={
+                field.name === "pickupDate"
+                  ? getMinDateTime()
+                  : field.name === "seats"
+                  ? 1
+                  : undefined
+              }
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0E1D3E] transition"
+            />
+          </motion.div>
+        ))}
+
+        <motion.div
+          className="lg:col-span-3 sm:col-span-2 flex justify-center mt-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <button
+            type="submit"
+            disabled={loading}
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-16 rounded-full shadow-lg transition duration-300 disabled:bg-gray-400"
+          >
+            {loading ? "Submitting..." : "Get Quote"}
+          </button>
+        </motion.div>
+      </motion.form>
+
+      <motion.div
+        className="mt-8 max-w-xl mx-auto"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        {successMessage && (
+          <p className="text-center text-green-800 font-bold bg-green-100 border border-green-500 rounded-lg p-4">
+            {successMessage}
+          </p>
+        )}
+        {error && (
+          <p className="text-center text-red-800 font-bold bg-red-100 border border-red-500 rounded-lg p-4">
+            {error}
+          </p>
+        )}
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
+    
     </>
   );
 };

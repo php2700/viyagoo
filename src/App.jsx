@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./component/NotFound/notFound"
 import { FAQAccordion } from "./component/FQA/FaqAccording";
+import ScrollToTop from "./component/common/ScrollTop"
 // import MainLayout from "./component/MainLayout"
 
 function App() {
@@ -42,6 +43,14 @@ useEffect(() => {
     });
   }
 }, [pathname, hash]);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth", // smooth scroll
+    });
+  }, [pathname]);
+
 
    
   return (
@@ -63,7 +72,8 @@ useEffect(() => {
 
         `}
       </style>
-   
+      
+      <ScrollToTop />
         <Header  />
         <ToastContainer/>
         <SlideTop/>

@@ -2,7 +2,7 @@
 export const faqData= [
   {
     question: '1. What is VIYAGOO?',
-    answer: 'VIYAGOO is a new-age transport and mobility consultancy in India. We provide reliable, technology-driven, and sustainable corporate transportation and travel solutions.'
+    answer: 'VIYAGOO is a new-age transport and mobility consultancy in Bangalore and across India. We provide reliable, technology-driven, and sustainable corporate transportation and travel solutions.'
   },
   {
     question: '2. What services does VIYAGOO offer?',

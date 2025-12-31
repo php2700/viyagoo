@@ -172,7 +172,7 @@ Our solutions include employee daily pickup and drop service, office cab service
 
 
   </div>
-    <div className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-8" id='aboutsection'>
+    <div  className="w-full bg-gray-50 py-12 sm:py-20 px-4 sm:px-8" id='aboutsection'>
       <div className="max-w-7xl mx-auto">
 
           {/* Header */}
@@ -199,7 +199,7 @@ Our solutions include employee daily pickup and drop service, office cab service
 
 
           {/* Main Content Box */}
-     <div className="bg-white shadow-lg rounded-2xl p-8 sm:p-12 mb-12">
+     <div  className="bg-white shadow-lg rounded-2xl p-8 sm:p-12 mb-12">
   <div className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
     {showMoreSubDesc ? subDescription : shortSubDesc}
     {!showMoreSubDesc && subDescription.length > subDescLimit && "..."}
