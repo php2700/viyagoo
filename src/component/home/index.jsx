@@ -143,7 +143,7 @@ export const Home = () => {
     <>
       <Helmet>
 
-      <title>VIYAGOO Travels | Best Corporate Employee Transportation service in Bangalore</title>
+      <title>VIYAGOO Travels | Employee Transportation service Bangalore</title>
 
     <meta
       name="description"

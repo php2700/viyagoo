@@ -46,7 +46,7 @@ export default function BookingProcess() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="text-3xl md:text-5xl font-bold text-center mb-20"
+      className="text-3xl font-bold text-gray-900 text-center mb-20"
     >
       Booking Process of Viyagoo
     </motion.h2>
