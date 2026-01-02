@@ -143,7 +143,7 @@ export const Home = () => {
     <>
       <Helmet>
 
-      <title>VIYAGOO Travels | Employee Transportation service Bangalore</title>
+      <h1>VIYAGOO Travels | Employee Transportation Service Bangalore</h1>
 
     <meta
       name="description"
