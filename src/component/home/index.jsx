@@ -142,14 +142,14 @@ export const Home = () => {
   return (
     <>
       <Helmet>
-
-      <h1>VIYAGOO Travels | Employee Transportation Service Bangalore</h1>
+ <title>VIYAGOO Travels | Employee Transportation Service Bangalore</title>
 
     <meta
       name="description"
       content="Viyagoo- We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
     />
       </Helmet>
+      <h1>VIYAGOO Travels | Employee Transportation Service Bangalore</h1>
             <DynamicCanonical />
 
       <BookingFormBanner />
