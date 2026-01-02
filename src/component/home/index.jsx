@@ -149,7 +149,17 @@ export const Home = () => {
       content="Viyagoo- We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
     />
       </Helmet>
-      <h1>VIYAGOO Travels | Employee Transportation Service Bangalore</h1>
+    <h1
+  style={{
+    position: "absolute",
+    left: "-9999px",
+    width: "1px",
+    height: "1px",
+    overflow: "hidden",
+  }}
+>
+  VIYAGOO Travels | Employee Transportation Service Bangalore
+</h1>
             <DynamicCanonical />
 
       <BookingFormBanner />
