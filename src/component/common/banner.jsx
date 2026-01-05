@@ -5,7 +5,7 @@ export const Banner = () => {
             <div className="relative">
                   <img
                         src={HeroBanner}
-                        alt="banner"
+                        alt="Chauffeur & Airport Transfers in Bangalore"
                         className="w-full h-[50vh] md:h-[70vh] object-cover"
                              loading="lazy"
                   />

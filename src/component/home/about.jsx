@@ -246,7 +246,7 @@
 //             </section>
 //       );
 // };
-
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import truckImage from "../../assets/truck.webp";
@@ -262,7 +262,7 @@ export const AboutUs = () => {
     description: "",
     image: "",
   });
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const fetchAbout = async () => {
     try {
@@ -388,7 +388,7 @@ export const AboutUs = () => {
           </div>
         </div> */
   }
- 
+
   // return (
   //   <section className="w-full py-16 bg-white overflow-visible">
   //     <div className="max-w-7xl mx-auto px-4">
@@ -411,7 +411,7 @@ export const AboutUs = () => {
   //         <div className="flex justify-center lg:justify-start">
   //           <div
   //             className="flex flex-col  justify-start p-6 text-left bg-[#ECF5FF] border border-gray-400 rounded-xl transition-all duration-700 ease-in-out"
-             
+
   //           >
   //             <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold mb-3 leading-snug">
   //               <span dangerouslySetInnerHTML={{ __html: aboutData.title }} />
@@ -439,119 +439,123 @@ export const AboutUs = () => {
   // );
 
   return (
-  // <section className="w-full py-16 bg-white overflow-visible">
-  //   <div className="max-w-7xl mx-auto px-4">
-  //     <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">
-  //       {aboutData?.heading}
-  //     </h2>
+    // <section className="w-full py-16 bg-white overflow-visible">
+    //   <div className="max-w-7xl mx-auto px-4">
+    //     <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">
+    //       {aboutData?.heading}
+    //     </h2>
 
-  //     <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-10">
-  //       {/* Image */}
-  //       <div className="flex justify-center lg:justify-end">
-  //         <img
-  //           src={aboutData.image}
-  //           alt="VIYAGOO redefining corporate mobility and employee transportation in India"
-  //           className="w-full max-w-[450px] h-auto object-contain"
-  //           loading="lazy"
-  //         />
-  //       </div>
+    //     <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-10">
+    //       {/* Image */}
+    //       <div className="flex justify-center lg:justify-end">
+    //         <img
+    //           src={aboutData.image}
+    //           alt="VIYAGOO redefining corporate mobility and employee transportation in India"
+    //           className="w-full max-w-[450px] h-auto object-contain"
+    //           loading="lazy"
+    //         />
+    //       </div>
 
-  //       {/* Content Box */}
-  //       <div className="flex justify-center lg:justify-start">
-  //         <div className="flex flex-col justify-start p-6 text-left bg-[#ECF5FF] border border-gray-400 rounded-xl transition-all duration-700 ease-in-out">
-  //           <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold mb-3 leading-snug">
-  //             <span dangerouslySetInnerHTML={{ __html: aboutData.title }} />
-  //           </h3>
+    //       {/* Content Box */}
+    //       <div className="flex justify-center lg:justify-start">
+    //         <div className="flex flex-col justify-start p-6 text-left bg-[#ECF5FF] border border-gray-400 rounded-xl transition-all duration-700 ease-in-out">
+    //           <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold mb-3 leading-snug">
+    //             <span dangerouslySetInnerHTML={{ __html: aboutData.title }} />
+    //           </h3>
 
-  //           {/* Full Text */}
-  //           <p className="w-full text-xs sm:text-sm md:text-base leading-relaxed break-words mb-6">
-  //             {aboutData.description}
-  //           </p>
+    //           {/* Full Text */}
+    //           <p className="w-full text-xs sm:text-sm md:text-base leading-relaxed break-words mb-6">
+    //             {aboutData.description}
+    //           </p>
 
-  //           {/* Know More Button - Right Aligned + Animation + Arrow */}
-  //           <div className="flex justify-start">
-  //             <button
-  //               onClick={() => navigate("/aboutus#aboutsection")}
-  //               className="flex items-center px-6 py-2 bg-[#0572E6] text-white font-medium rounded-md hover:bg-blue-700 transition transform hover:scale-105"
-  //             >
-  //               Know More
-  //               <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-  //             </button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // </section>
-  <section className="w-full py-16 bg-white overflow-visible">
-  <div className="max-w-7xl mx-auto px-4">
-    {/* Heading */}
-    <motion.h2
-      className="text-2xl md:text-3xl font-bold mb-10 text-center"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      {aboutData?.heading}
-    </motion.h2>
+    //           {/* Know More Button - Right Aligned + Animation + Arrow */}
+    //           <div className="flex justify-start">
+    //             <button
+    //               onClick={() => navigate("/aboutus#aboutsection")}
+    //               className="flex items-center px-6 py-2 bg-[#0572E6] text-white font-medium rounded-md hover:bg-blue-700 transition transform hover:scale-105"
+    //             >
+    //               Know More
+    //               <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+    //             </button>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </section>
+    <section className="w-full py-16 bg-white overflow-visible">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Heading */}
+        <motion.h2
+          className="text-2xl md:text-3xl font-bold mb-10 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {aboutData?.heading}
+        </motion.h2>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-10">
-      {/* Image */}
-      <motion.div
-        className="flex justify-center lg:justify-end"
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        <img
-          src={aboutData.image}
-          alt="VIYAGOO redefining corporate mobility and employee transportation in India"
-          className="w-full max-w-[450px] h-auto object-contain"
-          loading="lazy"
-        />
-      </motion.div>
-
-      {/* Content Box */}
-      <motion.div
-        className="flex justify-center lg:justify-start"
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-      >
-        <div className="flex flex-col justify-start p-6 text-left bg-[#ECF5FF] border border-gray-400 rounded-xl transition-all duration-700 ease-in-out">
-          <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold mb-3 leading-snug">
-            <span dangerouslySetInnerHTML={{ __html: aboutData.title }} />
-          </h3>
-
-          {/* Full Text */}
-          <p className="w-full text-xs sm:text-sm md:text-base leading-relaxed break-words mb-6">
-            {aboutData.description}
-          </p>
-
-          {/* Know More Button - Right Aligned + Animation + Arrow */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-10">
+          {/* Image */}
           <motion.div
-            className="flex justify-start"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
+            className="flex justify-center lg:justify-end"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
           >
-            <button
+            <img
+              src={aboutData.image}
+              alt="VIYAGOO redefining corporate mobility and employee transportation in India"
+              className="w-full max-w-[450px] h-auto object-contain"
+              loading="lazy"
+            />
+          </motion.div>
+
+          {/* Content Box */}
+          <motion.div
+            className="flex justify-center lg:justify-start"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <div className="flex flex-col justify-start p-6 text-left bg-[#ECF5FF] border border-gray-400 rounded-xl transition-all duration-700 ease-in-out">
+              <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold mb-3 leading-snug">
+                <span dangerouslySetInnerHTML={{ __html: aboutData.title }} />
+              </h3>
+
+              {/* Full Text */}
+              <p className="w-full text-xs sm:text-sm md:text-base leading-relaxed break-words mb-6">
+                {aboutData.description}
+              </p>
+
+              {/* Know More Button - Right Aligned + Animation + Arrow */}
+              <motion.div
+                className="flex justify-start"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* <button
               onClick={() => navigate("/aboutus#aboutsection")}
               className="flex items-center px-6 py-2 bg-[#0572E6] text-white font-medium rounded-md hover:bg-blue-700 transition transform"
             >
               Know More
               <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-            </button>
+            </button> */}
+                <Link
+                  to="/aboutus#aboutsection" // navigate ki jagah 'to' ka use
+                  className="flex items-center px-6 py-2 bg-[#0572E6] text-white font-medium rounded-md hover:bg-blue-700 transition"
+                >
+                  Know More
+                  <span className="ml-2">→</span>
+                </Link>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
-      </motion.div>
-    </div>
-  </div>
-</section>
-);
-
-
+      </div>
+    </section>
+  );
 };
-
