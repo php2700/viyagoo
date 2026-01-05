@@ -27,9 +27,7 @@ export const WhatSetsUsApart = () => {
   };
 
   if (!data)
-    return (
-      <p className="text-center py-10 text-gray-500">Loading...</p>
-    );
+    return <p className="text-center py-10 text-gray-500">Loading...</p>;
 
   const mainImage = cleanURL(`${import.meta.env.VITE_APP_URL}/${data.image}`);
   const smallImage = cleanURL(
@@ -39,24 +37,20 @@ export const WhatSetsUsApart = () => {
   return (
     <section className="w-full bg-[#f9fbff] py-16 px-6">
       <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-        {data.heading}
-        </h2>
-        <p className="leading-relaxed max-w-7xl mx-auto">
-          {data.description}
-        </p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">{data.heading}</h2>
+        <p className="leading-relaxed max-w-7xl mx-auto">{data.description}</p>
       </div>
 
       {/* Image section */}
       <div className="relative max-w-7xl mx-auto flex justify-center mt-16">
-
         {/* Main large image */}
         <div className="w-full md:w-4/5  overflow-hidden relative">
           <img
             src={mainImage}
-           alt="VIYAGOO corporate transport and logistics solutions in India for smart, reliable, and sustainable mobility"
-
+            alt="VIYAGOO corporate transport and logistics solutions in India for smart, reliable, and sustainable mobility"
             className="w-full h-full object-contain rounded-[35px]"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -69,10 +63,10 @@ export const WhatSetsUsApart = () => {
         >
           <img
             src={smallImage}
-         alt="End-to-end corporate mobility and logistics solutions powered by technology and EV fleet"
-
+            alt="End-to-end corporate mobility and logistics solutions powered by technology and EV fleet"
             className="w-full object-cover"
             loading="lazy"
+             decoding="async"
           />
         </div>
         {/* Small overlapping image */}
@@ -88,7 +82,6 @@ export const WhatSetsUsApart = () => {
             className="w-full h-full object-contain"
           />
         </div> */}
-
       </div>
     </section>
   );

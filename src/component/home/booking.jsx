@@ -444,7 +444,8 @@ export const BookingFormBanner = () => {
   ) : (
     <video
       src={`${import.meta.env.VITE_APP_URL}${banner?.video}`}
-      autoPlay
+      poster="/assets/banner-placeholder.webp"   // <--- 05line add
+      autoPlay  
       muted
       loop
       playsInline
@@ -466,9 +467,12 @@ export const BookingFormBanner = () => {
     {/* <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-2xl leading-snug max-w-full truncate md:whitespace-normal">
       Employee Transportation Services in Bangalore | Viyagoo
     </h2> */}
-    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold drop-shadow-2xl leading-snug max-w-full text-center">
+ {/* <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold drop-shadow-2xl leading-snug max-w-full text-center">
   Employee Transportation Services in Bangalore | Viyagoo
-</h2>
+</h2> */}
+ <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold drop-shadow-2xl leading-snug max-w-full text-center">
+  Employee Transportation Services in Bangalore | Viyagoo
+</h1>
 
 
     {/* Optional text */}

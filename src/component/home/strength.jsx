@@ -196,8 +196,13 @@ export default function StrategicStrengths() {
         <div className="marquee-track">
           {logos.concat(logos).map((logo, i) => (
             <div key={i} className="marquee-item">
-              <img src={logo.src} alt="VIYAGOO strategic and reliable corporate transport and logistics solutions in India"
- className="logo-img" loading="lazy" />
+              <img
+                src={logo.src}
+                alt={`Strategic Partner ${i + 1} - VIYAGOO Corporate Mobility`}
+                // alt="VIYAGOO strategic and reliable corporate transport and logistics solutions in India"
+                className="logo-img"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
@@ -217,6 +222,9 @@ export default function StrategicStrengths() {
           width: max-content;
           animation: scroll 20s linear infinite;
         }
+          .marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
 
         .marquee-item {
           padding: 0 30px;

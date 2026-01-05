@@ -65,7 +65,7 @@
 //       </div>
 //   <section className="py-10">
 //   <div className="max-w-4xl mx-auto px-4">
-    
+
 //     <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6">
 //       Frequently Asked Questions
 //     </h2>
@@ -99,12 +99,12 @@ import { WhatSetsUsApart } from "./whatsetus";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useRef } from "react";
 
-import { faqData } from "../FQA/FaqData";          
-import { FAQAccordion } from "../FQA/FaqAccording";      
+import { faqData } from "../FQA/FaqData";
+import { FAQAccordion } from "../FQA/FaqAccording";
 import { Link } from "react-router-dom";
-import {DynamicCanonical} from "../common/DynamicCanonical"
-import { FAQSchema } from  "../common/FaqDataSeo"
-import BookingProcess from "../home/BookingProcess"
+import { DynamicCanonical } from "../common/DynamicCanonical";
+import { FAQSchema } from "../common/FaqDataSeo";
+import BookingProcess from "../home/BookingProcess";
 
 export const Home = () => {
   const location = useLocation();
@@ -142,28 +142,30 @@ export const Home = () => {
   return (
     <>
       <Helmet>
- <title>VIYAGOO Travels | Employee Transportation Service Bangalore</title>
+        <title>
+          VIYAGOO Travels | Employee Transportation Service Bangalore
+        </title>
 
-    <meta
-      name="description"
-      content="Viyagoo- We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
-    />
+        <meta
+          name="description"
+          content="Viyagoo- We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
+        />
       </Helmet>
-    <h1
-  style={{
-    position: "absolute",
-    left: "-9999px",
-    width: "1px",
-    height: "1px",
-    overflow: "hidden",
-  }}
->
-  VIYAGOO Travels | Employee Transportation Service Bangalore
-</h1>
-            <DynamicCanonical />
+      <h1
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: "1px",
+          height: "1px",
+          overflow: "hidden",
+        }}
+      >
+        VIYAGOO Travels | Employee Transportation Service Bangalore
+      </h1>
+      <DynamicCanonical />
 
       <BookingFormBanner />
-      
+
       <AboutUs />
       <OurServices />
       <EmployerBenefits />
@@ -175,13 +177,9 @@ export const Home = () => {
       <div id="testimonial" ref={testimonialRef}>
         <Testimonials />
       </div>
-      <BookingProcess/>
-   <FAQAccordion items={faqData} />
-    <FAQSchema />
-
-                    
-       
-
+      <BookingProcess />
+      <FAQAccordion items={faqData} />
+      <FAQSchema />
     </>
   );
 };
