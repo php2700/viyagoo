@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom"; // Link added for better SEO
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo1.webp";
 import { Menu, X, ChevronDown } from "lucide-react";
 
@@ -12,16 +12,24 @@ export const Header = ({ scrollToFooter }) => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/aboutus#aboutsection" },
+
     {
       name: "Services",
       path: "/ourservice",
       dropdown: [
-        { name: "Corporate", path: "/ourservice?activeTab=Corporate-Employee-Transportation" },
-        { name: "Chauffeur", path: "/ourservice?activeTab=Chauffeur-Airport-Transfers" },
+        {
+          name: "Corporate",
+          path: "/ourservice?activeTab=Corporate-Employee-Transportation",
+        },
+        {
+          name: "Chauffer",
+          path: "ourservice?activeTab=Chauffeur-Airport-Transfers",
+        },
         { name: "Logistic", path: "/ourservice?activeTab=Logistics" },
-        { name: "Ev Segment", path: "/ourservice?activeTab=EV-SEGMENT" },
+        { name: "Ev Segment", path: "ourservice?activeTab=EV-SEGMENT" },
       ],
     },
+
     { name: "Join VIYAGOO", path: "/join" },
   ];
 
@@ -30,64 +38,66 @@ export const Header = ({ scrollToFooter }) => {
     setIsOpen(false);
     setServiceOpen(false);
   };
+// working
+  // const handleNavContact = () => {
+  //   const footer = document.getElementById("footer");
+  //   if (footer) {
+  //     footer.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
-  const handleNavContact = () => {
-    navigate("/#contactus");
-    setIsOpen(false);
-    setServiceOpen(false);
-  };
+
+
+
+const handleNavContact = () => {
+
+  navigate("/#contactus");
+  setIsOpen(false);
+  setServiceOpen(false);
+};
+
 
   return (
+    // <header className="bg-[#0572E6] w-full shadow-md">
+    // <div className="mx-auto flex items-center justify-between px-8 md:py-4">
     <header
       className="fixed top-4 left-1/2 transform -translate-x-1/2 
-      max-w-[95%] md:max-w-[90%] w-full 
-      bg-[#0572E6] rounded-2xl z-[999] shadow-lg"
-      role="banner"
+  max-w-[95%] md:max-w-[90%] w-full 
+  bg-[#0572E6] rounded-2xl  z-[999]"
     >
-      <nav className="mx-auto flex items-center justify-between px-6 md:px-10 py-3 md:py-4" aria-label="Main Navigation">
-        {/* Logo Section */}
+      <div className="mx-auto flex items-center justify-between px-6 md:px-10 py-3 md:py-4">
         <div
           className="flex items-center cursor-pointer"
           onClick={() => navigate("/")}
-          role="button"
-          aria-label="Viyagoo Home"
         >
-          <img 
-            src={logo} 
-            alt="Viyagoo Logo" 
-            className="h-16 w-auto" 
-            width="150" 
-            height="64" // Fixed dimensions help avoid CLP
-          />
+          <img src={logo} alt="logo" className="h-16 w-auto" />
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-10 relative">
           {navItems.map((item) => (
             <div key={item.name} className="relative">
               {item.dropdown ? (
                 <>
-                  <button
+                  <div
                     onClick={() => setServiceOpen(!serviceOpen)}
-                    aria-haspopup="true"
-                    aria-expanded={serviceOpen}
-                    className="text-white text-[18px] font-medium cursor-pointer flex items-center gap-1 hover:text-blue-300 transition bg-transparent border-none"
+                    className="text-white text-[18px] font-medium cursor-pointer flex items-center gap-1 hover:text-blue-300 transition"
                   >
                     {item.name}
                     <ChevronDown
                       size={18}
-                      className={`transition ${serviceOpen ? "rotate-180" : ""}`}
+                      className={`transition ${
+                        serviceOpen ? "rotate-180" : ""
+                      }`}
                     />
-                  </button>
+                  </div>
 
                   {serviceOpen && (
-                    <div className="absolute top-10 left-0 bg-white shadow-xl rounded-md w-48 z-50 py-2 border border-gray-100">
+                    <div className="absolute top-8 left-0 bg-white shadow-lg rounded-md w-48 z-50 py-2">
                       {item.dropdown.map((sub, index) => (
                         <div
                           key={index}
                           onClick={() => handleNavClick(sub.path)}
-                          className="px-4 py-2 text-black hover:bg-gray-100 cursor-pointer transition-colors"
-                          role="menuitem"
+                          className="px-4 py-2 text-black hover:bg-gray-300 cursor-pointer"
                         >
                           {sub.name}
                         </div>
@@ -99,7 +109,6 @@ export const Header = ({ scrollToFooter }) => {
                 <div
                   onClick={() => handleNavClick(item.path)}
                   className="text-white text-[18px] font-medium cursor-pointer hover:text-blue-300 transition"
-                  role="link"
                 >
                   {item.name}
                 </div>
@@ -109,49 +118,47 @@ export const Header = ({ scrollToFooter }) => {
 
           <button
             onClick={handleNavContact}
-            className="bg-[#3A8DFF] text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-blue-600 transition shadow-md"
+            className="bg-[#3A8DFF] text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-blue-600 transition"
           >
             Contact Us
           </button>
         </div>
 
-        {/* Mobile Toggle Button - Fixes 88 Score */}
         <button
-          className="text-white lg:hidden p-2"
+          className="text-white lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? "Close main menu" : "Open main menu"}
-          aria-expanded={isOpen}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
-      </nav>
+      </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-[#0E1D3E] border-t border-[#1B2D5E] rounded-b-2xl overflow-hidden">
+        <div className="lg:hidden bg-[#0E1D3E] border-t border-gray-700">
           {navItems.map((item) => (
             <div key={item.name} className="border-b border-[#1B2D5E]">
+              {/* Dropdown for mobile */}
               {item.dropdown ? (
                 <>
-                  <button
+                  <div
                     onClick={() => setServiceOpen(!serviceOpen)}
-                    aria-expanded={serviceOpen}
-                    className="w-full text-white px-6 py-4 flex justify-between items-center cursor-pointer hover:bg-[#1B2D5E] bg-transparent"
+                    className="text-white px-4 py-3 flex justify-between items-center cursor-pointer hover:bg-[#1B2D5E]"
                   >
-                    <span className="font-medium">{item.name}</span>
+                    {item.name}
                     <ChevronDown
                       size={20}
-                      className={`transition ${serviceOpen ? "rotate-180" : ""}`}
+                      className={`transition ${
+                        serviceOpen ? "rotate-180" : ""
+                      }`}
                     />
-                  </button>
+                  </div>
 
                   {serviceOpen && (
-                    <div className="bg-[#162447] animate-fade-in">
+                    <div className="bg-[#162447]">
                       {item.dropdown.map((sub, index) => (
                         <div
                           key={index}
                           onClick={() => handleNavClick(sub.path)}
-                          className="text-white px-10 py-3 text-sm hover:bg-[#1B2D5E] cursor-pointer border-l-4 border-blue-500"
+                          className="text-white px-6 py-2 text-sm hover:bg-[#1B2D5E] cursor-pointer"
                         >
                           {sub.name}
                         </div>
@@ -162,7 +169,7 @@ export const Header = ({ scrollToFooter }) => {
               ) : (
                 <div
                   onClick={() => handleNavClick(item.path)}
-                  className="text-white px-6 py-4 hover:bg-[#1B2D5E] cursor-pointer font-medium"
+                  className="text-white px-4 py-3 hover:bg-[#1B2D5E] cursor-pointer"
                 >
                   {item.name}
                 </div>
@@ -170,16 +177,18 @@ export const Header = ({ scrollToFooter }) => {
             </div>
           ))}
 
-          <div className="px-6 py-6">
+          <div className="px-4 pb-3">
             <button
               onClick={handleNavContact}
-              className="bg-[#3A8DFF] text-white text-base font-semibold py-3 rounded-full w-full shadow-lg active:scale-95 transition"
+              className="bg-[#3A8DFF] text-white text-sm font-semibold px-5 py-2 rounded-full w-full"
             >
               Contact Us
             </button>
           </div>
         </div>
       )}
+      {/* HFGHKH */}
+      {/* jfsdjfj */}
     </header>
   );
 };
