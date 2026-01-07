@@ -3,33 +3,44 @@ import { IoChevronDown } from "react-icons/io5";
 import axios from "axios";
 import { motion } from "framer-motion";
 
+// 1. स्थानीय इमेज इम्पोर्ट (यह तुरंत लोड होगी और LCP सुधारेगी)
+import BannerImg from "../../assets/bannerViyago copy.webp";
+
 const API_URL = import.meta.env.VITE_APP_URL;
 
 export const BookingFormBanner = () => {
   const pickupDateRef = useRef(null);
 
-  // Optimization 1: Initial state में एक placeholder इमेज रखें 
-  // ताकि जब तक API जवाब दे, स्क्रीन खाली न दिखे (LCP Improvement)
+  // Optimization: डिफ़ॉल्ट रूप से BannerImg रखें ताकि API आने तक सफ़ेद स्क्रीन न दिखे
   const [banner, setBanner] = useState({
     video: "",
     status: false,
-    image: "/assets/banner-placeholder.webp", 
+    image: BannerImg, // स्थानीय इमेज (बिना ब्रैकेट के)
     type: "image",
+    isDefault: true,  // एक फ्लैग ताकि हम पाथ सही रख सकें
   });
 
   useEffect(() => {
     fetch(`${API_URL}api/user/get-banner`)
       .then((res) => res.json())
       .then((data) => {
-        setBanner({
-          image: data?.data?.image,
-          type: data?.data?.type,
-          video: data?.data?.video || "",
-          status: data?.data?.status || false,
-        });
+        if (data?.data?.image) {
+          setBanner({
+            image: data.data.image,
+            type: data.data.type,
+            video: data.data.video || "",
+            status: data.data.status || false,
+            isDefault: false,
+          });
+        }
       })
       .catch((err) => console.error("Banner Fetch Error:", err));
   }, []);
+
+  // इमेज सोर्स तय करने का लॉजिक (डिजाइन को सुरक्षित रखते हुए)
+  const bannerSrc = banner.isDefault 
+    ? banner.image 
+    : (banner.image.startsWith('http') ? banner.image : `${API_URL}${banner.image}`);
 
   const videoUrl = banner.video
     ? `${API_URL}${banner.video.replace("public/", "")}`
@@ -87,10 +98,10 @@ export const BookingFormBanner = () => {
       <section className="relative w-full h-screen overflow-hidden bg-gray-900">
         {banner?.type === "image" ? (
           <img
-            src={banner.image.startsWith('http') ? banner.image : `${API_URL}${banner.image}`}
+            src={bannerSrc}
             alt="Viyagoo – Corporate Transport & Mobility Solutions"
             className="absolute inset-0 w-full h-full object-cover"
-            // Optimization 2: ब्राउज़र को बताएँ कि यह सबसे मुख्य इमेज है
+            // SEO & Speed Optimizations
             fetchPriority="high" 
             loading="eager"
             decoding="sync"
@@ -98,7 +109,7 @@ export const BookingFormBanner = () => {
         ) : (
           <video
             src={videoUrl}
-            poster="/assets/banner-placeholder.webp"
+            poster={BannerImg} // वीडियो आने तक स्थानीय इमेज दिखाएं
             autoPlay
             muted
             loop
@@ -111,7 +122,7 @@ export const BookingFormBanner = () => {
 
         <motion.div
           className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4"
-          initial={{ opacity: 0, y: 20 }} // थोड़ा छोटा एनिमेशन मोबाइल के लिए
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
@@ -123,7 +134,6 @@ export const BookingFormBanner = () => {
 
       <section id="demo" className="w-full bg-gray-50 py-12 md:py-20 -mt-10 md:-mt-20 relative z-10">
         <div className="max-w-6xl mx-auto px-4">
-          {/* Optimization 3: Viewport amount जोड़ें ताकि एनिमेशन तभी चले जब यूजर वहाँ पहुँचे */}
           <motion.div
             className="bg-white shadow-2xl rounded-2xl p-8 md:p-12"
             initial={{ opacity: 0, y: 30 }}
