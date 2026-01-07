@@ -1,79 +1,3 @@
-// import productivityIcon from "../../assets/boost.png";
-// import handshakeIcon from "../../assets/handshake.png";
-// import costIcon from "../../assets/money.png";
-// import safetyIcon from "../../assets/safety.png";
-// import globeIcon from "../../assets/earth.png";
-// import starIcon from "../../assets/star.png";
-
-// export const EmployerBenefits = () => {
-//       const benefits = [
-//             {
-//                   icon: productivityIcon,
-//                   title: "Enhanced Productivity",
-//                   desc: "Reduced Commute Stress & Delays and Timely Arrival.",
-//             },
-//             {
-//                   icon: handshakeIcon,
-//                   title: "Lower Attrition & Higher Retention",
-//                   desc: "Happier Employees, Less Turnover, Better Work-Life Balance.",
-//             },
-//             {
-//                   icon: costIcon,
-//                   title: "Cost Optimization",
-//                   desc: "Reduced Fuel Costs (Shared Transport).",
-//             },
-//             {
-//                   icon: safetyIcon,
-//                   title: "Safety & Risk Management",
-//                   desc: "Reduced Accident Risk, Secure Travel, Especially Off-Hours.",
-//             },
-//             {
-//                   icon: globeIcon,
-//                   title: "Environmental & ESG Compliance",
-//                   desc: "Lower Carbon Footprint, Supports Sustainability Goals.",
-//             },
-//             {
-//                   icon: starIcon,
-//                   title: "Improved Employer Brand",
-//                   desc: "Attracts Top Talent, Positive Public Image.",
-//             },
-//       ];
-
-//       return (
-//             <section className="w-full bg-white py-16">
-//                   <h2 className="text-3xl md:text-4xl font-bold  text-center mb-12">
-//                         How Employers Benefit?
-//                   </h2>
-//                   <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6 justify-items-center ">
-//                         {benefits.map((item, index) => (
-//                               <div
-//                                     key={index}
-//                                     className="w-full max-w-[320px] mb-8 rounded-2xl shadow-gray-600 shadow-md border-2 border-[0E1D3E] rounded-[60px] flex flex-col relative "
-//                               >
-//                                     <div className="bg-[#273270] text-white pt-10 pb-4 flex flex-col items-center justify-center rounded-[60px] relative ">
-//                                           <div className="absolute -top-10 border-2 border-[#0E1D3E] bg-white rounded-full w-20 h-20 flex items-center justify-center shadow-[4px_0_5px_rgba(39,50,112,0.5)]">
-//                                                 <img
-//                                                       src={item.icon}
-//                                                       alt={item.title}
-//                                                       className="w-10 h-10 object-contain"
-//                                                 />
-//                                           </div>
-
-//                                           <h3 className="text-2xl  text-center px-6">
-//                                                 {item.title}
-//                                           </h3>
-//                                     </div>
-//                                     <div className="  py-10 px-6 rounded-b-2xl">
-//                                           <p className=" text-lg leading-relaxed">
-//                                                 {item.desc}
-//                                           </p>
-//                                     </div>
-//                               </div>
-//                         ))}
-//                   </div>
-//             </section>
-//       );
-// };
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -85,13 +9,12 @@ export const EmployerBenefits = () => {
   const [headingData, setHeadingData] = useState();
   const [benefits, setBenefits] = useState([]);
 
-  // ⭐ Image path cleaning (double slash, public/, etc. remove)
+  // ⭐ Image path cleaning - Optimized
   const cleanImagePath = (path) => {
     if (!path) return "";
     return `${API_URL}/${path.replace(/^public\//, "").replace(/^\/+/, "")}`;
   };
 
-  // ⭐ Fetch benefit list from backend
   const getBenefits = async () => {
     try {
       const [headingRes, res] = await Promise.all([
@@ -113,89 +36,52 @@ export const EmployerBenefits = () => {
 
   return (
     <>
-      {/* <section className="w-full bg-white py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-         {headingData?.heading} 
-        </h2>
-
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6 justify-items-center">
-          {benefits.map((item, index) => (
-            <div
-              key={index}
-              className="w-full max-w-[320px] mb-8 rounded-2xl shadow-gray-600 shadow-md border-2 border-[#0572E6] rounded-[60px] flex flex-col relative"
-            >
-              <div className="bg-[#0572E6] text-white pt-10 pb-4 flex flex-col items-center justify-center rounded-[60px] relative">
-                <div className="absolute -top-10 border-2 border-[#0572E6] bg-white rounded-full w-20 h-20 flex items-center justify-center shadow-[4px_0_5px_rgba(39,50,112,0.5)]">
-                  <img
-                    src={cleanImagePath(item.image)}
-                    alt={item.title}
-                    className="w-10 h-10 object-contain"
-                    loading="lazy"
-                  />
-                </div>
-
-                <h3 className="text-2xl text-center px-6">
-                  {item.title.length > 200
-                    ? item.title.slice(0, 200) 
-                    : item.title}
-                </h3>
-              </div>
-
-              <div className="py-10 px-6 rounded-b-2xl">
-                <p className="text-lg leading-relaxed">
-                  {item.description.length >200
-                    ? item.description.slice(0,200) 
-                    : item.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section> */}
-      <section className="w-full bg-white py-16">
+      <section className="w-full bg-white py-16 overflow-hidden">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          className="text-3xl md:text-4xl font-bold text-center mb-16 text-[#0E1D3E]" // mb-16 for better icon spacing
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
           {headingData?.heading}
         </motion.h2>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6 justify-items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-10 px-6 justify-items-center">
           {benefits.map((item, index) => (
             <motion.div
               key={index}
-              className="w-full max-w-[320px] mb-8 rounded-2xl shadow-gray-600 shadow-md border-2 border-[#0572E6] flex flex-col relative"
-              initial={{ opacity: 0, y: 50 }}
+              className="w-full max-w-[320px] rounded-2xl shadow-gray-400 shadow-md border-2 border-[#0572E6] flex flex-col relative"
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ scale: 1.05 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }} // Faster stagger for mobile
+              whileHover={{ scale: 1.03 }}
             >
-              <div className="bg-[#0572E6] text-white pt-10 pb-4 flex flex-col items-center justify-center rounded-[60px] relative">
-                <div className="absolute -top-10 border-2 border-[#0572E6] bg-white rounded-full w-20 h-20 flex items-center justify-center shadow-[4px_0_5px_rgba(39,50,112,0.5)]">
+              {/* Blue Header Section - Exact Style Kept */}
+              <div className="bg-[#0572E6] text-white pt-12 pb-6 flex flex-col items-center justify-center rounded-t-[14px] rounded-b-[60px] relative">
+                
+                {/* Icon Circle - Optimization: Added Width/Height to img */}
+                <div className="absolute -top-10 border-2 border-[#0572E6] bg-white rounded-full w-20 h-20 flex items-center justify-center shadow-[4px_0_5px_rgba(39,50,112,0.3)]">
                   <img
                     src={cleanImagePath(item.image)}
                     alt={item.title}
+                    width="40" 
+                    height="40"
                     className="w-10 h-10 object-contain"
                     loading="lazy"
                   />
                 </div>
 
-                <h3 className="text-2xl text-center px-6">
-                  {item.title.length > 200
-                    ? item.title.slice(0, 200)
-                    : item.title}
+                <h3 className="text-xl md:text-2xl font-semibold text-center px-6 leading-tight">
+                  {item.title}
                 </h3>
               </div>
 
-              <div className="py-10 px-6 rounded-b-2xl">
-                <p className="text-lg leading-relaxed">
-                  {item.description.length > 200
-                    ? item.description.slice(0, 200)
-                    : item.description}
+              {/* Description Section - Exact Style Kept */}
+              <div className="py-10 px-6 bg-white rounded-b-2xl flex-grow">
+                <p className="text-base md:text-lg leading-relaxed  text-center">
+                  {item.description}
                 </p>
               </div>
             </motion.div>
