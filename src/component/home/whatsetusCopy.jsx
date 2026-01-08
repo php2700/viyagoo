@@ -21,12 +21,13 @@ export const WhatSetsUsApart = () => {
     getData();
   }, []);
 
+  // Function to fix any double slash issue
   const cleanURL = (url) => {
     return url.replace(/([^:]\/)\/+/g, "$1");
   };
 
   if (!data)
-    return <p className="text-center py-10 text-gray-500">Loading Viyagoo Services...</p>;
+    return <p className="text-center py-10 text-gray-500">Loading...</p>;
 
   const mainImage = cleanURL(`${import.meta.env.VITE_APP_URL}/${data.image}`);
   const smallImage = cleanURL(
@@ -34,28 +35,20 @@ export const WhatSetsUsApart = () => {
   );
 
   return (
-    // SEO: Added ID for anchor links
-    <section id="why-choose-viyagoo" className="w-full bg-[#f9fbff] py-16 px-6 overflow-hidden">
+    <section className="w-full bg-[#f9fbff] py-16 px-6">
       <div className="max-w-7xl mx-auto text-center mb-12">
-        {/* SEO FIX: Added "Corporate" keyword fallback for consistency score */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0E1D3E]">
-          {data.heading || "What Sets Our Corporate Transportation Apart"}
-        </h2>
-        <p className="leading-relaxed max-w-7xl mx-auto text-gray-700">
-          {data.description}
-        </p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">{data.heading}</h2>
+        <p className="leading-relaxed max-w-7xl mx-auto">{data.description}</p>
       </div>
 
       {/* Image section */}
       <div className="relative max-w-7xl mx-auto flex justify-center mt-16">
-        
-        {/* Main large image - Optimized for CLS (Mobile Speed) */}
-        <div className="w-full md:w-4/5 overflow-hidden relative shadow-lg rounded-[35px] bg-gray-100 aspect-[16/9] md:aspect-auto">
+        {/* Main large image */}
+        <div className="w-full md:w-4/5  overflow-hidden relative">
           <img
             src={mainImage}
-            // SEO: Highly descriptive ALT for "Corporate Mobility" keywords
-            alt="Viyagoo corporate transport and logistics solutions for smart, reliable, and sustainable mobility in India"
-            className="w-full h-full object-cover rounded-[35px]"
+            alt="VIYAGOO corporate transport and logistics solutions in India for smart, reliable, and sustainable mobility"
+            className="w-full h-full object-contain rounded-[35px]"
             loading="lazy"
             decoding="async"
           />
@@ -66,17 +59,29 @@ export const WhatSetsUsApart = () => {
           className="absolute top-1/2 transform -translate-y-1/2 
           right-0 sm:right-[-4%] md:right-0 
           w-[60%] sm:w-[50%] md:w-[34%] 
-          rounded-[25px] overflow-hidden shadow-2xl  "
+          rounded-[25px] overflow-hidden"
         >
           <img
             src={smallImage}
-            // SEO: Secondary keyword focus
-            alt="Innovative corporate mobility and EV fleet logistics powered by technology"
-            className="w-full h-auto object-cover"
+            alt="End-to-end corporate mobility and logistics solutions powered by technology and EV fleet"
+            className="w-full object-cover"
             loading="lazy"
-            decoding="async"
+             decoding="async"
           />
         </div>
+        {/* Small overlapping image */}
+        {/* <div
+          className="absolute top-1/2 transform -translate-y-1/2 
+    right-0 sm:right-[-4%] md:right-0 
+    w-[400px] h-[320px]              // FIXED SIZE
+    rounded-[25px] overflow-hidden "
+        >
+          <img
+            src={smallImage}
+            alt="Small Image"
+            className="w-full h-full object-contain"
+          />
+        </div> */}
       </div>
     </section>
   );
