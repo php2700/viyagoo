@@ -90,6 +90,9 @@ export const About = () => {
       
       <OrganizationSchema />
       <DynamicCanonical />
+      <h1 className="sr-only">
+  About Viyagoo – Employee Transportation Services in Bangalore
+</h1>
 
       <section className="w-full min-h-screen bg-white">
         {/* HERO SECTION - Style & Design Kept Same */}

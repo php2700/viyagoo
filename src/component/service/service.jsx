@@ -66,9 +66,13 @@ export const Service = () => {
   return (
     <>
       <Helmet>
-        <title>Our Services - VIYAGOO</title>
+   <title>Corporate Transportation, Airport Transfer & Logistics Services | Viyagoo</title>
+
       </Helmet>
       <section className="w-full min-h-screen bg-white ">
+        <h1 className="sr-only">
+  Chauffeur & Airport Transfers in Bangalore
+</h1>
         {/* HERO SECTION */}
         <div className="relative w-full">
           <img
@@ -78,9 +82,9 @@ export const Service = () => {
             loading="lazy"
           />
         </div>
-        <h1 ref={formRef} className=" text-2xl sm:text-3xl md:text-3xl font-bold text-center mt-4">
+        <h2 ref={formRef} className=" text-2xl sm:text-3xl md:text-3xl font-bold text-center mt-4">
           Our Services
-        </h1>
+        </h2>
 
         <div className="flex flex-wrap justify-center items-center gap-4 md:gap-4 mt-10 mb-8 px-4">
           {tabs.map((tab) => (
