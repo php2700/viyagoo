@@ -1,33 +1,36 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Viyagoo Team" />
 
-    <!-- Optimized Meta Description -->
-      <title>VIYAGOO Travels | Employee Transportation Service Bangalore</title>
-
-    <meta
-      name="description"
-      content="Viyagoo- We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions."
-    />
+    <title>VIYAGOO Travels | Employee Transportation Service Bangalore</title>
+    <meta name="description" content="Viyagoo- We provide corporate employee transportation, airport transfers, executive chauffeur services, corporate shuttles, and reliable logistics solutions." />
     <meta name="robots" content="index, follow" />
 
-    <!-- Favicons -->
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-v3.png" />
+     <!-- 1. 🚀 LCP FIX: Banner Image Preload --> 
+    <!-- [IMPORTANT] अपनी इमेज को 'public' फोल्डर में रखें, तभी यह नीचे वाला पाथ काम करेगा -->
+    <link rel="preload" as="image" href="/bannerViyago.webp" fetchpriority="high">
 
-<!-- Apple devices -->
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon-v3.png" />
-    <!-- Fonts -->
+    <!-- 2. 🚀 FCP FIX: Preconnect for faster handshake -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <!-- आपकी API का URL -->
+    <link rel="preconnect" href="https://api.viyagoo.com" /> 
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-v3.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-v3.png" />
 
+    <!-- Fonts - [Optimization: display=swap added to prevent empty text while loading] -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- 3. 🚀 FCP IMPROVEMENT: Critical Inline Style -->
+    <style>
+      #root { background-color: #ffffff; min-height: 100vh; }
+    </style>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQEZL10ZTE"></script>
@@ -35,11 +38,12 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag("js", new Date());
-      gtag("config", "G-JQEZL10ZTE");
-    </script>
+      gtag("config", "G-JQEZL10ZTE", { 'animate_fill': false });
+    </script> 
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+    <div id="root"></div> 
+    <!-- Main Script -->
+<script type="module" src="/src/main.jsx"></script>
+  </body> 
+ </html> 

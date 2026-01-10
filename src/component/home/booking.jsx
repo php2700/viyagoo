@@ -294,9 +294,11 @@ export const BookingFormBanner = () => {
   return (
     <>
       <section className="relative w-full h-screen overflow-hidden bg-gray-900">
+ 
         {banner?.type === "image" ? (
+          
           <img
-            src={bannerSrc}
+            src={bannerSrc||"bannerViyago.webp"}
             // SEO Fix: Added 'Corporate' to Alt Text
             alt="Viyagoo – Corporate Transport & Employee Mobility Solutions in Bangalore"
             className="absolute inset-0 w-full h-full object-cover"

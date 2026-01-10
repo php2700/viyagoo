@@ -1,4 +1,6 @@
 import "./App.css";
+import React, { Suspense, lazy } from 'react';
+
 import { BrowserRouter, Route, Routes,useLocation } from "react-router-dom";
 import {  useEffect} from "react";
 import { Header } from "./component/common/header";
@@ -10,17 +12,19 @@ import Airport from "./component/services/airport";
 import Logistic from "./component/services/logistic";
 
 import Service from "./component/service/service";
-import Join from "./component/Join";
+// import Join from "./component/Join";
 import { About } from "./component/about";
 import { SlideTop } from "./component/common/slideTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./component/NotFound/notFound"
-import { FAQAccordion } from "./component/FQA/FaqAccording";
+// import { FAQAccordion } from "./component/FQA/FaqAccording";
 import ScrollToTop from "./component/common/ScrollTop";
 import BookingProcess from "./component/home/BookingProcess"
 
 // import MainLayout from "./component/MainLayout"
+const Join = lazy(() => import("./component/Join"));
+const FAQAccordion = lazy(() => import("./component/FQA/FaqAccording").then(module => ({ default: module.FAQAccordion })));
 
 function App() {
    const { pathname, hash } = useLocation();
